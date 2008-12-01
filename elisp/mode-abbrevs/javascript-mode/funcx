@@ -1,0 +1,5 @@
+function {<field "function_name">}(${<field "first_argument">}) {
+	<field "content">
+	return true;
+}
+<endpoint>

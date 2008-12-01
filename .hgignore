@@ -1,0 +1,8 @@
+syntax: glob
+*.elc
+.DS_Store
+*~
+
+syntax: regexp
+^auto-save-list/
+
