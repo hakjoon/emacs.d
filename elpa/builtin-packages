@@ -9,5 +9,8 @@
    (;; Strangely, nxml-version is missing in Emacs 23.
     ;; We pick the merge date as the version.
     (nxml . [(20071123) nil "Major mode for editing XML documents."])
-    (bubbles . [(0 5) nil "Puzzle game for Emacs."])))))
+    (bubbles . [(0 5) nil "Puzzle game for Emacs."])
+    (ruby-mode . [(1 0)
+	     nil "Major mode for editing Ruby files" single])
+    ))))
 

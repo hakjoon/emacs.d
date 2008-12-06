@@ -1,4 +1,12 @@
 (1
+ (inf-ruby .
+	   [(2 0)
+	    ((ruby-mode
+	      (1 0)))
+	    "Run a ruby process in a buffer" single])
+ (ruby-mode .
+	    [(1 0)
+	     nil "Major mode for editing Ruby files" single])
  (idle-highlight .
 		 [(1 0)
 		  nil "highlight the word the point is on" single])
@@ -96,7 +104,7 @@
 	     [(1 5)
 	      nil "clean a patch for submission via email" single])
  (lisppaste .
-	    [(1 4)
+	    [(1 5)
 	     ((xml-rpc
 	       (1 6 4)))
 	     "Interact with the lisppaste pastebot via XML-RPC." single])
