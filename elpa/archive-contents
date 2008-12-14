@@ -1,4 +1,7 @@
 (1
+ (epresent .
+	   [(0 1)
+	    nil "Simple presentation mode for Emacs" single])
  (inf-ruby .
 	   [(2 0)
 	    ((ruby-mode
