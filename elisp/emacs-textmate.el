@@ -123,7 +123,7 @@
 
 (defun textmate-pair-expand ()
   (interactive)
-  (if (is-empty-pair)
+  (if (textmate-is-empty-pair)
       (progn
 	(newline)
 	(open-line 1)
