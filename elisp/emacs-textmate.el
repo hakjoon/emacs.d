@@ -35,21 +35,19 @@
       ;; The indicator for the mode line.
       " TM"
       ;; The minor mode bindings.
-      '(
-	([backspace] . textmate-backspace2)
-        ("\"" . move-over-dbl-quote)
-        ("\'" . move-over-quote)
-        (")" . move-over-bracket)
-        ("]" . move-over-square)
-        ("}" . move-over-curly)
+      '(([backspace] . textmate-backspace2)
+	([return] . css-line-open)
+        ("\"" . textmate-move-over-dbl-quote)
+        ("\'" . textmate-move-over-quote)
+        (")" . textmate-move-over-bracket)
+        ("]" . textmate-move-over-square)
+        ("}" . textmate-move-over-curly)
         ("[" . skeleton-pair-insert-maybe)
         ("(" . skeleton-pair-insert-maybe)
-        ("{" . skeleton-pair-insert-maybe)
-        )       
+        ("{" . skeleton-pair-insert-maybe) )       
       :group 'textmate
       (progn
-        (setq skeleton-pair t))
-      )
+        (setq skeleton-pair t)))
 
 ;;implementation stuff
 
@@ -61,7 +59,7 @@
   )
       )
 
-(defun is-empty-pair ()
+(defun textmate-is-empty-pair ()
   (interactive)
   (eq (cdr (assoc (char-before)  textmate-pairs)) (char-after)  )
   )
@@ -70,14 +68,14 @@
  (interactive)
  (if (eq (char-after) nil)
   nil   ;; if char-after is nil, just backspace
- (if (is-empty-pair)
+ (if (textmate-is-empty-pair)
      (delete-char 1)
    )
  )
 (backward-delete-char 1)
 )
 
-(setq pushovers
+(setq textmate-pushovers
       '(
         (?\" . (lambda () (forward-char 1) ))
         (?\' . (lambda () (forward-char 1) ))
@@ -86,7 +84,7 @@
         (?\} . (lambda () (up-list 1) ))
         ))
 
-(setq defaults
+(setq textmate-defaults
       '(
         (?\" . (lambda () (skeleton-pair-insert-maybe nil) ))
         (?\' . (lambda () (skeleton-pair-insert-maybe nil) ))
@@ -95,18 +93,41 @@
         (?\} . (lambda () (insert-char ?\} 1) ))
         ))
 
-(defun move-over (char)
+(defun textmate-move-over (char)
 (if (eq (char-after) char)
-    (funcall (cdr (assoc char pushovers)))
-    (funcall (cdr (assoc char defaults)))
+    (funcall (cdr (assoc char textmate-pushovers)))
+    (funcall (cdr (assoc char textmate-defaults)))
   )
 )
 
 
-(defun move-over-bracket ()  (interactive)(move-over ?\) ))
-(defun move-over-curly ()  (interactive)(move-over ?\} ))
-(defun move-over-square ()  (interactive)(move-over ?\] ))
-(defun move-over-quote ()  (interactive)(move-over ?\' ))
-(defun move-over-dbl-quote ()  (interactive)(move-over ?\" )) 
+(defun textmate-move-over-bracket ()
+  (interactive)
+  (textmate-move-over ?\) ))
+
+(defun textmate-move-over-curly ()
+  (interactive)
+  (textmate-move-over ?\} ))
+
+(defun textmate-move-over-square ()
+  (interactive)
+  (textmate-move-over ?\] ))
+
+(defun textmate-move-over-quote ()
+  (interactive)
+  (textmate-move-over ?\' ))
+
+(defun textmate-move-over-dbl-quote ()
+  (interactive)
+  (textmate-move-over ?\" ))
+
+(defun textmate-pair-expand ()
+  (interactive)
+  (if (is-empty-pair)
+      (progn
+	(newline)
+	(open-line 1)
+	(indent-according-to-mode))
+    (newline-and-indent)))
 
 
