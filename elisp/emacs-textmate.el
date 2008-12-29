@@ -36,7 +36,7 @@
       " TM"
       ;; The minor mode bindings.
       '(([backspace] . textmate-backspace2)
-	([return] . css-line-open)
+	([return] . textmate-pair-expand)
         ("\"" . textmate-move-over-dbl-quote)
         ("\'" . textmate-move-over-quote)
         (")" . textmate-move-over-bracket)
