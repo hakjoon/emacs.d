@@ -5,4 +5,4 @@ syntax: glob
 
 syntax: regexp
 ^auto-save-list/
-
+^server/
