@@ -8,6 +8,7 @@
 (setq custom-file "~/.emacs.d/custom.el")
 (load custom-file)
 
+(global-auto-revert-mode 1)
 
 ;;=Turn off default backups
 (setq make-backup-files nil)
@@ -21,6 +22,8 @@
                                            'fullboth)))
 
 (global-set-key [(meta return)] 'toggle-fullscreen)
+;; Make control-z undo
+(global-set-key "\C-z" 'undo)
 
 (autoload 'textmate-mode "emacs-textmate" "Match braces like textmate" t)
 (setq tramp-default-method 'ssh)
@@ -100,8 +103,10 @@
 ;(color-theme-rlx)
 ;(load "color-theme-colorful-obsolescence")
 ;(color-theme-colorful-obsolescence)
-(load "color-theme-hakjoon")
-(color-theme-hakjoon)
+;(load "color-theme-hakjoon")
+;(color-theme-hakjoon)
+(load "blackboard")
+(color-theme-blackboard)
 
 
 ;; Macros
