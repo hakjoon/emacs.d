@@ -4,11 +4,15 @@
   (set-default-font
      "-outline-Consolas-normal-r-normal-normal-14-97-96-96-c-*-iso8859-1"))
 
-(defun list-fonts ()
-  "List fonts available"
-  
+(defun w32-list-fonts ()
+  "List Windows fonts available"
   (interactive)
   (insert (prin1-to-string (w32-select-font))))
+
+(defun list-fonts ()
+  "List fonts"
+  (interactive)
+  (insert (prin1-to-string (x-list-fonts "*"))))
 
 (defun set-bitstream ()
   "set the font to consolas"

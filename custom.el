@@ -9,7 +9,7 @@
  '(company-tooltip-delay 0.5)
  '(global-hl-line-mode t)
  '(js2-basic-offset 4)
- '(js2-highlight-level 4)
+ '(js2-highlight-level 3)
  '(js2-indent-on-enter-key t)
  '(js2-mode-indent-ignore-first-tab t)
  '(mac-emulate-three-button-mouse (quote reverse))
