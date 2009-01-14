@@ -250,62 +250,6 @@
 (defvar css-font-lock-defaults
   '(css-font-lock-keywords nil t))
 
-(defun css-electric-semicolon (arg)
-  "Insert a semi-colon, and possibly indent line.
-If numeric argument is not given, or is 1, auto-indent according to
-`css-electric-semi-behavior'.  If arg is 0, do not auto-indent, if
-arg is 2 always auto-indent, and if arg is anything else invert the
-usual behavior."
-  (interactive "P")
-  ;; insert a semicolon
-  (self-insert-command 1)
-  ;; maybe do electric behavior
-  (or (css-in-comment-p)
-      (and (eq arg 1)
-           css-electric-semi-behavior
-           (css-indent-line) )
-      (and (eq arg 2)
-           (css-indent-line) )
-      (eq arg 0)
-      (or (not css-electric-semi-behavior)
-          (css-indent-line) )))
-
-(defun css-electric-brace (arg)
-  "Insert a brace, and possibly indent line.
-If numeric argument is not given, or is 1, auto-indent according to
-`css-electric-brace-behavior'.  If arg is 0, do not auto-indent, if
-arg is 2 always auto-indent, and if arg is anything else invert the
-usual behavior."
-  (interactive "P")
-  ;; insert a brace
-  (self-insert-command 1)
-  ;; maybe do electric behavior
-  (or (css-in-comment-p)
-      (and (eq arg 1)
-           css-electric-brace-behavior
-           (css-indent-line) )
-      (and (eq arg 2)
-           (css-indent-line) )
-      (eq arg 0)
-      (or (not css-electric-brace-behavior)
-          (css-indent-line) )))
-
-(defun css-in-comment-p ()
-  "Check whether we are currently in a comment"
-  (let ((here (point)))
-    (and (search-backward "/*" nil t)
-         (prog1
-             (not (search-forward "*/" here t))
-           (goto-char here) ))))
-
-(defvar css-mode-map nil
-  "Keymap used in `css-mode' buffers.")
-(if css-mode-map nil
-  (setq css-mode-map (make-sparse-keymap))
-  (define-key css-mode-map ";"        'css-electric-semicolon)
-  (define-key css-mode-map "{"        'css-electric-brace)
-  (define-key css-mode-map "}"        'css-electric-brace) )
-
 (unless (fboundp 'prog-mode) (defalias 'prog-mode 'fundamental-mode))
 
 ;;;###autoload (add-to-list 'auto-mode-alist '("\\.css\\'" . css-mode))
@@ -322,7 +266,6 @@ usual behavior."
   (set (make-local-variable 'indent-line-function) 'css-indent-line)
   (set (make-local-variable 'fill-paragraph-function)
        'css-fill-paragraph)
-  (use-local-map css-mode-map)
   (when css-electric-keys
     (let ((fc (make-char-table 'auto-fill-chars)))
       (set-char-table-parent fc auto-fill-chars)
