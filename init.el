@@ -1,3 +1,5 @@
+(server-start)
+(setq visible-bell t)
 ;;=Search subdirectories of ~/.emacs.d/elisp for .el files
 (if (fboundp 'normal-top-level-add-subdirs-to-load-path)
     (let* ((my-lisp-dir "~/.emacs.d/elisp")
@@ -7,6 +9,10 @@
 
 (setq custom-file "~/.emacs.d/custom.el")
 (load custom-file)
+
+(require 'systems)
+
+
 
 (global-auto-revert-mode 1)
 

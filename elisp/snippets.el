@@ -20,6 +20,16 @@
   (set-default-font
      "-outline-Bitstream Vera Sans Mono-normal-r-normal-normal-13-97-96-96-c-*-iso8859-1"))
 
+(defun compile-new (directory)
+  "Compile files where .el is newer. Prompts for directory"
+  (interactive "D")
+  (byte-recompile-directory directory))
+
+(defun compile-all (directory)
+  "Compile all files in a directory. Prompts for directory"
+  (interactive "D")
+  (byte-recompile-directory directory 0))
+
 
 (defun compress ()
   "Run the file the current buffer points to through YUI Compressor"
@@ -31,3 +41,5 @@
 	(shell-command (concat "cscript C:/Projects/Fool/Scripts/compress.wsf " has-file) compress-buffer)
 	(switch-to-buffer compress-buffer))
 	(message has-file)))
+
+(provide 'snippets)
