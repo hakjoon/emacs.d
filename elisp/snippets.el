@@ -20,6 +20,16 @@
   (set-default-font
      "-outline-Bitstream Vera Sans Mono-normal-r-normal-normal-13-97-96-96-c-*-iso8859-1"))
 
+(defun compile-new (directory)
+  "Compile files where .el is newer. Prompts for directory"
+  (interactive "D")
+  (byte-recompile-directory directory))
+
+(defun compile-all (directory)
+  "Compile all files in a directory. Prompts for directory"
+  (interactive "D")
+  (byte-recompile-directory directory 0))
+
 
 (defun compress ()
   "Run the file the current buffer points to through YUI Compressor"
@@ -75,3 +85,5 @@
           (/ (nth 0 (x-color-values string)) 256)
           (/ (nth 1 (x-color-values string)) 256)
           (/ (nth 2 (x-color-values string)) 256)))
+
+(provide 'snippets)
