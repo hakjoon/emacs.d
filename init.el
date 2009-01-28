@@ -72,9 +72,17 @@
 (require 'mercurial)
 
 ;;======= CSS Mode =============
+(defvar ac-source-css
+  '((candidates
+     . (lambda ()
+	 (all-completions ac-target css-property-ids))))
+  "Source for CSS keywords.")
+
 (add-hook 'css-mode-hook
 	  (function (lambda ()
-		      (textmate-mode 1))))
+		      (textmate-mode 1)
+		      (make-local-variable 'ac-sources)
+		      (setq ac-sources '(ac-source-css)))))
 
 ;;====== AutoComplete ==========
 (require 'auto-complete)
