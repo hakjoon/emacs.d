@@ -72,7 +72,9 @@
 (require 'mercurial)
 
 ;;======= CSS Mode =============
-(setq cssm-newline-before-closing-bracket t)
+(add-hook 'css-mode-hook
+	  (function (lambda ()
+		      (textmate-mode 1))))
 
 ;;======= Recentf =============
 (require 'recentf)
@@ -82,6 +84,11 @@
 ;; ido mode
 (require 'ido)
 (ido-mode t)
+
+;;===== yas ==================
+(require 'yasnippet)
+(yas/initialize)
+(yas/load-directory "~/.emacs.d/elisp/snippets/")
 
 ;;====== nxhtml/nxml mode =====
 ;;(load "~/elisp/nxml/autostart.el")
