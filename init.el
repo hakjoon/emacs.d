@@ -76,6 +76,13 @@
 	  (function (lambda ()
 		      (textmate-mode 1))))
 
+;;====== AutoComplete ==========
+(require 'auto-complete)
+(global-auto-complete-mode t)
+(set-face-background 'ac-selection-face "steelblue")
+(set-face-background 'ac-menu-face "skyblue")
+(setq ac-sources '(ac-source-yasnippet ac-source-abbrev ac-source-words-in-buffer))
+
 ;;======= Recentf =============
 (require 'recentf)
 (recentf-mode t)
