@@ -34,27 +34,11 @@
 (autoload 'textmate-mode "emacs-textmate" "Match braces like textmate" t)
 (setq tramp-default-method 'ssh)
 
-
-;;; This causes files that I'm editing to be saved automatically by the
-;;; emacs auto-save functionality, but uses auto-save.el
-;;(load "auto-save")
-;;(setq auto-save-interval 60) ;; save every n characters typed (20 is the minimum)
-;;(setq auto-save-timeout 60) ;; save after n second of idle time (default is 30)
-
-
 ;;=Frame Sizes
 (setq initial-frame-alist '((left . 100) (width . 150)  
 (height . 45)))
 (setq default-frame-alist '((left . 100) (width . 150)  
 (height . 45)))
-
-;;=Enable skeleton-pair insert globally
-;;(setq skeleton-pair t)
-;;(global-set-key (kbd "(") 'skeleton-pair-insert-maybe)
-;;(global-set-key (kbd "[") 'skeleton-pair-insert-maybe)
-;;(global-set-key (kbd "{") 'skeleton-pair-insert-maybe)
-;;(global-set-key (kbd "\'") 'skeleton-pair-insert-maybe)
-;;(global-set-key (kbd "\"") 'skeleton-pair-insert-maybe)
 
 ;;=Remap some keys
 (define-key global-map (kbd "RET") 'newline-and-indent)
@@ -71,6 +55,13 @@
 
 (require 'mercurial)
 
+;;====== AutoComplete ==========
+(require 'auto-complete)
+(global-auto-complete-mode t)
+(set-face-background 'ac-selection-face "steelblue")
+(set-face-background 'ac-menu-face "white")
+(setq ac-sources '(ac-source-yasnippet ac-source-abbrev ac-source-words-in-buffer))
+
 ;;======= CSS Mode =============
 (defvar ac-source-css
   '((candidates
@@ -82,14 +73,7 @@
 	  (function (lambda ()
 		      (textmate-mode 1)
 		      (make-local-variable 'ac-sources)
-		      (setq ac-sources '(ac-source-css)))))
-
-;;====== AutoComplete ==========
-(require 'auto-complete)
-(global-auto-complete-mode t)
-(set-face-background 'ac-selection-face "steelblue")
-(set-face-background 'ac-menu-face "skyblue")
-(setq ac-sources '(ac-source-yasnippet ac-source-abbrev ac-source-words-in-buffer))
+		      (setq ac-sources '(ac-source-yasnippet ac-source-css ac-source-words-in-buffer)))))
 
 ;;======= Recentf =============
 (require 'recentf)
@@ -105,21 +89,6 @@
 (yas/initialize)
 (yas/load-directory "~/.emacs.d/elisp/snippets/")
 
-;;====== nxhtml/nxml mode =====
-;;(load "~/elisp/nxml/autostart.el")
-
-;;====== js2 mode =============
-;;(autoload 'js2-mode "js2" nil t)
-;;(add-to-list 'auto-mode-alist '("\\.js" . js2-mode))
-
-;;===== company-mode =========
-;;(require 'company-mode)
-;;(require 'company-bundled-completions)
-;;(company-install-bundled-completions-rules)
-
-;;======= tabbar ==============
-;(require 'tabbar)
-;(tabbar-mode)
 
 ;;======= Color theme stuff ===
 (require 'color-theme)
