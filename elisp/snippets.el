@@ -31,17 +31,6 @@
   (byte-recompile-directory directory 0))
 
 
-(defun compress ()
-  "Run the file the current buffer points to through YUI Compressor"
-  (interactive)
-  (setq has-file (buffer-file-name(current-buffer)))
-  (setq compress-buffer "*Compress*")
-  (if has-file
-      (progn
-	(shell-command (concat "cscript C:/Projects/Fool/Scripts/compress.wsf " has-file) compress-buffer)
-	(switch-to-buffer compress-buffer))
-	(message has-file)))
-
 (defun list-colors-display-htm (&optional list)
   "Create HTML page which lists all the defined colors."
   (interactive)
