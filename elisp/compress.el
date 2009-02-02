@@ -4,10 +4,10 @@
   "Run the file the current buffer points to through YUI Compressor"
   (interactive)
   (let* ((has-file (buffer-file-name(current-buffer)))
-		  (compress-buffer "*Compress*")
+		  (compress-buffer "*Compress*"))
     (if has-file
 	(shell-command (concat "cscript C:/Projects/Fool/Scripts/compress.wsf " has-file) compress-buffer)
-      (message has-file)))))
+      (message has-file))))
 
 (defun compress-p ()
   "Does the current file have a minified version" 
