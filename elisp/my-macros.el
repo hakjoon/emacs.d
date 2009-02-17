@@ -1,0 +1,7 @@
+;; My macros
+
+;; gets rid of 
+(fset 'fixms
+   [?\M-< ?\M-x ?r ?e ?p ?l ?a ?c ?e ?- ?a ?s backspace backspace ?s ?t ?r ?i ?n ?g return ?\C-q ?\C-m return return])
+
+(provide 'my-macros)
