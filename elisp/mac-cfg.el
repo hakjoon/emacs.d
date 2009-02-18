@@ -16,4 +16,4 @@
 
 (global-set-key [(meta return)] 'toggle-fullscreen)
 
-(provide 'mac)
+(provide 'mac-cfg)

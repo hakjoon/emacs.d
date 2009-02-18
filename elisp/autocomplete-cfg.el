@@ -14,4 +14,4 @@
 	 (all-completions ac-target css-property-ids))))
   "Source for CSS keywords.")
 
-(provide 'auto-complete-cfg)
+(provide 'autocomplete-cfg)

@@ -55,9 +55,9 @@
 ;; load specific files for different systems
 
 (if(string-equal "w32" window-system)
-    (require 'win32))
+    (require 'win32-cfg))
 
 (if (string-equal "mac" window-system)
-    (require 'mac))
+    (require 'mac-cfg))
 
 (provide 'systems)
