@@ -1,9 +1,0 @@
-<div class="imageElement">
- <h3><field "Title"></h3>
-  <p><field "Description"></p>
-   <a href="#" title="Buyuk Resim" class="open"></a>
-    <img src="<field "imagelink">" class="full" width="<field "en">" height="<field "boy">" alt="<field "imgalt">" />
-    <img src="<field "imagelink">" class="thumbnail" width="<field "en">" height="<field "boy">" alt="<field "imgalt">" />
-</div>
-<endpoint>
-			
