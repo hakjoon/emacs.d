@@ -7,6 +7,7 @@
  '(blink-cursor-mode nil)
  '(company-idle-delay 0.5)
  '(company-tooltip-delay 0.5)
+ '(flyspell-use-meta-tab nil)
  '(global-hl-line-mode t)
  '(js2-basic-offset 4)
  '(js2-highlight-level 3)
