@@ -21,7 +21,7 @@
 
 
 ;; configuration stuff
-(require 'systems)
+(require 'master-cfg)
 
 
 

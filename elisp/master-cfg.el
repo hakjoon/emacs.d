@@ -60,4 +60,4 @@
 (if (string-equal "mac" window-system)
     (require 'mac-cfg))
 
-(provide 'systems)
+(provide 'master-cfg)
