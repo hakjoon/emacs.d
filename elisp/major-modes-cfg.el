@@ -1,5 +1,9 @@
 ;; Major modes configuration
 
+;;= JS Mode
+; Load starter kit js helpers
+(require 'starter-kit-js)
+
 ;;=CSS Mode hook
 (add-hook 'css-mode-hook
 	  (function (lambda ()
