@@ -16,6 +16,7 @@
  '(mac-option-modifier (quote meta))
  '(mac-pass-command-to-system t)
  '(nxhtml-skip-welcome t)
+ '(nxml-slash-auto-complete-flag t)
  '(php-basic-offset 8)
  '(php-indent-tabs-mode nil)
  '(php-intelligent-tab nil)
