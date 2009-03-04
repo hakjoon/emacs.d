@@ -1,5 +1,8 @@
 ;; Windows only functions
 
+;;=Tramp default
+(setq tramp-default-method 'plinkx)
+
 ;; Am I on a work windows machine?
 (defun at-work-p ()
   (equal (getenv "USERDOMAIN") "HQ"))

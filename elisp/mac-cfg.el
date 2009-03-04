@@ -1,5 +1,7 @@
 ;; Mac specific options
 
+;;=Tramp default
+(setq tramp-default-method 'ssh)
 
 ;;=Initial Frame Sizes
 (setq initial-frame-alist '((left . 100) (width . 150)  
