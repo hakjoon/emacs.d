@@ -4,13 +4,22 @@
 (autoload 'js2-mode "js2" nil t)
 (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
 
+;;(add-hook 'js2-mode-hook 'js2-hook-setup)
+
+;; (defun js2-hook-setup ()
+;;       (moz-minor-mode 1))
+
 ; Load starter kit js helpers
 (require 'starter-kit-js)
 
 ;;=CSS Mode hook
+(setq css-imenu-generic-expression
+      '((nil "^.==\\(\\b[A-Z]+\\b\\)" 1)))
+
 (add-hook 'css-mode-hook
 	  (function (lambda ()
 		      (textmate-mode 1)
+		      (setq imenu-generic-expression css-imenu-generic-expression)
 		      (make-local-variable 'ac-sources)
 		      (setq ac-sources '(ac-source-yasnippet ac-source-css ac-source-words-in-buffer)))))
 

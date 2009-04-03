@@ -1,0 +1,5 @@
+#name : Page Header ...
+# --
+/${1:$(make-string (string-width text) ?\*)}
+ =${1:`(upcase (file-name-nondirectory (file-name-sans-extension (buffer-file-name))))}
+${1:$(make-string (string-width text) ?\*)}/

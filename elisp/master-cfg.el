@@ -12,8 +12,6 @@
 (setq make-backup-files nil)
 (setq auto-save-default nil)
 
-;;=Tramp default
-(setq tramp-default-method 'ssh)
 
 ;; custom file
 (setq custom-file "~/.emacs.d/custom.el")
