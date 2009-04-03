@@ -21,4 +21,8 @@
 ;;=Mercurial mode
 (require 'mercurial)
 
+;;=MozRepl
+(autoload 'moz-minor-mode "moz" "Mozilla Minor and Inferior Mozilla Modes" t)
+
+
 (provide 'minor-modes-cfg)
