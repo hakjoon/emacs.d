@@ -16,4 +16,8 @@
 
 (global-set-key [(meta return)] 'toggle-fullscreen)
 
+;; w3m
+(add-to-list 'load-path "/opt/local/share/emacs/site-lisp/w3m")
+(require 'w3m-load)
+
 (provide 'mac-cfg)
