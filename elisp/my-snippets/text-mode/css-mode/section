@@ -1,5 +1,7 @@
 #name : section ...
 # --
-/****
+/${1:$(make-string 45 ?\-)}
  ==${1:Section Name}
-*****/
+ ${1:$(make-string 45 ?\-)}/
+
+$0
