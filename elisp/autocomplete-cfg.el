@@ -3,7 +3,7 @@
 (require 'auto-complete)
 (global-auto-complete-mode t)
 (set-face-background 'ac-selection-face "steelblue")
-(set-face-background 'ac-menu-face "white")
+(set-face-background 'ac-candidate-face "white")
 (setq ac-sources '(ac-source-yasnippet ac-source-abbrev ac-source-words-in-buffer))
 
 
