@@ -47,7 +47,7 @@
 ;;=Load config files
 (require 'minor-modes-cfg)
 (require 'major-modes-cfg)
-(require 'my-macros)
+(require 'macros)
 
 
 ;; load specific files for different systems
