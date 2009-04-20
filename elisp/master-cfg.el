@@ -18,9 +18,9 @@
 (load custom-file)
 
 ;;=Abbrevs
-(setq abbrev-file-name          ;; tell emacs where to read abbrev
-      "~/elisp/abbrev_defs")    ;; definitions from...
-(setq save-abbrevs t) ;; save abbrevs when files are saved, after prompt
+;;(setq abbrev-file-name          ;; tell emacs where to read abbrev
+;;      "~/elisp/abbrev_defs")    ;; definitions from...
+;;(setq save-abbrevs t) ;; save abbrevs when files are saved, after prompt
 
 
 ;;= Bindings
