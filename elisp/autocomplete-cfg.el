@@ -5,7 +5,7 @@
 (set-face-background 'ac-selection-face "steelblue")
 (set-face-background 'ac-candidate-face "white")
 (setq ac-sources '(ac-source-yasnippet ac-source-abbrev ac-source-words-in-buffer))
-
+(setq ac-dwim t)
 
 ;; css sources
 (defvar ac-source-css
