@@ -4,7 +4,9 @@ syntax: glob
 *.orig
 *~
 *.desktop
+xhtml-loader.rnc
 
 syntax: regexp
 ^auto-save-list/
 ^server/
+

@@ -48,6 +48,7 @@
 (require 'minor-modes-cfg)
 (require 'major-modes-cfg)
 (require 'macros)
+(require 'auto-install-cfg)
 
 
 ;; load specific files for different systems

@@ -27,9 +27,7 @@
 	  (function (lambda ()
 		      (textmate-mode 1)
 		      (setq imenu-generic-expression css-imenu-generic-expression)
-		      (imenu-add-to-menubar "CSS Sections")
-		      (make-local-variable 'ac-sources)
-		      (setq ac-sources '(ac-source-yasnippet ac-source-css ac-source-words-in-buffer)))))
+		      (imenu-add-to-menubar "CSS Sections"))))
 
 ;;======= Color theme stuff ===
 (require 'color-theme)
