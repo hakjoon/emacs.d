@@ -1,5 +1,6 @@
 ;; Mac specific options
 
+(setq ns-function-modifier (quote control))
 ;;=Tramp default
 (setq tramp-default-method 'ssh)
 
