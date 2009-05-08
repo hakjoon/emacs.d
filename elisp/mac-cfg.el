@@ -1,6 +1,10 @@
 ;; Mac specific options
 
 (setq ns-function-modifier (quote control))
+
+;;Add Macports directory to exec-path
+(setq exec-path (append exec-path '("/opt/local/bin")))
+
 ;;=Tramp default
 (setq tramp-default-method 'ssh)
 
