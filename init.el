@@ -23,7 +23,3 @@
 ;; configuration stuff
 (require 'master-cfg)
 
-
-
-
-
