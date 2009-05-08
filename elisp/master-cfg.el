@@ -49,14 +49,14 @@
 (require 'major-modes-cfg)
 (require 'macros)
 (require 'auto-install-cfg)
-
+;;(require 'dvc-autoloads)
 
 ;; load specific files for different systems
 
 (if(string-equal "w32" window-system)
     (require 'win32-cfg))
 
-(if (string-equal "mac" window-system)
+(if (or (string-equal "ns" window-system)  (string-equal "mac" window-system))
     (require 'mac-cfg))
 
 (provide 'master-cfg)
