@@ -4,6 +4,11 @@ syntax: glob
 *.orig
 *~
 *.desktop
+*.lock
+.dvc/
+.emacs-places
+.eshell/
+.recentf
 xhtml-loader.rnc
 
 syntax: regexp

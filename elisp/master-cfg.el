@@ -49,7 +49,7 @@
 (require 'major-modes-cfg)
 (require 'macros)
 (require 'auto-install-cfg)
-;;(require 'dvc-autoloads)
+(require 'dvc-autoloads)
 
 ;; load specific files for different systems
 
