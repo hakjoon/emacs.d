@@ -13,6 +13,7 @@
  '(eshell-directory-name "~/.emacs.d/.eshell/")
  '(flyspell-use-meta-tab nil)
  '(global-hl-line-mode t)
+ '(ido-save-directory-list-file "~/.emacs.d/.ido.last")
  '(js2-basic-offset 4)
  '(js2-highlight-level 3)
  '(js2-indent-on-enter-key t)

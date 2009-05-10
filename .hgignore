@@ -1,15 +1,16 @@
 syntax: glob
-*.elc
 .DS_Store
+.emacs-places
+.recentf
+.ido.last
+xhtml-loader.rnc
+*.elc
+.dvc/
+.eshell/
 *.orig
 *~
 *.desktop
 *.lock
-.dvc/
-.emacs-places
-.eshell/
-.recentf
-xhtml-loader.rnc
 
 syntax: regexp
 ^auto-save-list/
