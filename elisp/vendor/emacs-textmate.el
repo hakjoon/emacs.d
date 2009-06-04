@@ -125,9 +125,8 @@
   (interactive)
   (if (textmate-is-empty-pair)
       (progn
-	(newline)
-	(open-line 1)
+	(newline 2)
+	(indent-according-to-mode)
+	(previous-line)
 	(indent-according-to-mode))
     (newline-and-indent)))
-
-
