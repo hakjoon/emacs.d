@@ -6,16 +6,16 @@
 		     'flymake-create-temp-inplace))
          (local-file (file-relative-name
 		      temp-file
-		      (file-name-directory buffer-file-name))))
-    (list "jsl" (list "-conf" "jsl.default.conf" "-process" local-file))))
+		      (file-name-directory buffer-file-name)))
+	 (conf-file (expand-file-name "~/.emacs.d/support-apps/jsl/jsl.conf")))
+    (list "jsl" (list "-conf" conf-file "-process" local-file))))
 
 (defun flymake-jslint-load ()
   (interactive)
   (setq flymake-allowed-file-name-masks '((".+\\.js$" flymake-jslint-init)))
   (setq flymake-err-line-patterns 
-;;	(cons '("^\\(.+\\)\:\:\\([[:digit:]]+\\)\:\:\\(.+\\)$"  
-	(cons '("^\\(.+\\)$"
-		nil nil nil 1)
+	(cons '("^JSL::\\(.+\\)(\\([[:digit:]]+\\)):\\(lint \\)?\\(.+\\)$"
+		1 2 nil 4)
 	      flymake-err-line-patterns))
   (flymake-mode t))
 
