@@ -18,6 +18,9 @@
 ;;=textmate style matching
 (autoload 'textmate-mode "emacs-textmate" "Match braces like textmate" t)
 
+;;=nav
+(autoload 'nav "nav" "Nav pane" t)
+
 ;;=MozRepl
 (autoload 'moz-minor-mode "moz" "Mozilla Minor and Inferior Mozilla Modes" t)
 
