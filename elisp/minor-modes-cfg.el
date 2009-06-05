@@ -18,6 +18,9 @@
 ;;=textmate style matching
 (autoload 'textmate-mode "emacs-textmate" "Match braces like textmate" t)
 
+;;=nav
+(autoload 'nav "nav" "Nav pane" t)
+
 ;;=Mercurial mode
 (require 'mercurial)
 

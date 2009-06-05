@@ -5,18 +5,18 @@
 
 ;;= JS2 Mode
 (autoload 'js2-mode "js2" nil t)
-(add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
+;(add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
 
 ;;= Espresso Mode
 (autoload 'espresso-mode "espresso" nil t)
-;(add-to-list 'auto-mode-alist '("\\.js$" . espresso-mode))
+(add-to-list 'auto-mode-alist '("\\.js$" . espresso-mode))
 
-;;(add-hook 'js2-mode-hook 'js2-hook-setup)
+(require 'flymake-jslint)
+(add-hook 'espresso-mode-hook 'flymake-jslint-load)
 
-;; (defun js2-hook-setup ()
-;;       (moz-minor-mode 1))
 
-; Load starter kit js helpers
+
+;; Load starter kit js helpers
 (require 'starter-kit-js)
 
 ;;=CSS Mode hook
