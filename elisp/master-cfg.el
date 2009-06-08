@@ -22,29 +22,8 @@
 ;;      "~/elisp/abbrev_defs")    ;; definitions from...
 ;;(setq save-abbrevs t) ;; save abbrevs when files are saved, after prompt
 
-
-;;= Bindings
-;; Make control-z undo
-(global-set-key "\C-z" 'undo)
-
-;; Cycle buffers with ctrl-tab
-(define-key global-map [C-tab] 'ido-switch-buffer)
-
-;;=Scrolling
-(defun smooth-scroll (increment)
-  (scroll-up increment) (sit-for 0.05)
-  (scroll-up increment) (sit-for 0.02)
-  (scroll-up increment) (sit-for 0.02)
-  (scroll-up increment) (sit-for 0.05)
-  (scroll-up increment) (sit-for 0.06)
-  (scroll-up increment))
-
-(global-set-key [(mouse-5)] '(lambda () (interactive) (smooth-scroll 1)))
-(global-set-key [(mouse-4)] '(lambda () (interactive) (smooth-scroll -1)))
-
-
-
 ;;=Load config files
+(require 'keys-cfg)
 (require 'minor-modes-cfg)
 (require 'major-modes-cfg)
 (require 'macros)
