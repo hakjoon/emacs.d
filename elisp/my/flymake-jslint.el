@@ -1,4 +1,5 @@
 (require 'flymake)
+(require 'flymake-cursor)
 
 (defun flymake-jslint-init ()
   (interactive)
