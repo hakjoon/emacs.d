@@ -14,13 +14,17 @@
 (set-face-background 'ac-candidate-face "white")
 (setq ac-dwim t)
 
-;; if you want enable auto-complete at org-mode, uncomment this line
-;; (add-to-list 'ac-trigger-commands 'org-self-insert-command)
+;;Additional modes
+
+(setq ac-modes
+      (append ac-modes
+	      '(espresso-mode)))
+
+; if you want enable auto-complete at org-mode, uncomment this line
+; (add-to-list 'ac-trigger-commands 'org-self-insert-command)
 
 ;; Common sources
-(custom-set-variables
- '(ac-sources 
-    '(ac-source-yasnippet ac-source-abbrev ac-source-words-in-buffer)))
+(set-default 'ac-sources '(ac-source-yasnippet ac-source-abbrev ac-source-words-in-buffer))
 
 ;; CSS Sources
 (add-hook 'css-mode-hook
