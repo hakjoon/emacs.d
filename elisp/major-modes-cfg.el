@@ -12,7 +12,11 @@
 (add-to-list 'auto-mode-alist '("\\.js$" . espresso-mode))
 
 (require 'flymake-jslint)
-(add-hook 'espresso-mode-hook 'flymake-jslint-load)
+(add-hook 'espresso-mode-hook 
+	  (function (lambda () 
+		      (flymake-jslint-load)
+		      (imenu-add-to-menubar "JS-Browser")
+		      (textmate-mode 1))))
 
 
 
