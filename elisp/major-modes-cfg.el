@@ -1,7 +1,7 @@
 ;; Major modes configuration
 
 ;;= NXHTML mode 
-(load "~/.emacs.d/elisp/vendor/nxhtml/autostart.el")
+;;(load "~/.emacs.d/elisp/vendor/nxhtml/autostart.el")
 
 ;;= JS2 Mode
 (autoload 'js2-mode "js2" nil t)
