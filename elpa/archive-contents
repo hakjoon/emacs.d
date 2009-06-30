@@ -1,4 +1,50 @@
 (1
+ (shellfm .
+	  [(0 1)
+	   nil "Emacs Shell.FM interface" single])
+ (texdrive .
+	   [(0 3 1)
+	    nil "minor mode for creating png images from TeX formulae " single])
+ (paredit .
+	  [(20)
+	   nil "Parenthesis-Editing Minor Mode" single])
+ (rotate-text .
+	      [(0 1)
+	       nil "cycle through words, symbols and patterns" single])
+ (full-ack .
+	   [(0 2 1)
+	    nil "a front-end for ack" single])
+ (recent-addresses .
+		   [(0 1)
+		    nil "store and recall recently used email addresses" single])
+ (test-case-mode .
+		 [(0 1)
+		  ((fringe-helper
+		    (0 1 1)))
+		  "unit test front-end" single])
+ (nav .
+      [(35)
+       nil "Emacs mode for IDE-like navigation of directories" single])
+ (company .
+	  [(0 4 2)
+	   nil "extensible inline text completion mechanism" tar])
+ (guess-style .
+	      [(0 1)
+	       nil "automatic setting of code style variables" single])
+ (clojure-test-mode .
+		    [(1 0)
+		     ((clojure-mode
+		       (1 1)))
+		     "Minor mode for Clojure tests" single])
+ (clojure-mode .
+	       [(1 1)
+		nil "Major mode for Clojure code" single])
+ (magit .
+	[(0 7)
+	 nil "Control Git from Emacs." tar])
+ (w3 .
+     [(4 0 46)
+      nil "A web browser written entirely in Emacs Lisp" tar])
  (yasnippet-bundle .
 		   [(0 5 10)
 		    nil "Yet another snippet extension (Auto compiled bundle)" single])
@@ -87,7 +133,7 @@
 		[(0 1 1)
 		 nil "helper functions for fringe bitmaps" single])
  (elk-test .
-	   [(0 3 1)
+	   [(0 3 2)
 	    ((fringe-helper
 	      (0 1 1)))
 	    "Emacs Lisp testing framework" single])
@@ -98,7 +144,7 @@
 	   [(3 2)
 	    nil "Major mode for editing POV-Ray scene files." tar])
  (js2-mode .
-	   [(20080419)
+	   [(20080616)
 	    nil "an improved JavaScript editing mode" single])
  (ert .
       [(0 1)
@@ -107,8 +153,8 @@
 	[(0 96)
 	 nil "enhanced tags functionality for Java development" single])
  (eproject .
-	   [(0 2)
-	    nil "Project workspaces for emacs" tar])
+	   [(0 3)
+	    nil "project workspaces for emacs" tar])
  (log4j-mode .
 	     [(1 3)
 	      nil "major mode for viewing log files" single])
@@ -142,7 +188,7 @@
 	       [(1 0)
 		nil "load elisp libraries while Emacs is idle" single])
  (highlight-symbol .
-		   [(1 0 3)
+		   [(1 1)
 		    nil "automatic and manual symbol highlighting" single])
  (auto-dictionary .
 		  [(1 0 1)
@@ -207,7 +253,7 @@
 	  [(0 9)
 	   nil "Simple package system for Emacs" single])
  (highlight-parentheses .
-			[(0 9 1)
+			[(1 0 1)
 			 nil "highlight surrounding parentheses" single])
  (kill-ring-search .
 		   [(1 1)
