@@ -26,5 +26,6 @@
 
 (add-hook 'css-mode-hook 'compress-on-save-hook)
 (add-hook 'js2-mode-hook 'compress-on-save-hook)
+(add-hook 'espresso-mode-hook 'compress-on-save-hook)
 
 (provide 'compress)
