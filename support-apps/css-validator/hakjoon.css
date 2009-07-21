@@ -1,0 +1,568 @@
+body
+{
+	font-family:  Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size: 80%;
+	text-align:  center;
+	color: #7B5000;
+}
+
+td
+{
+	font-size:  .85em;
+}
+
+p
+{
+	font-size:  .9em;
+	line-height:  1.5em;
+}
+
+dd
+{
+	font-size:  .9em;
+	line-height:  1.5em;
+}
+
+code
+{
+	font-size:  1.2em;
+	line-height:  1.5em;
+}
+
+
+pre code 
+{
+      display:block;
+      border:1px solid #ccc;
+      padding: 2px;
+      background:white;
+      overflow:auto;
+      white-space:pre;
+      width:100%; 
+      font-size:  1.2em;
+}
+
+li
+{
+	font-size:  .85em;
+	line-height:  1.5em;
+}
+
+blockquote
+{
+	padding: 5px;
+	border: 1px solid #B26B22;
+	background: white;
+}
+
+a:link
+{
+	text-decoration:  none;
+	border-bottom: 1px dashed;
+	padding-bottom:  1px;
+	color: #B26B22;
+}
+
+a:visited
+{
+	text-decoration:  none;
+	color: #B26B22;
+	border-bottom: 1px dashed;
+	padding-bottom:  1px;
+}
+
+a:hover
+{
+	color: Maroon;
+	padding-bottom:  1px;
+	text-decoration: none;
+}
+
+form input, select, textarea
+{
+	padding: .2em;
+	border: 1px solid silver;
+	border-color:  #e9e9e9 #989898 #989898 #e9e9e9;
+	color: gray;
+	background: white;
+}
+
+form input.button
+{
+	width: auto;
+	padding: .2em;
+}
+
+#container
+{
+	width: 750px;
+	text-align:  left;
+	margin: auto;
+	border: 1px solid #CC8500;
+}
+
+#header
+{
+	background: url("/assets/hotel-background.jpg") repeat;
+	padding: 0;
+	float: left;
+	width: 100%;
+	position: relative;
+	height: 100px;
+}
+
+#header h1
+{
+	height: 78px;
+	background:  url("/assets/title.gif") no-repeat left center;
+	text-align:  right;
+	margin: 0em .5em .8em;
+}
+
+#header h1 span
+{
+	position: absolute;
+	left: -800em;
+}
+
+ul.section_nav
+{
+	list-style:  none;
+	margin: 0;
+	padding: 0;
+	float: left;
+	width: 100%;
+	background:  #FFD993;
+	position: absolute;
+	bottom:  0px;
+	border: 1px solid #CC8500;
+	border-width: 1px 0;
+}
+
+ul.section_nav li
+{
+	float: left;
+}
+
+ul.section_nav li a:link, ul.section_nav li a:visited
+{
+	float: left;
+	display: block;
+	padding: 3px 25px;
+	font-weight: bold;
+	color: #B26B22;
+	background: transparent;
+	border: none;
+	text-decoration: none;
+}
+
+ul.section_nav li a:hover
+{
+	float: left;
+	display: block;
+	padding: 3px 25px;
+	font-weight: bold;
+	color: #B26B22;
+	background: white;
+	border: none;
+	text-decoration: none;
+}
+
+ul.section_nav li span.active, ul.section_nav li a.active
+{
+	float: left;
+	display: block;
+	padding: 3px 25px;
+	font-weight: bold;
+	border: none;
+	text-decoration: none;
+        background: white;
+	color: #B26B22;
+}
+
+ul.section_nav li #menu_home.active
+{
+	background: transparent;
+}
+
+#relative_holder
+{
+	background:  #FBFBED url("/assets/background.gif") repeat-y -416px;
+	float: left;
+	width: 100%;
+	position: relative;
+}
+
+#relative_holder.photos
+{
+	background:  #FBFBED url("");
+	float: left;
+	width: 100%;
+	text-align: center;
+}
+
+#content
+{
+	width: 523px;
+	float: left;
+}
+
+#relative_holder.photos #content
+{
+	width: auto;
+	float: none;
+}
+
+#content div.entry
+{
+	margin: 0;
+	padding: 1.5em 2em 0em 2em;
+}
+
+#content h2
+{
+	font-size:  13px;
+	padding-top: 15px;
+	clear: right;
+}
+
+#content h2 a:visited
+{
+	color: #B26B22;
+}
+
+#content h2 a:hover
+{
+	color: maroon;
+}
+
+#content h3
+{
+	font-size:  12px;
+	margin: 0;
+	clear: right;
+}
+
+#content h3 a:visited
+{
+	color: #B26B22;
+}
+
+#content h3 a:hover
+{
+	color: maroon;
+}
+
+#content p.entryfooter
+{
+	font-size:  .75em;
+	margin-bottom: 2em;
+	padding-bottom: 1em;
+	border-bottom:  1px solid #FFD17B;
+}
+
+#content p.continue 
+{
+font-size:  .75em;
+}
+
+#content div.articleimage
+{
+	text-align: center;
+	margin-bottom: 1.5em;
+}
+
+#content div.articleimage a:link, #content div.articleimage a:hover, #content div.articleimage a:visited, #content div.articleimage a:active
+{
+	border: none;
+	padding: 0;
+}
+
+#content img
+{
+	padding: 5px;
+	border: 1px solid #B26B22;
+	background: white;
+        margin:5px;
+}
+
+#content div.article_nav
+{
+	float: right;
+	padding: 0 0 1em;
+	margin:  0;
+	font-size: .85em;
+}
+
+div#comment ol
+{
+	font-size: 1.0em;
+}
+
+div#comment ol li
+{
+	margin-top: 2em;
+}
+
+#cpreview 
+{
+	margin:15px auto;
+	border:1px solid #B26B22;
+	border-width:1px 0;
+	padding:20px 10px;
+}
+
+#cpreview h6 
+{
+	font-size:1.0em;
+	font-weight:bold;
+	margin:0;
+	padding-bottom:0;
+}
+
+#cpreview p 
+{
+	margin:0;
+	padding:0;
+}
+
+#cpreview div.comment_preview
+{
+	background:#fff;
+	padding:20px;
+	border:1px solid #e9e9e9;
+	font-size:1.0em;
+	margin-top:10px;
+}
+
+#elsewhere
+{
+	float: right;
+	width: 220px;
+}
+
+#elsewhere div.entry
+{
+	margin: 0;
+	padding: 1em 1em 20em;
+}
+
+#elsewhere form
+{
+	position: relative;
+	margin: 0;
+}
+
+#elsewhere form label
+{
+	position: absolute;
+	left: -900em;
+}
+
+#elsewhere form input
+{
+	margin-right: .4em;
+	width: 9em;
+	font-size: .8em;
+	border: 1px solid #B26B22;
+	border-color:  #aaa #FFD993 #FFD993 #aaa;
+	color: #7B5000;
+	background: #FBFBED;
+}
+
+#elsewhere form input.button
+{
+	width: 5em;
+	font-size: .8em;
+	padding: .15em .3em;
+}
+
+#elsewhere .box 
+{
+	border: 1px solid #B26B22;
+	border-color:  #aaa #FFD993 #FFD993 #aaa;
+	background: #FBFBED;
+	margin: 3em 0 0;
+	padding: .5em;
+}
+
+
+
+#elsewhere .box h4
+{
+	padding: 0;
+	margin: 0 0 .3em;
+	font-size: 1.0em;
+	border-bottom:  1px solid #aaa;
+}
+
+#elsewhere .box ul
+{
+         list-style:none;
+         padding:0 .5em;
+         margin:0;
+         display:block;
+}
+
+#elsewhere .box ul li
+{
+	padding: 0.2em 0;
+	margin: 0;
+}
+
+#elsewhere .box ul li a:link, #elsewhere .box ul li a:active, #elsewhere .box ul li a:visited
+{
+	color: #B26B22;
+	border-bottom: none;
+}
+
+#elsewhere .box ul li a:hover
+{
+        color: #B26B22;
+        border-bottom:1px dashed;
+}
+
+#elsewhere #details ul li
+{
+padding:0.6em 0;
+font-weight:bold;
+font-size:1.0em;
+}
+
+#elsewhere #details.box ul li a:link, #elsewhere #details.box ul li a:active, #elsewhere #details.box ul li a:visited
+{
+	border-bottom: 1px dashed;
+}
+
+form.zemContactForm fieldset
+{
+	border: 0;
+}
+
+form.zemContactForm fieldset label
+{
+	font-size: .85em;
+	display:block;
+}
+
+form.zemContactForm fieldset input
+{
+	margin-bottom:0.8em;
+}
+
+#foot
+{
+	clear: both;
+	background:  #FFD993;
+	bottom:  0px;
+	border: 1px solid #CC8500;
+	border-width: 1px 0 0;
+	padding: 5px;
+	text-align: left;
+	position:relative;
+}
+
+#foot p
+{
+	margin: 0;
+	padding: 0;
+	font-size: .8em;
+}
+
+#foot p a:link, #foot p a:visited, #foot p a:active
+{
+	color: #7B5000;
+}
+
+#hakjoon
+{
+	position: absolute;
+	width: 180px;
+	height: 180px;
+	right: 20px;
+	bottom: 35px;
+	background:  url("/assets/hakjoon.gif") no-repeat;
+}
+
+#txpCommentInputForm div {
+    clear:left;
+    padding:0.3em 0;
+}
+
+#txpCommentInputForm p {
+    margin-left:4.5em;
+    width:30em;
+}
+
+#txpCommentInputForm label {
+    display:block;
+    float:left;
+    width:4.5em;
+    padding-top:0.2em
+}
+
+#txpCommentInputForm input {
+    padding:0.3em;
+    width:50%;
+}
+
+#txpCommentInputForm textarea {
+    height:20em;
+    width:70%;
+}
+
+#txpCommentInputForm #comment_remember label {
+    display:inline;
+    float:none;
+    padidng-top:0;
+}
+
+#txpCommentInputForm #comment_remember input, #txpCommentInputForm div.buttons input {
+    padding:auto;
+    width:auto;
+}
+
+#txpCommentInputForm div.buttons {
+   text-align:right;
+   width:30em;
+}
+
+#edtoolbar {
+   margin-left:4.5em;
+}
+
+#edtoolbar input.ed_button {
+    border-color:  #e9e9e9 #989898 #989898 #e9e9e9;
+    background:white;
+    margin-right:3px;
+    width:auto;
+}
+
+#edtoolbar input.ed_button_pressed {
+     border-color: #989898 #e9e9e9 #e9e9e9 #989898;
+    background:white;
+    margin-right:3px;
+    width:auto;
+}
+
+#edtoolbar input.ed_strong {
+    font-weight:bold;
+}
+
+#edtoolbar input.ed_emphasis {
+    font-style:italic;
+}
+
+#edtoolbar input.ed_close {
+   margin-left:4px;
+}
+
+
+/*  XML */
+
+#foot p#xml {
+  position:absolute;
+  right:10px;
+  top: 5px;
+  width:auto;
+}

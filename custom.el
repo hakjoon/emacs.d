@@ -10,6 +10,7 @@
  '(company-tooltip-delay 0.5)
  '(desktop-path (quote ("~/.emacs.d")))
  '(dvc-config-directory "~/.emacs.d/.dvc/")
+ '(dvc-tips-enabled nil)
  '(eshell-directory-name "~/.emacs.d/.eshell/")
  '(flyspell-use-meta-tab nil)
  '(global-hl-line-mode t)
@@ -45,4 +46,5 @@
   ;; Your init file should contain only one such instance.
   ;; If there is more than one, they won't work right.
  '(mumamo-background-chunk-major ((((class color) (min-colors 88) (background dark)) nil)))
- '(mumamo-background-chunk-submode ((((class color) (min-colors 88) (background dark)) (:background "black1")))))
+ '(mumamo-background-chunk-submode ((((class color) (min-colors 88) (background dark)) (:background "black1"))))
+ '(region ((t (:background "royal blue" :foreground "white")))))
