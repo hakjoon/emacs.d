@@ -33,6 +33,13 @@
 		      (setq imenu-generic-expression css-imenu-generic-expression)
 		      (imenu-add-to-menubar "CSS Sections"))))
 
+;; Python Mode 
+
+(setq auto-mode-alist (cons '("\\.py$" . python-mode) auto-mode-alist))
+(setq interpreter-mode-alist (cons '("python" . python-mode)
+				   interpreter-mode-alist))
+(autoload 'python-mode "python-mode" "Python editing mode." t)
+
 ;;======= Color theme stuff ===
 (require 'color-theme)
 
