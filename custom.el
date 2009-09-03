@@ -47,4 +47,4 @@
   ;; If there is more than one, they won't work right.
  '(mumamo-background-chunk-major ((((class color) (min-colors 88) (background dark)) nil)))
  '(mumamo-background-chunk-submode ((((class color) (min-colors 88) (background dark)) (:background "black1"))))
- '(region ((t (:background "royal blue" :foreground "white")))))
+ '(region ((t (:background "skyBlue4" :foreground "white")))))
