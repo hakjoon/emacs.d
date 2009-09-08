@@ -46,6 +46,9 @@
 (add-to-list 'auto-mode-alist '("\\.inc$" . php-mode))
 
 
+
+
+
 ;;======= Color theme stuff ===
 (require 'color-theme)
 
