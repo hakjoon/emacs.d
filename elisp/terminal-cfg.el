@@ -5,6 +5,6 @@
 (color-theme-standard)
 
 ;;turn off menu
-(menu-bar-mode -1)
+(menu-bar-mode nil)
 
 (provide 'terminal-cfg)
