@@ -50,7 +50,7 @@
 
 
 ;;======= Color theme stuff ===
-(require 'color-theme)
+
 
 ;; Extra Color Themes from mewde
 ;(load "color-theme-cl-frame")
@@ -61,7 +61,5 @@
 ;(color-theme-colorful-obsolescence)
 ;(load "color-theme-hakjoon")
 ;(color-theme-hakjoon)
-(load "blackboard")
-(color-theme-blackboard)
 
 (provide 'major-modes-cfg)
