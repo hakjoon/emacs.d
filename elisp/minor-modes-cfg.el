@@ -24,5 +24,7 @@
 ;;=MozRepl
 (autoload 'moz-minor-mode "moz" "Mozilla Minor and Inferior Mozilla Modes" t)
 
+;;=DVC
+(require 'dvc-autoloads)
 
 (provide 'minor-modes-cfg)
