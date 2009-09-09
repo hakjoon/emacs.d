@@ -1,5 +1,10 @@
 ;; Mac specific options
 
+;; Color-theme
+(require 'color-theme)
+(load "blackboard")
+(color-theme-blackboard)
+
 (setq ns-function-modifier (quote control))
 
 ;;Add Macports directory to exec-path
@@ -24,7 +29,7 @@
 (global-set-key [(meta return)] 'toggle-fullscreen)
 
 ;; w3m
-(add-to-list 'load-path "/opt/local/share/emacs/site-lisp/w3m")
+(add-to-list 'load-path "/usr/local/share/emacs/site-lisp/w3m")
 (require 'w3m-load)
 
 (provide 'mac-cfg)

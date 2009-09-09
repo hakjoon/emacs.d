@@ -33,8 +33,24 @@
 		      (setq imenu-generic-expression css-imenu-generic-expression)
 		      (imenu-add-to-menubar "CSS Sections"))))
 
+;; Python Mode 
+
+(setq auto-mode-alist (cons '("\\.py$" . python-mode) auto-mode-alist))
+(setq interpreter-mode-alist (cons '("python" . python-mode)
+				   interpreter-mode-alist))
+(autoload 'python-mode "python-mode" "Python editing mode." t)
+
+;; PHP Mode
+(autoload 'php-mode "php-mode" "Major mode for editing php code." t)
+(add-to-list 'auto-mode-alist '("\\.php$" . php-mode))
+(add-to-list 'auto-mode-alist '("\\.inc$" . php-mode))
+
+
+
+
+
 ;;======= Color theme stuff ===
-(require 'color-theme)
+
 
 ;; Extra Color Themes from mewde
 ;(load "color-theme-cl-frame")
@@ -45,7 +61,5 @@
 ;(color-theme-colorful-obsolescence)
 ;(load "color-theme-hakjoon")
 ;(color-theme-hakjoon)
-(load "blackboard")
-(color-theme-blackboard)
 
 (provide 'major-modes-cfg)

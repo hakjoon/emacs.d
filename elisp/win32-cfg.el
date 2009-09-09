@@ -1,5 +1,10 @@
 ;; Windows only functions
 
+;; Color-theme
+(require 'color-theme)
+(load "blackboard")
+(color-theme-blackboard)
+
 ;;=Tramp default
 (setq tramp-default-method 'plinkx)
 

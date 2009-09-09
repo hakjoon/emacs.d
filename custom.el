@@ -10,6 +10,7 @@
  '(company-tooltip-delay 0.5)
  '(desktop-path (quote ("~/.emacs.d")))
  '(dvc-config-directory "~/.emacs.d/.dvc/")
+ '(dvc-tips-enabled nil)
  '(eshell-directory-name "~/.emacs.d/.eshell/")
  '(flyspell-use-meta-tab nil)
  '(global-hl-line-mode t)
@@ -46,4 +47,5 @@
   ;; If there is more than one, they won't work right.
  '(linum ((t (:inherit (shadow default) :background "grey10"))))
  '(mumamo-background-chunk-major ((((class color) (min-colors 88) (background dark)) nil)))
- '(mumamo-background-chunk-submode ((((class color) (min-colors 88) (background dark)) (:background "black1")))))
+ '(mumamo-background-chunk-submode ((((class color) (min-colors 88) (background dark)) (:background "black1"))))
+ '(region ((t (:background "skyBlue4" :foreground "white")))))
