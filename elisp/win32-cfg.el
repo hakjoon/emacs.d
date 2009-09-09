@@ -15,8 +15,7 @@
 	   ;;=Initial Frame Sizes
 	   (setq initial-frame-alist '((top . 10 ) (left . 20) 
 				       (width . 150) (height . 60)))
-	   (setq default-frame-alist '((top .10) (left . 20) 
-				       (width . 150) (height . 60)))
+	   ;;(setq default-frame-alist initial-frame-alist)
 	   (require 'compress)))
 
 (provide 'win32-cfg)
