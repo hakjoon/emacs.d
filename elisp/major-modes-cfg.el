@@ -46,6 +46,10 @@
 (add-to-list 'auto-mode-alist '("\\.inc$" . php-mode))
 
 
+;; Slime
+(setq inferior-lisp-program "e:/ccl/wx86cl64.exe")
+(require 'slime-autoloads)
+(slime-setup '(slime-repl slime-editing-commands))
 
 
 
