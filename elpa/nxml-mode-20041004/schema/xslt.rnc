@@ -13,7 +13,7 @@ start =
   stylesheet.element
   | transform.element
   | literal-result-element-as-stylesheet
-version = "1.0"
+version = ("1.0" | "1.1" | "2.0")
 top-level-elements.model =
   (top-level-element.category | top-level-extension)*
 top-level-extension =
