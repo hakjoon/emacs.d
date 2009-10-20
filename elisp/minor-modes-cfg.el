@@ -27,4 +27,17 @@
 ;;=DVC
 (require 'dvc-autoloads)
 
+;;== CUA Mode
+;; Turn on just rectangle functions
+(setq cua-enable-cua-keys nil)
+(setq cua-toggle-set-mark nil)
+(cua-mode t)
+
+;;== Delete selection mode
+(delete-selection-mode t)
+
+;;== Multi-select mode
+(autoload 'multi-select-mode "multi-select" nil t)
+(multi-select-mode t)
+
 (provide 'minor-modes-cfg)
