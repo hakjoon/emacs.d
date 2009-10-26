@@ -49,7 +49,7 @@
 ;; Slime
 (if (W32)
     (setq inferior-lisp-program "e:/ccl/wx86cl64.exe")
-  (setq inferior-lisp-program "/opt/local/ccl/scripts/ccl"))
+  (setq inferior-lisp-program "/opt/local/bin/ccl"))
 
 (require 'slime-autoloads)
 (slime-setup '(slime-repl slime-editing-commands))
