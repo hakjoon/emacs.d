@@ -48,4 +48,4 @@
  '(linum ((t (:inherit (shadow default) :background "grey10"))))
  '(mumamo-background-chunk-major ((((class color) (min-colors 88) (background dark)) nil)))
  '(mumamo-background-chunk-submode ((((class color) (min-colors 88) (background dark)) (:background "black1"))))
- '(region ((t (:background "skyBlue4" :foreground "white")))))
+ '(region ((t (:background "skyblue3" :foreground "white")))))
