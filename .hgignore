@@ -4,6 +4,7 @@ syntax: glob
 .recentf
 .ido.last
 xhtml-loader.rnc
+tramp
 *.elc
 .dvc/
 .eshell/
