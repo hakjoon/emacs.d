@@ -39,6 +39,7 @@
  '(show-paren-mode t)
  '(sql-mysql-program "mysql5")
  '(tool-bar-mode nil)
+ '(tramp-persistency-file-name "/Users/hakjoon/.emacs.d/tramp.persist")
  '(transient-mark-mode t))
 (custom-set-faces
   ;; custom-set-faces was added by Custom.
