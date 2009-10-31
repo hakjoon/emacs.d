@@ -24,6 +24,11 @@
 ;;=MozRepl
 (autoload 'moz-minor-mode "moz" "Mozilla Minor and Inferior Mozilla Modes" t)
 
+;;=Paredit
+(autoload 'paredit-mode "paredit"
+      "Minor mode for pseudo-structurally editing Lisp code." t)
+
+
 ;;=DVC
 (require 'dvc-autoloads)
 
