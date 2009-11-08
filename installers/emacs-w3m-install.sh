@@ -1,6 +1,6 @@
 #!/bin/bash
 
-LISPDIR="$HOME/.emacs.d/elisp/vendor"
+LISPDIR="$HOME/.emacs.d/vendor"
 SRC="$LISPDIR/emacs-w3m"
 BUILDDIR="$SRC/build"
 DIR="$LISPDIR/w3m"

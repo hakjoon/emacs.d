@@ -1,6 +1,6 @@
 #!/bin/bash
 
-LISPDIR="$HOME/.emacs.d/elisp/vendor"
+LISPDIR="$HOME/.emacs.d/vendor"
 DVCSRC="$LISPDIR/dvc-src"
 BUILDDIR="DVCSRC/build"
 DVCDIR="$LISPDIR/dvc"

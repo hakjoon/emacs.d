@@ -12,6 +12,7 @@ tramp.persist
 *~
 *.desktop
 *.lock
+*.backup
 
 syntax: regexp
 ^auto-save-list/
