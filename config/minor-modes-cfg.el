@@ -22,12 +22,16 @@
 (autoload 'nav "nav" "Nav pane" t)
 
 ;;=MozRepl
-(autoload 'moz-minor-mode "moz" "Mozilla Minor and Inferior Mozilla Modes" t)
+(autoload 'moz-minor-mode "moz" 
+  "Mozilla Minor and Inferior Mozilla Modes" t)
 
 ;;=Paredit
 (autoload 'paredit-mode "paredit"
-      "Minor mode for pseudo-structurally editing Lisp code." t)
+  "Minor mode for pseudo-structurally editing Lisp code." t)
 
+;; Wrap region
+(autoload 'wrap-region-mode
+  "wrap-region" "Region Wrapping Minor Mode" t)
 
 ;;=DVC
 (require 'dvc-autoloads)
