@@ -26,10 +26,11 @@
 ;;=CSS Mode hook
 (setq css-imenu-generic-expression
       '((nil "^.==\\(\\b[A-Z]+\\b\\)" 1)))
-
+(require 'flymake-css)
 (add-hook 'css-mode-hook
 	  (function (lambda ()
 		      (textmate-mode 1)
+		      (flymake-css-load)
 		      (setq imenu-generic-expression css-imenu-generic-expression)
 		      (imenu-add-to-menubar "CSS Sections"))))
 
