@@ -6,8 +6,10 @@
                        'flymake-create-temp-inplace))
          (local-file  (file-relative-name
                        temp-file
-                       (file-name-directory buffer-file-name))))
-    (list "java" (list "-jar" "css-validator.jar" "-output" "gnu" (concat "file:" local-file)))))
+                       (file-name-directory buffer-file-name)))
+	 (jar-file (file-truename 
+		    "~/.emacs.d/support-apps/css-validator/css-validator.jar")))
+    (list "java" (list "-jar" jar-file "-output" "gnu" (concat "file:" local-file)))))
 
 (defun flymake-css-load ()
   (interactive)
