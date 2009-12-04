@@ -16,6 +16,7 @@
 	  (function (lambda () 
 		      (flymake-jslint-load)
 		      (imenu-add-to-menubar "JS-Browser")
+		      (yas/minor-mode t)
 		      (textmate-mode 1))))
 
 
@@ -45,6 +46,9 @@
 (autoload 'php-mode "php-mode" "Major mode for editing php code." t)
 (add-to-list 'auto-mode-alist '("\\.php$" . php-mode))
 (add-to-list 'auto-mode-alist '("\\.inc$" . php-mode))
+(add-hook 'php-mode-hook
+	  (function (lambda ()
+		      (imenu-add-to-menubar "PHP-Browser"))))
 
 
 ;; Slime
