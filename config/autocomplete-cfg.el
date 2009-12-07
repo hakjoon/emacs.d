@@ -1,11 +1,7 @@
 ;; Auto Complete mode config
 
 (require 'auto-complete)
-
-;; ac-sources
-(require 'auto-complete-yasnippet)
-(require 'auto-complete-css)
-(require 'auto-complete-emacs-lisp)
+(require 'auto-complete-config)
 
 ;; config
 (global-auto-complete-mode t)
@@ -29,7 +25,7 @@
 ;; CSS Sources
 (add-hook 'css-mode-hook
    	  (lambda()
- 	    (setq ac-sources '(ac-source-yasnippet  ac-source-words-in-buffer))))
+ 	    (setq ac-sources '(ac-source-yasnippet ac-source-words-in-buffer))))
 
 ;; Elisp sources
  (add-hook 'emacs-lisp-mode-hook
