@@ -1,0 +1,73 @@
+Downloading/unpacking ropemacs
+  Getting page http://pypi.python.org/simple/ropemacs
+  URLs to search for versions for ropemacs:
+  * http://pypi.python.org/simple/ropemacs/
+  Getting page http://pypi.python.org/simple/ropemacs/
+  Getting page http://rope.sf.net/ropemacs.html
+  Getting page http://rope.sf.net/
+  Analyzing links from page http://pypi.python.org/simple/ropemacs/
+    Skipping link http://rope.sf.net/ropemacs.html (from http://pypi.python.org/simple/ropemacs/); unknown archive format: .html
+    Skipping link http://rope.sf.net/ (from http://pypi.python.org/simple/ropemacs/); not a file
+    Skipping link http://pymacs.progiciels-bpi.ca/pymacs.html (from http://pypi.python.org/simple/ropemacs/); unknown archive format: .html
+    Skipping link http://www.iro.umontreal.ca/%7epinard/pymacs/ (from http://pypi.python.org/simple/ropemacs/); not a file
+  Analyzing links from page http://rope.sourceforge.net/ropemacs.html
+    Skipping link http://sf.net/projects/rope/files (from http://rope.sourceforge.net/ropemacs.html); not a file
+    Skipping link http://bitbucket.org/agr/ropemacs (from http://rope.sourceforge.net/ropemacs.html); not a file
+    Skipping link http://bitbucket.org/agr/ropemacs/get/tip.gz (from http://rope.sourceforge.net/ropemacs.html); unknown archive format: .gz
+    Skipping link http://bitbucket.org/agr/ropemode (from http://rope.sourceforge.net/ropemacs.html); not a file
+    Skipping link http://bitbucket.org/agr/ropemode/get/tip.gz (from http://rope.sourceforge.net/ropemacs.html); unknown archive format: .gz
+    Skipping link http://groups.google.com/group/rope-dev (from http://rope.sourceforge.net/ropemacs.html); not a file
+  Analyzing links from page http://rope.sourceforge.net/
+    Skipping link http://rope.sourceforge.net/library.html (from http://rope.sourceforge.net/); unknown archive format: .html
+    Skipping link http://selenic.com/mercurial (from http://rope.sourceforge.net/); not a file
+    Skipping link http://git.or.cz (from http://rope.sourceforge.net/); not a file
+    Skipping link http://darcs.net (from http://rope.sourceforge.net/); not a file
+    Skipping link http://pysvn.tigris.org (from http://rope.sourceforge.net/); not a file
+    Skipping link http://rope.sourceforge.net/overview.html (from http://rope.sourceforge.net/); unknown archive format: .html
+    Skipping link http://rope.sourceforge.net/ropemacs.html (from http://rope.sourceforge.net/); unknown archive format: .html
+    Skipping link http://rope.sourceforge.net/ropevim.html (from http://rope.sourceforge.net/); unknown archive format: .html
+    Skipping link http://www.die-offenbachs.de/eric/index.html (from http://rope.sourceforge.net/); unknown archive format: .html
+    Skipping link http://rope.sourceforge.net/ropeide.html (from http://rope.sourceforge.net/); unknown archive format: .html
+    Skipping link http://rope.sourceforge.net/contributing.html (from http://rope.sourceforge.net/); unknown archive format: .html
+    Skipping link http://bitbucket.org/agr/rope (from http://rope.sourceforge.net/); not a file
+    Skipping link http://bitbucket.org/agr/rope_py3k (from http://rope.sourceforge.net/); not a file
+    Skipping link http://bitbucket.org/agr/rope/get/tip.gz (from http://rope.sourceforge.net/); unknown archive format: .gz
+    Skipping link http://bitbucket.org/agr/rope_py3k/get/tip.gz (from http://rope.sourceforge.net/); unknown archive format: .gz
+  Could not find any downloads that satisfy the requirement ropemacs
+No distributions at all found for ropemacs
+Exception information:
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/2.6/lib/python2.6/site-packages/pip-0.6.1-py2.6.egg/pip.py", line 482, in main
+    self.run(options, args)
+  File "/Library/Frameworks/Python.framework/Versions/2.6/lib/python2.6/site-packages/pip-0.6.1-py2.6.egg/pip.py", line 675, in run
+    requirement_set.install_files(finder, force_root_egg_info=self.bundle)
+  File "/Library/Frameworks/Python.framework/Versions/2.6/lib/python2.6/site-packages/pip-0.6.1-py2.6.egg/pip.py", line 2422, in install_files
+    url = finder.find_requirement(req_to_install, upgrade=self.upgrade)
+  File "/Library/Frameworks/Python.framework/Versions/2.6/lib/python2.6/site-packages/pip-0.6.1-py2.6.egg/pip.py", line 1485, in find_requirement
+    raise DistributionNotFound('No distributions at all found for %s' % req)
+DistributionNotFound: No distributions at all found for ropemacs
+------------------------------------------------------------
+/Library/Frameworks/Python.framework/Versions/2.6/lib/python2.6/site-packages/pip-0.6.1-py2.6.egg/pip.py run on Tue Dec 22 23:56:53 2009
+Downloading/unpacking pymacs
+  Getting page http://pypi.python.org/simple/pymacs
+  Could not fetch URL http://pypi.python.org/simple/pymacs: HTTP Error 404: Not Found
+  Will skip URL http://pypi.python.org/simple/pymacs when looking for download links for pymacs
+  Getting page http://pypi.python.org/simple/
+  URLs to search for versions for pymacs:
+  * http://pypi.python.org/simple/pymacs/
+  Getting page http://pypi.python.org/simple/pymacs/
+  Could not fetch URL http://pypi.python.org/simple/pymacs/: HTTP Error 404: Not Found
+  Will skip URL http://pypi.python.org/simple/pymacs/ when looking for download links for pymacs
+  Could not find any downloads that satisfy the requirement pymacs
+No distributions at all found for pymacs
+Exception information:
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/2.6/lib/python2.6/site-packages/pip-0.6.1-py2.6.egg/pip.py", line 482, in main
+    self.run(options, args)
+  File "/Library/Frameworks/Python.framework/Versions/2.6/lib/python2.6/site-packages/pip-0.6.1-py2.6.egg/pip.py", line 675, in run
+    requirement_set.install_files(finder, force_root_egg_info=self.bundle)
+  File "/Library/Frameworks/Python.framework/Versions/2.6/lib/python2.6/site-packages/pip-0.6.1-py2.6.egg/pip.py", line 2422, in install_files
+    url = finder.find_requirement(req_to_install, upgrade=self.upgrade)
+  File "/Library/Frameworks/Python.framework/Versions/2.6/lib/python2.6/site-packages/pip-0.6.1-py2.6.egg/pip.py", line 1485, in find_requirement
+    raise DistributionNotFound('No distributions at all found for %s' % req)
+DistributionNotFound: No distributions at all found for pymacs

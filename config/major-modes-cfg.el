@@ -51,6 +51,15 @@
 		      (imenu-add-to-menubar "PHP-Browser"))))
 
 
+;; Python Mode
+(add-hook 'python-mode-hook
+	  (function (lambda ()
+		      ;; ropemacs
+		      (require 'pymacs)
+		      (setenv "PYMACS_PYTHON" "~/.emacs.d/support-apps/python/bin/python")
+		      (pymacs-load "ropemacs" "rope-")
+		      (ropemacs-mode t))))
+
 ;; Slime
 (if (W32)
     (setq inferior-lisp-program "e:/ccl/wx86cl64.exe")
