@@ -12,6 +12,7 @@
  '(dvc-config-directory "~/.emacs.d/.dvc/")
  '(dvc-tips-enabled nil)
  '(eshell-directory-name "~/.emacs.d/.eshell/")
+ '(exec-path (quote ("/usr/bin" "/bin" "/usr/sbin" "/sbin" "/Applications/Emacs.app/Contents/MacOS/bin" "/opt/local/bin" "/usr/local/bin")))
  '(flyspell-use-meta-tab nil)
  '(global-hl-line-mode t)
  '(ido-save-directory-list-file "~/.emacs.d/.ido.last")

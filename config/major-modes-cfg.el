@@ -17,6 +17,7 @@
 		      (flymake-jslint-load)
 		      (imenu-add-to-menubar "JS-Browser")
 		      (yas/minor-mode t)
+		      (moz-minor-mode 1)
 		      (textmate-mode 1))))
 
 
@@ -50,15 +51,6 @@
 	  (function (lambda ()
 		      (imenu-add-to-menubar "PHP-Browser"))))
 
-
-;; Python Mode
-(add-hook 'python-mode-hook
-	  (function (lambda ()
-		      ;; ropemacs
-		      (require 'pymacs)
-		      (setenv "PYMACS_PYTHON" "~/.emacs.d/support-apps/python/bin/python")
-		      (pymacs-load "ropemacs" "rope-")
-		      (ropemacs-mode t))))
 
 ;; Slime
 (if (W32)

@@ -60,4 +60,14 @@ buffer instead of replacing the text in region."
          (list (line-beginning-position)
                (line-end-position)))))
 
+(defun rope-load ()
+    "Load pymacs and ropemacs"
+    (interactive)
+    (require 'pymacs)
+    (setenv "PYMACS_PYTHON" "~/.emacs.d/support-apps/python/bin/python")
+    (pymacs-load "ropemacs" "rope-")
+    ;; Automatically save project python buffers before refactorings
+    (setq ropemacs-confirm-saving 'nil)
+    (ropemacs-mode t))
+
 (provide 'macros)
