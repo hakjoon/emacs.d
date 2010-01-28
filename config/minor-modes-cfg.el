@@ -36,7 +36,8 @@
 ;;=DVC
 (require 'dvc-autoloads)
 
-
+;; window maagemet stuff
+(require 'win-mgmt-cfg.el)
 
 ;;== CUA Mode
 ;; Turn on just rectangle functions
