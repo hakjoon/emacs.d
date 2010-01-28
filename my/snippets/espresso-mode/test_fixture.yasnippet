@@ -1,0 +1,10 @@
+# -*- mode: snippet -*-
+# name: test_fixture
+# --
+// Testing ${1: File being tested}
+
+${2: Test.required('${3:$1}.js');}
+
+new Test.Unit.Runner({
+    $0
+});
