@@ -12,13 +12,19 @@
 (add-to-list 'auto-mode-alist '("\\.js$" . espresso-mode))
 
 (require 'flymake-jslint)
+(require 'js-comint)
+(setq inferior-js-program-command "/usr/bin/java org.mozilla.javascript.tools.shell.Main")
 (add-hook 'espresso-mode-hook 
 	  (function (lambda () 
-		      (flymake-jslint-load)
 		      (imenu-add-to-menubar "JS-Browser")
 		      (yas/minor-mode t)
-		      (moz-minor-mode 1)
-		      (textmate-mode 1))))
+		      (local-set-key "\C-x\C-e" 'js-send-last-sexp)
+		      (local-set-key "\C-\M-x" 'js-send-last-sexp-and-go)
+		      (local-set-key "\C-cb" 'js-send-buffer)
+		      (local-set-key "\C-c\C-b" 'js-send-buffer-and-go)
+		      (local-set-key "\C-cl" 'js-load-file-and-go)
+		      (textmate-mode 1)
+		      (flymake-jslint-load))))
 
 
 
