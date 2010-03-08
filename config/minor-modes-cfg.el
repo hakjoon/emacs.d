@@ -52,4 +52,12 @@
 (autoload 'multi-select-mode "multi-select" nil t)
 (multi-select-mode t)
 
+;;== iedit
+(autoload 'iedit-mode "iedit" nil t)
+(define-key global-map (kbd "C-;") 'iedit-mode)
+(define-key isearch-mode-map (kbd "C-;") 'iedit-mode)
+
+;; multi-occur help
+(require 'aok)
+
 (provide 'minor-modes-cfg)
