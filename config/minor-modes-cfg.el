@@ -49,13 +49,17 @@
 (delete-selection-mode t)
 
 ;;== Multi-select mode
-(autoload 'multi-select-mode "multi-select" nil t)
+(autoload 'multi-select-mode "multi-select" "Multi selection mode" t)
 (multi-select-mode t)
 
 ;;== iedit
-(autoload 'iedit-mode "iedit" nil t)
+(autoload 'iedit-mode "iedit" "Interactive editing mode" t)
 (define-key global-map (kbd "C-;") 'iedit-mode)
 (define-key isearch-mode-map (kbd "C-;") 'iedit-mode)
+
+;;== Drag stuff
+(autoload 'drag-stuff-global-mode "drag-stuff" "Interactive keyboard draging global mode" t)
+(drag-stuff-global-mode t)
 
 ;; multi-occur help
 (require 'aok)
