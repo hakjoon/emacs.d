@@ -1,276 +1,229 @@
-;;; wrap-region.el --- Wrap text with punctation or markup tag.
+;;; wrap-region.el --- Wrap text with punctation or tag
 
-;; Copyright 2008  Johan Andersson
+;; Copyright (C) 2008-2010 Johan Andersson
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;; License ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;
-;; This program is free software; you can redistribute it and/or
-;; modify it under the terms of the GNU General Public License as
-;; published by the Free Software Foundation; either version 2 of
-;; the License, or (at your option) any later version.
-;;
-;; This program is distributed in the hope that it will be
-;; useful, but WITHOUT ANY WARRANTY; without even the implied
-;; warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR
-;; PURPOSE.  See the GNU General Public License for more details.
-;;
-;; You should have received a copy of the GNU General Public
-;; License along with this program; if not, write to the Free
-;; Software Foundation, Inc., 59 Temple Place, Suite 330, Boston,
-;; MA 02111-1307 USA
-;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Author: Johan Andersson <johan.rejeep@gmail.com>
+;; Maintainer: Johan Andersson <johan.rejeep@gmail.com>
+;; Version: 0.1.2
+;; Keywords: speed, convenience
+;; URL: http://github.com/rejeep/wrap-region
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;; Vocabulary ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;
-;; Punctuation - Is everything in written language other than the
-;; actual letters or numbers ([, (, ., ", etc...).
-;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; This file is NOT part of GNU Emacs.
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;; Description ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;
-;; Wrap region is a minor mode that wraps a region. That of course
-;; only happens when there is a region selected in the buffer. If no
-;; region is selected that punctuation is inserted. And if
-;; `wrap-region-insert-twice' is set to t, the corresponding
-;; punctuation is inserted as weel, and the cursor is placed between
-;; them. An exception to this is if `wrap-region-tag-active' is set
-;; to t. Then "<" will be interped as a markup tag (<tag>...</tag>),
-;; and that tag will wrap the region.
-;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; License:
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;; Installation ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; This program is free software; you can redistribute it and/or modify
+;; it under the terms of the GNU General Public License as published by
+;; the Free Software Foundation; either version 3, or (at your option)
+;; any later version.
+
+;; This program is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+;; GNU General Public License for more details.
+
+;; You should have received a copy of the GNU General Public License
+;; along with GNU Emacs; see the file COPYING.  If not, write to the
+;; Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
+;; Boston, MA 02110-1301, USA.
+
+;;; Commentary:
+
+;; wrap-region is a minor mode that wraps a region with
+;; punctuations. For tagged markup modes, such as HTML and XML, it
+;; wraps with tags.
 ;;
-;; To use this mode you first have to make sure that this file is in
-;; your load-path variable:
+;; To use wrap-region, make sure that this file is in Emacs load-path:
 ;; (add-to-list 'load-path "/path/to/directory/or/file")
 ;;
-;; Then require it:
+;; Then require wrap-region:
 ;; (require 'wrap-region)
 ;;
-;; Then start it:
+;;
+;; To start wrap-region:
 ;; (wrap-region-mode t) or M-x wrap-region-mode
 ;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;; Commentary ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; If you only want wrap-region active in some mode, use a hook:
+;; (add-hook 'ruby-mode-hook 'wrap-region-mode)
 ;;
-;; First of all you want to activate this mode for all major modes
-;; you want to use this in:
-;;
-;; (add-hook 'ruby-mode-hook
-;;           '(lambda()
-;;              (wrap-region-mode t)
-;;              ))
-;;
-;; By only doing this you will activate all default punctuations. But
-;; you may not want some punctuation to be used for a certain mode. If
-;; That is the case you want to use `wrap-region-set-mode-punctuations'.
-;;
-;; (add-hook 'ruby-mode-hook
-;;           '(lambda()
-;;              (wrap-region-set-mode-punctuations '("\"" "'" "("))
-;;              (wrap-region-mode t)
-;;              ))
-;;
-;; This will activate the punctuations ", ', and ( only, and it will be
-;; activated for ruby-mode.
-;;
-;; You can also pass a major mode to this function if you want to set
-;; all mode specific punctuations at the same place:
-;;
-;; (wrap-region-set-mode-punctuations '("\"" "'" "(") 'ruby-mode)
-;; (wrap-region-set-mode-punctuations '("[" "{" "(") 'java-mode)
+;; Or if you want to activate it in all buffers, use the global mode:
+;; (wrap-region-global-mode t)
 ;;
 ;;
-;; You can also customize if you want to insert one or two punctuations
-;; (and then move in between them) if there is no region selected.
-;; This is configured by the variable `wrap-region-insert-twice'.
-;; t means to insert two punctuations and then move in between them,
-;; and nil means to only insert that punctuation.
+;; To wrap a region, select that region and hit one of the punctuation
+;; keys. In "tag-modes" (html-mode, sgml-mode or xml-mode), "<" is
+;; replaced and wraps the region with a tag. To activate this behavior
+;; in a mode other than default, you do:
+;; (add-to-list 'wrap-region-tag-active-modes 'some-tag-mode)
 ;;
-;; Insert both and move in between:
-;; (setq wrap-region-insert-twice t)
-;;
-;; Insert punctuation only:
-;; (setq wrap-region-insert-twice nil)
-;;
-;;
-;; If noting is said, "<" will be used as a regular punctuation with
-;; ">" as it's corresponding. This is desirable in languages such as
-;; Java where this is syntax is used:
-;; Set<Object> set = new HashSet<Object>();
-;;
-;; But in markup languages, such as x(HTML), XML, etc... you use tags
-;; and want to make use of the tags functionality. That is controlled
-;; by the variable `wrap-region-tag-active'. By setting this to t,
-;; when pressing "<" you will be prompted to enter a tag, which you
-;; can do in two ways.
-;;
-;; The first is to enter some tag such as "div". The selected region
-;; will then be wrapped with the div tag:
-;; <div>selected region</div>
-;;
-;; The second way is to also enter attributes for the tag, such as
-;; class, id, name, etc... If you enter:
-;; div class="some_class" id="some_id"
-;; you will end up with this:
-;; <div class="some_class" id="some_id">selected region</div>
-;;
-;;
-;; This mode comes with some default punctuations
-;; (see `wrap-region-punctuations-table'). This might not always be
-;; enough. And there's where `wrap-region-add-punctuation' comes
-;; in handy. As an example we add # as a punctuation and # as it's
-;; corresponding punctuation:
+;; `wrap-region-punctuations-table' contains a few default
+;; punctuations that wraps. You can add you own like this:
 ;; (wrap-region-add-punctuation "#" "#")
-;;
-;; Note that even if you use `wrap-region-set-mode-punctuations'
-;; for mode specific punctuations, you still need to use
-;; `wrap-region-add-punctuation'. This is because that's how the
-;; corresponding punctuation is found.
-;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;; History ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;
-;; DATE          VERSION    UPDATES/CHANGES
-;; 2008-12-07    0.0.1      First version released.
-;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;; Code:
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;; Variables ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-(defconst wrap-region-version "0.0.1"
-  "Wrap region version. This is how the version numbering works:
-MAJOR_FEATURE_UPDATE.MINOR_FEATURE_UPDATE.BUGFIX")
+(defvar wrap-region-insert-twice nil
+  "If this is non nil, when inserting a punctuation, the corresponding
+punctuation will be inserted after and the cursor will be placed
+between them.")
 
 (defvar wrap-region-mode-map (make-sparse-keymap)
   "Keymap for `wrap-region-mode'.")
 
-(defvar wrap-region-punctuations-table (make-hash-table :test 'equal)
-  "A list with all possible punctuations and their right corresponding punctuation.")
+(defvar wrap-region-punctuations-table
+  (let ((table (make-hash-table :test 'equal)))
+    (puthash "\"" "\"" table)
+    (puthash "'"  "'"  table)
+    (puthash "("  ")"  table)
+    (puthash "{"  "}"  table)
+    (puthash "["  "]"  table)
+    (puthash "<"  ">"  table)
+    table)
+  "A map with all punctuations and their right corresponding punctuation.")
 
-(puthash "\"" "\"" wrap-region-punctuations-table)
-(puthash "'"  "'"  wrap-region-punctuations-table)
-(puthash "("  ")"  wrap-region-punctuations-table)
-(puthash "{"  "}"  wrap-region-punctuations-table)
-(puthash "["  "]"  wrap-region-punctuations-table)
-(puthash "<"  ">"  wrap-region-punctuations-table)
-(puthash "|"  "|"  wrap-region-punctuations-table)
-(puthash "\\" "\\" wrap-region-punctuations-table)
+(defvar wrap-region-tag-active-modes '(html-mode sgml-mode rhtml-mode)
+  "List of modes where < should be used as a tag instead of a regular punctuation.")
 
-(defvar wrap-region-tag-active nil
-  "This variable tells whether < are to be used
-as a tag or a regular punctuation.")
-(make-variable-buffer-local 'wrap-region-tag-active)
+(defvar wrap-region-hook '()
+  "Hook for `wrap-region-mode'.")
 
-(defvar wrap-region-mode-punctuations (make-hash-table)
-  "Use this if you want mode specific punctuations.
-Key is the symbol name of the major mode and the value is a list
-of punctuations.")
+(defvar wrap-region-state-active nil
+  "t if insert twice is active. nil otherwise.")
 
-(defvar wrap-region-insert-twice t
-  "If this is true, when inserting a punctuation,
-the corresponding punctuation will be inserted after and
-the cursor will be placed between them.")
-
-(defvar wrap-region-before-hook '()
-  "Evaluated before the region is wrapped.
-Two variables are available in the hook:
-wrap-region-beginning which is the beginning of the region
-and wrap-region-end which is the end of the region.")
-
-(defvar wrap-region-after-hook '()
-  "Evaluated after the region is wrapped.
-Two variables are available in the hook:
-wrap-region-beginning which is the beginning of the region
-and wrap-region-end which is the end of the region.")
+(defvar wrap-region-state-pos nil
+  "The position when insert twice was last activated. nil if not active.")
 
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;; Functions ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-(defun wrap-region-with-punctuation-or-insert (left)
-  "Wraps a region if any, else inserts the punctuation(s)."
+(defun wrap-region-with-punctuation-or-insert ()
+  "Wraps region if any. Otherwise insert punctuations."
   (interactive)
-  (if mark-active
-      (wrap-region left (wrap-region-corresponding-punctuation left) (region-beginning) (region-end))
-    (wrap-region-insert left)))
-
-(defun wrap-region-with-punctuations (left right)
-  "Wraps a region with LEFT and RIGHT."
-  (wrap-region left right (region-beginning) (region-end)))
-
-(defun wrap-region-with-tag-or-insert ()
-  "Wraps a region with a tag if any region is selected.
-Otherwise the punctuation(s) are inserted."
-  (interactive)
-  (if mark-active
-      (call-interactively 'wrap-region-with-tag)
-    (wrap-region-insert "<")))
-
-(defun wrap-region-with-tag (tag)
-  "Wraps a region with a tag."
-  (interactive "*sTag (with optional attributes): ")
-  (let* ((elements (split-string tag " "))
-         (tag-name (car elements))
-         (tag-right (concat "</" tag-name ">"))
-         (tag-left (concat "<" (if (= (length elements) 1) tag-name tag) ">")))
-    (wrap-region tag-left tag-right (region-beginning) (region-end))))
-
-(defun wrap-region-insert (left)
-  "Inserts LEFT or LEFT and it's corresponding punctuation
-if `wrap-region-insert-twice' is set to t."
-  (insert left)
-  (cond (wrap-region-insert-twice
-         (insert (wrap-region-corresponding-punctuation left))
-         (backward-char))))
+  (let ((key (char-to-string last-input-char)))
+    (if mark-active
+        (if (and (member major-mode wrap-region-tag-active-modes) (string= key "<"))
+            (wrap-region-with-tag)
+          (wrap-region key (wrap-region-right-buddy key) (region-beginning) (region-end)))
+      (wrap-region-insert key))))
 
 (defun wrap-region (left right beg end)
-  "Wraps region with LEFT and RIGHT."
-  (let ((wrap-region-beginning beg) (wrap-region-end end))
-    (run-hooks 'wrap-region-before-hook)
-    (save-excursion
-      (goto-char beg)
-      (insert left)
-      (goto-char (+ end (length left)))
-      (insert right))
-    (run-hooks 'wrap-region-after-hook)))
+  "Wraps region from BEG to END with LEFT and RIGHT."
+  (save-excursion
+    (goto-char beg)
+    (insert left)
+    (goto-char (+ end (length left)))
+    (insert right)))
 
-(defun wrap-region-corresponding-punctuation (punctuation)
-  "Returns the corresponding punctuation to the given punctuation
-or nil if the punctuation does not exists."
-  (gethash punctuation wrap-region-punctuations-table))
+(defun wrap-region-insert (left)
+  "Inserts LEFT and its right buddy if `wrap-region-insert-twice' is non nil."
+  (if wrap-region-insert-twice
+      (wrap-region-insert-twice left)
+    (insert left)))
+
+(defun wrap-region-insert-twice (left)
+  "Inserts LEFT and its right buddy."
+  (cond ((and wrap-region-state-active (wrap-region-match left))
+         (forward-char 1)
+         (wrap-region-reset))
+        (t
+         (insert left)
+         (when (wrap-region-right-buddy left)
+           (save-excursion
+             (insert (wrap-region-right-buddy left)))
+           (wrap-region-activate)))))
+
+(defun wrap-region-with-tag ()
+  "Wraps region with tag."
+  (let* ((tag (read-string "Enter Tag (with optional attributes): "))
+         (split (split-string tag " "))
+         (tag-name (car split))
+         (left (concat "<" tag ">"))
+         (right (concat "</" tag-name ">")))
+    (wrap-region left right (region-beginning) (region-end))))
+
+(defun wrap-region-right-buddy (left)
+  "Returns right buddy to LEFT."
+  (gethash left wrap-region-punctuations-table))
 
 (defun wrap-region-add-punctuation (left right)
-  "Adds a new punctuation pair to the punctuation list."
+  "Adds a new punctuation pair."
   (puthash left right wrap-region-punctuations-table))
 
-(defun wrap-region-set-mode-punctuations (punctuations &optional mode)
-  "Use this when the punctuations should be
-customized depending on the major mode. MODE argument
-is optional and will be set to `major-mode' as default."
-  (puthash (or mode major-mode) punctuations wrap-region-mode-punctuations))
+(defun wrap-region-match (key)
+  "Returns t if the current position is an enclosing match with
+KEY. nil otherwise."
+  (let ((before (char-to-string (char-before)))
+        (after  (char-to-string (char-after))))
+    (and (string= key after)
+         (string= after (wrap-region-right-buddy before)))))
+
+(defun wrap-region-reset ()
+  "Set insert twice to inactive."
+  (setq wrap-region-state-pos nil)
+  (setq wrap-region-state-active nil))
+
+(defun wrap-region-activate ()
+  "Set insert twice to active at current point."
+  (setq wrap-region-state-pos (point))
+  (setq wrap-region-state-active t))
+
+(defun wrap-region-command ()
+  "Called after a command is executed.
+If the executed command moved the cursor, then insert twice is set inactive."
+  (if (and wrap-region-state-active
+           (/= (point) wrap-region-state-pos))
+      (wrap-region-reset)))
+
+(defun wrap-region-backward-delete-char ()
+  "Deletes an enclosing pair backwards if insert twice is active.
+ Otherwise it falls back to default."
+  (interactive)
+  (cond ((and wrap-region-state-active (wrap-region-match (char-to-string (char-after))))
+         (forward-char 1)
+         (backward-delete-char 2))
+        (t
+         (let ((wrap-region-mode nil)
+               (original-func (key-binding (kbd "DEL"))))
+           (call-interactively original-func))))
+  (wrap-region-reset))
+
+(defun wrap-region-define-keys ()
+  "Defines all key bindings."
+  (if wrap-region-insert-twice
+      (define-key wrap-region-mode-map (kbd "DEL") 'wrap-region-backward-delete-char))
+  (maphash (lambda (left right)
+             (define-key wrap-region-mode-map left 'wrap-region-with-punctuation-or-insert)
+             (if wrap-region-insert-twice
+                 (define-key wrap-region-mode-map right 'wrap-region-with-punctuation-or-insert)))
+           wrap-region-punctuations-table))
 
 ;;;###autoload
 (define-minor-mode wrap-region-mode
-  "Wrap region with punctuations or insert."
+  "Wrap region with stuff."
   :init-value nil
   :lighter " wr"
   :keymap wrap-region-mode-map
-  (if wrap-region-mode
-      (let ((punctuations (gethash major-mode wrap-region-mode-punctuations)))
-        (unless punctuations
-          (maphash (lambda (k v) (add-to-list 'punctuations k)) wrap-region-punctuations-table))
-        (dolist (key punctuations)
-          (define-key wrap-region-mode-map key `(lambda () (interactive) (wrap-region-with-punctuation-or-insert ,key))))
-        (if wrap-region-tag-active
-            (define-key wrap-region-mode-map "<" 'wrap-region-with-tag-or-insert)))))
+  (when wrap-region-mode
+    (wrap-region-define-keys)
+    (wrap-region-reset)
+    (add-hook 'post-command-hook 'wrap-region-command)
+    (run-hooks 'wrap-region-hook)))
+
 ;;;###autoload
+(defun turn-on-wrap-region-mode ()
+  "Turn on `wrap-region-mode'"
+  (interactive)
+  (wrap-region-mode +1))
+
+;;;###autoload
+(defun turn-off-wrap-region-mode ()
+  "Turn off `wrap-region-mode'"
+  (interactive)
+  (wrap-region-mode -1))
+
+;;;###autoload
+(define-globalized-minor-mode wrap-region-global-mode
+  wrap-region-mode
+  turn-on-wrap-region-mode)
 
 (provide 'wrap-region)
 
