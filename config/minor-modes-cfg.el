@@ -61,6 +61,10 @@
 (autoload 'drag-stuff-global-mode "drag-stuff" "Interactive keyboard draging global mode" t)
 (drag-stuff-global-mode t)
 
+;; IBuffer
+(global-set-key (kbd "C-x C-b") 'ibuffer-other-window)
+(autoload 'ibuffer "ibuffer" "List buffers." t)
+
 ;; multi-occur help
 (require 'aok)
 
