@@ -1,4 +1,17 @@
 ;;======= Custom set Variables ==
+
+(custom-set-faces
+  ;; custom-set-faces was added by Custom.
+  ;; If you edit it by hand, you could mess it up, so be careful.
+  ;; Your init file should contain only one such instance.
+  ;; If there is more than one, they won't work right.
+ '(linum ((t (:inherit (shadow default) :background "grey10"))))
+ '(moinmoin-code ((t (:foreground "purple2"))))
+ '(moinmoin-url ((t (:foreground "green4" :height 0.9))))
+ '(moinmoin-url-title ((t (:foreground "green3" :underline t))))
+ '(mumamo-background-chunk-major ((((class color) (min-colors 88) (background dark)) nil)))
+ '(mumamo-background-chunk-submode ((((class color) (min-colors 88) (background dark)) (:background "black1"))))
+ '(region ((t (:background "skyblue3" :foreground "white")))))
 (custom-set-variables
   ;; custom-set-variables was added by Custom.
   ;; If you edit it by hand, you could mess it up, so be careful.
@@ -12,7 +25,6 @@
  '(dvc-config-directory "~/.emacs.d/.dvc/")
  '(dvc-tips-enabled nil)
  '(eshell-directory-name "~/.emacs.d/.eshell/")
- '(exec-path (quote ("/usr/bin" "/bin" "/usr/sbin" "/sbin" "/Applications/Emacs.app/Contents/MacOS/bin" "/opt/local/bin" "/usr/local/bin")))
  '(flyspell-use-meta-tab nil)
  '(global-hl-line-mode t)
  '(ido-save-directory-list-file "~/.emacs.d/.ido.last")
@@ -42,12 +54,3 @@
  '(tool-bar-mode nil)
  '(tramp-persistency-file-name "/Users/hakjoon/.emacs.d/tramp.persist")
  '(transient-mark-mode t))
-(custom-set-faces
-  ;; custom-set-faces was added by Custom.
-  ;; If you edit it by hand, you could mess it up, so be careful.
-  ;; Your init file should contain only one such instance.
-  ;; If there is more than one, they won't work right.
- '(linum ((t (:inherit (shadow default) :background "grey10"))))
- '(mumamo-background-chunk-major ((((class color) (min-colors 88) (background dark)) nil)))
- '(mumamo-background-chunk-submode ((((class color) (min-colors 88) (background dark)) (:background "black1"))))
- '(region ((t (:background "skyblue3" :foreground "white")))))
