@@ -1,34 +1,31 @@
 ;; Auto Complete mode config
 
-(require 'auto-complete)
+(add-to-list 'load-path "~/.emacs.d/vendor/auto-complete")
 (require 'auto-complete-config)
+(add-to-list 'ac-dictionary-directories "~/.emacs.d/vendor/auto-complete/ac-dict")
+(ac-config-default)
 
 ;; config
-(global-auto-complete-mode t)
-(setq ac-auto-start t)
 (set-face-background 'ac-selection-face "steelblue")
 (set-face-background 'ac-candidate-face "white")
-(setq ac-dwim t)
 
-;;Additional modes
+
+;; ;;Additional modes
 
 (setq ac-modes
       (append ac-modes
 	      '(espresso-mode)))
 
-; if you want enable auto-complete at org-mode, uncomment this line
-; (add-to-list 'ac-trigger-commands 'org-self-insert-command)
-
 ;; Common sources
-(set-default 'ac-sources '(ac-source-yasnippet ac-source-abbrev ac-source-words-in-buffer))
+;;(set-default 'ac-sources '(ac-source-yasnippet ac-source-abbrev ac-source-words-in-buffer))
 
 ;; CSS Sources
 (add-hook 'css-mode-hook
-   	  (lambda()
- 	    (setq ac-sources '(ac-source-yasnippet ac-source-words-in-buffer))))
+	  (lambda()
+	    (setq ac-sources '(ac-source-yasnippet ac-source-words-in-buffer ac-source-dictionary ac-source-words-in-same-mode-buffers))))
 
 ;; Elisp sources
- (add-hook 'emacs-lisp-mode-hook
+(add-hook 'emacs-lisp-mode-hook
   	  (lambda()
  	    (setq ac-sources '(ac-source-symbols ac-source-yasnippet ac-source-words-in-buffer))))
 
@@ -36,6 +33,7 @@
 (add-hook 'lisp-interaction-mode
   	  (lambda()
  	    (setq ac-sources '(ac-source-symbols ac-emacs-lisp-sources ac-source-yasnippet ac-source-words-in-buffer))))
+
 
 
 (provide 'autocomplete-cfg)
