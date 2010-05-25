@@ -8,13 +8,13 @@
 ;;(add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
 
 ;;= Espresso Mode
-(autoload 'espresso-mode "espresso" nil t)
-(add-to-list 'auto-mode-alist '("\\.js$" . espresso-mode))
+;;(autoload 'espresso-mode "espresso" nil t)
+;;(add-to-list 'auto-mode-alist '("\\.js$" . espresso-mode))
 
 (require 'flymake-jslint)
 (require 'js-comint)
 (setq inferior-js-program-command "/usr/bin/java org.mozilla.javascript.tools.shell.Main")
-(add-hook 'espresso-mode-hook 
+(add-hook 'js-mode-hook 
 	  (function (lambda () 
 		      (imenu-add-to-menubar "JS-Browser")
 		      (yas/minor-mode t)
