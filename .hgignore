@@ -5,6 +5,7 @@ syntax: glob
 .ido.last
 xhtml-loader.rnc
 tramp.persist
+ac-comphist.dat
 *.elc
 .dvc/
 .eshell/
