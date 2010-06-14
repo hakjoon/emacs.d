@@ -4,7 +4,7 @@
 ;;(load "~/.emacs.d/elisp/vendor/nxhtml/autostart.el")
 
 ;;= JS2 Mode
-(autoload 'js2-mode "js2" nil t)
+;;(autoload 'js2-mode "js2" nil t)
 ;;(add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
 
 ;;= Espresso Mode
@@ -15,7 +15,7 @@
 (require 'js-comint)
 (setq inferior-js-program-command "/usr/bin/java org.mozilla.javascript.tools.shell.Main")
 (add-hook 'js-mode-hook 
-	  (function (lambda () 
+	  (function (lambda ()
 		      (imenu-add-to-menubar "JS-Browser")
 		      (yas/minor-mode t)
 		      (local-set-key "\C-x\C-e" 'js-send-last-sexp)

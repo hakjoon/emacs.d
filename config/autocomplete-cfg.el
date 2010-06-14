@@ -14,7 +14,7 @@
 
 (setq ac-modes
       (append ac-modes
-	      '(espresso-mode)))
+	      '(js-mode)))
 
 ;; Common sources
 ;;(set-default 'ac-sources '(ac-source-yasnippet ac-source-abbrev ac-source-words-in-buffer))
