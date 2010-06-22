@@ -15,8 +15,9 @@
 ;;=Autocomplete settings
 (require 'autocomplete-cfg)
 
-;;=textmate style matching
-(autoload 'textmate-mode "emacs-textmate" "Match braces like textmate" t)
+;;=textmate style elemen pairing
+(require 'autopair)
+(autopair-global-mode)
 
 ;;=nav
 (autoload 'nav "nav" "Nav pane" t)
