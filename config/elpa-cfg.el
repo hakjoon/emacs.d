@@ -4,7 +4,6 @@
 (require 'cl)
 
 (defvar elpa-packages (list 'drag-stuff
-			    'nav
 			    'paredit
 			    'wrap-region)
   "Libraries that are installed from ELPA")
