@@ -8,9 +8,7 @@ echo "remove old slime backup dir $BACKUPDIR"
 rm -r $BACKUPDIR
 echo "backup current slime"
 mv $SLIMEDIR $BACKUPDIR
-echo "create slime dir"
-mkdir $SLIMEDIR
-echo "switch to slime dir"
-cd $SLIMEDIR
+echo "switch to lisp dir"
+cd $LISPDIR
 echo "exporting new slime snapshot"
 cvs -d :pserver:anonymous:anonymous@common-lisp.net:/project/slime/cvsroot export -DNOW slime 
