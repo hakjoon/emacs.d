@@ -6,9 +6,8 @@
 (require 'keys-cfg)
 (require 'minor-modes-cfg)
 (require 'major-modes-cfg)
-(require 'macros)
-(require 'auto-install-cfg)
-
+(require 'defuns)
+(require 'elpa-cfg)
 
 ;; load specific files for different systems
 

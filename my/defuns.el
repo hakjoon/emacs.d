@@ -70,4 +70,10 @@ buffer instead of replacing the text in region."
     (setq ropemacs-confirm-saving 'nil)
     (ropemacs-mode t))
 
-(provide 'macros)
+(defun recompile-init ()
+  "Byte-compile all your dotfiles again."
+  (interactive)
+  (byte-recompile-directory (concat dotfiles-dir "config/") 0)
+  (byte-recompile-directory (concat dotfiles-dir "my/") 0))
+
+(provide 'defuns)
