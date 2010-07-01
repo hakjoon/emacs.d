@@ -4,7 +4,7 @@
 (require 'window-systems)
 (require 'settings-cfg)
 (require 'keys-cfg)
-(require 'elpa-cfg)
+;;(require 'elpa-cfg) ;; Not sure about elpa yet
 (require 'minor-modes-cfg)
 (require 'major-modes-cfg)
 (require 'defuns)
