@@ -32,8 +32,11 @@
   "Minor mode for pseudo-structurally editing Lisp code." t)
 
 ;; Wrap region
-(autoload 'wrap-region-mode
-  "wrap-region" "Region Wrapping Minor Mode" t)
+(autoload 'wrap-region-mode "wrap-region" 
+  "Region Wrapping Minor Mode" t)
+(autoload 'wrap-region-mode-insert-twice "wrap-region" 
+  "wrap region with stuff" t)
+(setq wrap-region-insert-twice t)
 
 ;;=DVC
 (require 'dvc-autoloads)
@@ -66,12 +69,6 @@
 ;; IBuffer
 (global-set-key (kbd "C-x C-b") 'ibuffer-other-window)
 (autoload 'ibuffer "ibuffer" "List buffers." t)
-
-;; wrap-region
-(autoload 'wrap-region-mode "wrap-region" "wrap region with stuff" t)
-(autoload 'wrap-region-mode-insert-twice "wrap-region" "wrap region with stuff" t)
-(setq wrap-region-insert-twice t)
-
 
 ;; multi-occur help
 (require 'aok)
