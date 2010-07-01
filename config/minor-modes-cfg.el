@@ -16,7 +16,8 @@
 (require 'autocomplete-cfg)
 
 ;;=textmate style elemen pairing
-(require 'autopair)
+(autoload 'autopair-global-mode "autopair" 
+  "Automatic pairing of quotes, parenthesis etc" t)
 (autopair-global-mode)
 
 ;;=nav

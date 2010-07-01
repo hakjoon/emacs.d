@@ -4,9 +4,9 @@
 (require 'cl)
 
 (defvar elpa-packages (list 'drag-stuff
-				   'nav
-				   'paredit
-				   'wrap-region)
+			    'nav
+			    'paredit
+			    'wrap-region)
   "Libraries that are installed from ELPA")
 
 (defun elpa-install ()
