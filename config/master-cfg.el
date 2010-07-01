@@ -4,10 +4,11 @@
 (require 'window-systems)
 (require 'settings-cfg)
 (require 'keys-cfg)
+(require 'elpa-cfg)
 (require 'minor-modes-cfg)
 (require 'major-modes-cfg)
 (require 'defuns)
-(require 'elpa-cfg)
+
 
 ;; load specific files for different systems
 
