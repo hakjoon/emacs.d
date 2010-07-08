@@ -39,6 +39,7 @@
 	  (function (lambda ()
 		      (flymake-css-load)
 		      (setq imenu-generic-expression css-imenu-generic-expression)
+		      (local-set-key (kbd "RET") 'newline-and-indent)
 		      (imenu-add-to-menubar "CSS Sections"))))
 
 ;; Python Mode 
