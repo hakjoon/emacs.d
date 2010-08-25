@@ -23,7 +23,7 @@
 		      (local-set-key "\C-cb" 'js-send-buffer)
 		      (local-set-key "\C-c\C-b" 'js-send-buffer-and-go)
 		      (local-set-key "\C-cl" 'js-load-file-and-go)
-		      (textmate-mode 1)
+		      ;(textmate-mode 1)	
 		      (flymake-jslint-load))))
 
 
