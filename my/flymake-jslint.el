@@ -9,7 +9,7 @@
 		      temp-file
 		      (file-name-directory buffer-file-name)))
 	 (conf-file (expand-file-name "~/.emacs.d/support-apps/jsl/jsl.conf")))
-    (list "jsl" (list "-conf" conf-file "-process" local-file))))
+    (list (expand-file-name "~/.emacs.d/support-apps/jsl/jsl") (list "-conf" conf-file "-process" local-file))))
 
 (defun flymake-jslint-load ()
   (interactive)
