@@ -58,10 +58,10 @@
 		      (imenu-add-to-menubar "PHP-Browser"))))
 
 
-;; Slime
-(if (W32)
-    (setq inferior-lisp-program "e:/ccl/wx86cl64.exe")
-  (setq inferior-lisp-program "/opt/local/bin/ccl"))
+;; Slime Clojure only for now
+(setq inferior-lisp-program "~/code/programming-clojure/bin/repl-il.sh")
+
+
 
 (require 'slime-autoloads)
 (slime-setup '(slime-repl slime-editing-commands))
