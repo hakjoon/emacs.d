@@ -57,6 +57,12 @@
 	  (function (lambda ()
 		      (imenu-add-to-menubar "PHP-Browser"))))
 
+;; Quack (scheme)
+(require 'quack)
+(setq quack-global-menu-p nil)
+(setq quack-dir "~/.emacs.d/.quack")
+(add-to-list 'auto-mode-alist '("\\.rkt" . scheme-mode))
+
 
 ;; Slime Clojure only for now
 (setq inferior-lisp-program "~/code/programming-clojure/bin/repl-il.sh")
