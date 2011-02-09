@@ -48,14 +48,14 @@
 ;; Turn on just rectangle functions
 (setq cua-enable-cua-keys nil)
 (setq cua-toggle-set-mark nil)
-(cua-mode t)
+;;(cua-mode t)
 
 ;;== Delete selection mode
 (delete-selection-mode t)
 
 ;;== Multi-select mode
-(autoload 'multi-select-mode "multi-select" "Multi selection mode" t)
-(multi-select-mode t)
+;;(autoload 'multi-select-mode "multi-select" "Multi selection mode" t)
+;;(multi-select-mode t)
 
 ;;== iedit
 (autoload 'iedit-mode "iedit" "Interactive editing mode" t)
@@ -63,14 +63,14 @@
 (define-key isearch-mode-map (kbd "C-;") 'iedit-mode)
 
 ;;== Drag stuff
-(autoload 'drag-stuff-global-mode "drag-stuff" "Interactive keyboard draging global mode" t)
-(drag-stuff-global-mode t)
+;;(autoload 'drag-stuff-global-mode "drag-stuff" "Interactive keyboard draging global mode" t)
+;;(drag-stuff-global-mode t)
 
 ;; IBuffer
 (global-set-key (kbd "C-x C-b") 'ibuffer-other-window)
 (autoload 'ibuffer "ibuffer" "List buffers." t)
 
 ;; multi-occur help
-(require 'aok)
+;;(require 'aok)
 
 (provide 'minor-modes-cfg)
