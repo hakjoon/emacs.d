@@ -10,6 +10,7 @@ ac-comphist.dat
 .dvc/
 .eshell/
 elpa/
+el-get/
 *.orig
 *~
 *.desktop

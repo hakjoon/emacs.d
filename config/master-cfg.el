@@ -6,8 +6,8 @@
 (require 'keys-cfg)
 ;;(require 'elpa-cfg) ;; Not sure about elpa yet
 (require 'minor-modes-cfg)
-(require 'major-modes-cfg)
-(require 'defuns)
+;;(require 'major-modes-cfg)
+;;(require 'defuns)
 
 
 ;; load specific files for different systems
