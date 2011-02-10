@@ -2,8 +2,12 @@
 (server-start)
 
 ;; set .emacs.d folder path
-;;(setq dotfiles-dir (file-name-directory
-;;                    (or (buffer-file-name) load-file-name)))
+(setq dotfiles-dir (file-name-directory
+                    (or (buffer-file-name) load-file-name)))
+(setq config-dir (expand-file-name 
+		  (concat dotfiles-dir "config/")))
+(setq my-dir (expand-file-name 
+		  (concat dotfiles-dir "my/")))
 
 ;; Search subdirectories of dotfiles-dir for .el files
 ;;(if (fboundp 'normal-top-level-add-subdirs-to-load-path)
@@ -23,9 +27,9 @@
 (put 'upcase-region 'disabled nil)
  
 (setq exec-path (append exec-path '("/usr/local/bin")))
-(add-to-list 'load-path (expand-file-name "~/.emacs.d/el-get/el-get/"))
-(add-to-list 'load-path (expand-file-name "~/.emacs.d/config/"))
-(add-to-list 'load-path (expand-file-name "~/.emacs.d/my/"))
+(add-to-list 'load-path (expand-file-name (concat dotfiles-dir "el-get/el-get")))
+(add-to-list 'load-path config-dir)
+(add-to-list 'load-path my-dir)
 ;; So the idea is that you copy/paste this code into your *scratch* buffer,
 ;; hit C-j, and you have a working el-get.
 (if (require 'el-get nil t)
@@ -37,7 +41,7 @@
      (eval-print-last-sexp))))
 
 (setq el-get-sources 
-      '(el-get color-theme paredit auto-complete yasnippet
+      '(el-get color-theme paredit python-mode
 	       (:name color-theme-blackboard
 		      :type http
 		      :url "http://github.com/technomancy/emacs-starter-kit/raw/master/elpa-to-submit/blackboard.el"
@@ -46,7 +50,20 @@
 	       (:name ibuffer
 		      :type git
 		      :url "https://github.com/emacsmirror/ibuffer.git"
-		      :after (lambda () (global-set-key (kbd "C-x C-b") 'ibuffer-other-window)))))
+		      :after (lambda () (global-set-key (kbd "C-x C-b") 'ibuffer-other-window)))
+	       (:name yasnippet
+		      :after (lambda ()
+			       (require 'yasnippet-cfg)))
+	       (:name auto-complete
+		      :after (lambda () 
+			       (require 'autocomplete-cfg)))
+	       (:name autopair
+		      :after (lambda ()
+			       (autopair-global-mode)))
+	       (:name quack
+		      :after (lambda ()
+			       (setq quack-global-menu-p nil)
+			       (add-to-list 'auto-mode-alist '("\\.rkt" . scheme-mode))))))
 
 (el-get 'sync)
 

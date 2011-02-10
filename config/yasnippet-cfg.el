@@ -1,10 +1,7 @@
 ;; Yasnippet Config
 
-(require 'yasnippet)
-(yas/initialize)
-(setq yas/root-directory '("~/.emacs.d/my/snippets"
-			  "~/.emacs.d/vendor/yasnippet-0.6.1c/snippets"))
-
+(yas/initialize) 
+(setq yas/root-directory (list (concat my-dir "snippets") (concat el-get-dir "yasnippet/snippets")))
 (mapc 'yas/load-directory yas/root-directory)
 
 

@@ -1,8 +1,8 @@
 ;; Auto Complete mode config
 
-(add-to-list 'load-path "~/.emacs.d/vendor/auto-complete")
+;;(add-to-list 'load-path "~/.emacs.d/vendor/auto-complete")
 (require 'auto-complete-config)
-(add-to-list 'ac-dictionary-directories "~/.emacs.d/vendor/auto-complete/ac-dict")
+(add-to-list 'ac-dictionary-directories (concat el-get-dir "auto-complete/ac-dict"))
 (ac-config-default)
 
 ;; config
