@@ -50,7 +50,11 @@
 	       (:name ibuffer
 		      :type git
 		      :url "https://github.com/emacsmirror/ibuffer.git"
-		      :after (lambda () (global-set-key (kbd "C-x C-b") 'ibuffer-other-window)))
+		      :features "ibuffer" 
+		      :after (lambda () 
+			       (setq ibuffer-use-other-window t)
+			       (setq ibuffer-shrink-to-minimum-size t)
+			       (global-set-key (kbd "C-x C-b") 'ibuffer)))
 	       (:name yasnippet
 		      :after (lambda ()
 			       (require 'yasnippet-cfg)))
