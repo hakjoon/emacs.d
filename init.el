@@ -41,10 +41,10 @@
      (eval-print-last-sexp))))
 
 (setq el-get-sources 
-      '(el-get color-theme paredit python-mode
+      '(el-get color-theme paredit python-mode wrap-region clojure-mode ;slime
 	       (:name color-theme-blackboard
 		      :type http
-		      :url "http://github.com/technomancy/emacs-starter-kit/raw/master/elpa-to-submit/blackboard.el"
+		      :url "https://github.com/hakjoon/emacs-starter-kit/raw/master/elpa-to-submit/blackboard.el"
 		      :load "blackboard.el"
 		      :after (lambda () (color-theme-blackboard)))
 	       (:name ibuffer
@@ -67,7 +67,13 @@
 	       (:name quack
 		      :after (lambda ()
 			       (setq quack-global-menu-p nil)
-			       (add-to-list 'auto-mode-alist '("\\.rkt" . scheme-mode))))))
+			       (add-to-list 'auto-mode-alist '("\\.rkt" . scheme-mode))))
+	       (:name slime
+		      :type git
+		      :info "doc"
+		      :url "https://github.com/emacsmirror/slime.git"
+		      :load-path ("." "contrib")
+		      :compile ("."))))
 
 (el-get 'sync)
 
