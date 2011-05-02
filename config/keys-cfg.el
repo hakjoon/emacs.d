@@ -6,10 +6,6 @@
 ;; Cycle buffers with ctrl-tab
 (global-set-key [C-tab] 'ido-switch-buffer)
 
-
-;; Set C-x C-b to open buffer-menu instead of buffer-list
-(global-set-key (kbd "C-x C-b") 'buffer-menu)
-
 ;;(eval-after-load 'ruby-mode '(define-key ruby-mode-map ... ))
 
 
