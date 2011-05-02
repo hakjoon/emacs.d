@@ -63,15 +63,16 @@
 			       (require 'autocomplete-cfg)))
 	       (:name autopair
 		      :after (lambda ()
+			       (add-hook 'sldb-mode-hook #'(lambda () (setq autopair-dont-activate t)))
 			       (autopair-global-mode)))
 	       (:name quack
 		      :after (lambda ()
 			       (setq quack-global-menu-p nil)
 			       (add-to-list 'auto-mode-alist '("\\.rkt" . scheme-mode))))
-	       (:name slime
+	       (:name slime-clojure
 		      :type git
 		      :info "doc"
-		      :url "https://github.com/emacsmirror/slime.git"
+		      :url "https://github.com/technomancy/slime.git"
 		      :load-path ("." "contrib")
 		      :compile ("."))))
 

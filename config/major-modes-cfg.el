@@ -68,9 +68,8 @@
 ;;(setq inferior-lisp-program "~/code/programming-clojure/bin/repl-il.sh")
 
 
-
-;; (require 'slime-autoloads)
-;; (slime-setup '(slime-repl slime-editing-commands))
+ (require 'slime-autoloads)
+ (slime-setup '(slime-repl))
 
 
 (provide 'major-modes-cfg)
