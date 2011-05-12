@@ -1,4 +1,11 @@
 ;; server
+(require 'server)
+ (when (and (= emacs-major-version 23)
+           ;;(= emacs-minor-version 1)
+            (equal window-system 'w32))
+   (defun server-ensure-safe-dir (dir) "Noop" t)) ; Suppress error "directory
+                                                  ; ~/.emacs.d/server is unsafe"
+                                                  ; on windows.
 (server-start)
 
 ;; set .emacs.d folder path
@@ -40,8 +47,17 @@
      (end-of-buffer)
      (eval-print-last-sexp))))
 
+
 (setq el-get-sources 
-      '(el-get color-theme paredit python-mode wrap-region clojure-mode ;slime
+      '(el-get paredit wrap-region clojure-mode ;slime
+      		(:name color-theme
+      		       :type git
+      		       :url "https://github.com/emacsmirror/color-theme.git"
+      		       :load "color-theme.el"
+      		       :features "color-theme"
+      		       :post-init (lambda ()
+      				    (color-theme-initialize)
+		    (setq color-theme-is-global t)))
 	       (:name color-theme-blackboard
 		      :type http
 		      :url "https://github.com/hakjoon/emacs-starter-kit/raw/master/elpa-to-submit/blackboard.el"
@@ -69,6 +85,16 @@
 		      :after (lambda ()
 			       (setq quack-global-menu-p nil)
 			       (add-to-list 'auto-mode-alist '("\\.rkt" . scheme-mode))))
+		(:name python-mode
+		       :type git
+		       :url "https://github.com/emacsmirror/python-mode.git"
+		       :features (python-mode doctest-mode)
+		       :compile nil
+		       :post-init (lambda ()
+				    (add-to-list 'auto-mode-alist '("\\.py$" . python-mode))
+				    (add-to-list 'interpreter-mode-alist '("python" . python-mode))
+		    (autoload 'python-mode "python-mode" "Python editing mode." t)))
+		
 	       (:name slime-clojure
 		      :type git
 		      :info "doc"
