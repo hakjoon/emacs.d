@@ -1,0 +1,1 @@
+(:name color-theme :type git :url "https://github.com/emacsmirror/color-theme.git" :load "color-theme.el" :features "color-theme" :post-init (lambda nil (color-theme-initialize) (setq color-theme-is-global t)))

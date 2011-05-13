@@ -1,0 +1,1 @@
+(:name yasnippet :after (lambda nil (require (quote yasnippet-cfg))))

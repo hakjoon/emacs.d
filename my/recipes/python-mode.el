@@ -1,0 +1,1 @@
+(:name python-mode :type git :url "https://github.com/emacsmirror/python-mode.git" :features (python-mode doctest-mode) :compile nil :post-init (lambda nil (add-to-list (quote auto-mode-alist) (quote ("\\.py$" . python-mode))) (add-to-list (quote interpreter-mode-alist) (quote ("python" . python-mode))) (autoload (quote python-mode) "python-mode" "Python editing mode." t)))

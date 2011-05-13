@@ -1,0 +1,1 @@
+(:name auto-complete :after (lambda nil (require (quote autocomplete-cfg))))

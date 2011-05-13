@@ -1,0 +1,1 @@
+(:name slime-clojure :type git :info "doc" :url "https://github.com/technomancy/slime.git" :load-path ("." "contrib") :compile ("."))

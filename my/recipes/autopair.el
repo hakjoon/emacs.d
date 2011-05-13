@@ -1,0 +1,1 @@
+(:name autopair :after (lambda nil (add-hook (quote sldb-mode-hook) (function (lambda nil (setq autopair-dont-activate t)))) (autopair-global-mode)))
