@@ -1,9 +1,9 @@
 ;; server
 (require 'server)
-(when (and (= emacs-major-version 23)
+ (when (and (= emacs-major-version 23)
            ;;(= emacs-minor-version 1)
-	   (equal window-system 'w32))
-  (defun server-ensure-safe-dir (dir) "Noop" t)) ; Suppress error "directory
+            (equal window-system 'w32))
+   (defun server-ensure-safe-dir (dir) "Noop" t)) ; Suppress error "directory
                                                   ; ~/.emacs.d/server is unsafe"
                                                   ; on windows.
 (server-start)
@@ -37,7 +37,6 @@
 (add-to-list 'load-path (expand-file-name (concat dotfiles-dir "el-get/el-get")))
 (add-to-list 'load-path config-dir)
 (add-to-list 'load-path my-dir)
-
 ;; So the idea is that you copy/paste this code into your *scratch* buffer,
 ;; hit C-j, and you have a working el-get.
 (if (require 'el-get nil t)
@@ -48,23 +47,60 @@
      (end-of-buffer)
      (eval-print-last-sexp))))
 
-(require 'el-get)
-(add-to-list 'el-get-recipe-path  (expand-file-name (concat my-dir "recipes")))
 
 (setq el-get-sources 
-      '(el-get 
-	paredit 
-	wrap-region 
-	clojure-mode 
-	color-theme 
-	color-theme-blackboard 
-	ibuffer yasnippet 
-	auto-complete 
-	autopair 
-	quack 
-	python-mode 
-	slime-clojure))
-	       
+      '(el-get paredit wrap-region clojure-mode ;slime
+      		(:name color-theme
+      		       :type git
+      		       :url "https://github.com/emacsmirror/color-theme.git"
+      		       :load "color-theme.el"
+      		       :features "color-theme"
+      		       :post-init (lambda ()
+      				    (color-theme-initialize)
+		    (setq color-theme-is-global t)))
+	       (:name color-theme-blackboard
+		      :type http
+		      :url "https://github.com/hakjoon/emacs-starter-kit/raw/master/elpa-to-submit/blackboard.el"
+		      :load "blackboard.el"
+		      :after (lambda () (color-theme-blackboard)))
+	       (:name ibuffer
+		      :type git
+		      :url "https://github.com/emacsmirror/ibuffer.git"
+		      :features "ibuffer" 
+		      :after (lambda () 
+			       (setq ibuffer-use-other-window t)
+			       (setq ibuffer-shrink-to-minimum-size t)
+			       (global-set-key (kbd "C-x C-b") 'ibuffer)))
+	       (:name yasnippet
+		      :after (lambda ()
+			       (require 'yasnippet-cfg)))
+	       (:name auto-complete
+		      :after (lambda () 
+			       (require 'autocomplete-cfg)))
+	       (:name autopair
+		      :after (lambda ()
+			       (add-hook 'sldb-mode-hook #'(lambda () (setq autopair-dont-activate t)))
+			       (autopair-global-mode)))
+	       (:name quack
+		      :after (lambda ()
+			       (setq quack-global-menu-p nil)
+			       (add-to-list 'auto-mode-alist '("\\.rkt" . scheme-mode))))
+		(:name python-mode
+		       :type git
+		       :url "https://github.com/emacsmirror/python-mode.git"
+		       :features (python-mode doctest-mode)
+		       :compile nil
+		       :post-init (lambda ()
+				    (add-to-list 'auto-mode-alist '("\\.py$" . python-mode))
+				    (add-to-list 'interpreter-mode-alist '("python" . python-mode))
+		    (autoload 'python-mode "python-mode" "Python editing mode." t)))
+		
+	       (:name slime-clojure
+		      :type git
+		      :info "doc"
+		      :url "https://github.com/technomancy/slime.git"
+		      :load-path ("." "contrib")
+		      :compile ("."))))
 
 (el-get 'sync)
 

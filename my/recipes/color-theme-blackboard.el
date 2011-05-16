@@ -1,1 +1,0 @@
-(:name color-theme-blackboard :type http :url "https://github.com/hakjoon/emacs-starter-kit/raw/master/elpa-to-submit/blackboard.el" :load "blackboard.el" :after (lambda nil (color-theme-blackboard)))

@@ -1,1 +1,0 @@
-(:name quack :after (lambda nil (setq quack-global-menu-p nil) (add-to-list (quote auto-mode-alist) (quote ("\\.rkt" . scheme-mode)))))
