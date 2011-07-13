@@ -14,7 +14,7 @@
 
 (setq ac-modes
       (append ac-modes
-	      '(js-mode nxml-mode)))
+	      '(js-mode nxml-mode scss-mode)))
 
 ;; Common sources
 ;;(set-default 'ac-sources '(ac-source-yasnippet ac-source-abbrev ac-source-words-in-buffer))

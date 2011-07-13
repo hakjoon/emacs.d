@@ -93,7 +93,15 @@
 		       :post-init (lambda ()
 				    (add-to-list 'auto-mode-alist '("\\.py$" . python-mode))
 				    (add-to-list 'interpreter-mode-alist '("python" . python-mode))
-		    (autoload 'python-mode "python-mode" "Python editing mode." t)))
+				    (autoload 'python-mode "python-mode" "Python editing mode." t)))
+		(:name scss-mode
+		       :type git
+		       :url "https://github.com/antonj/scss-mode.git"
+		       :features "scss-mode"
+		       :post-init (lambda ()
+				(autoload 'scss-mode "scss-mode")
+				(add-to-list 'auto-mode-alist '("\\.scss\\'" . scss-mode))
+				(setq scss-compile-at-save nil)))
 		
 	       (:name slime-clojure
 		      :type git
@@ -102,7 +110,7 @@
 		      :load-path ("." "contrib")
 		      :compile ("."))))
 
-(el-get 'sync)
+(el-get 'wait)
 
 ;; configuration stuff
 (require 'master-cfg)
