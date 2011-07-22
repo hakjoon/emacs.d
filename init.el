@@ -108,7 +108,11 @@
 		      :info "doc"
 		      :url "https://github.com/technomancy/slime.git"
 		      :load-path ("." "contrib")
-		      :compile ("."))))
+		      :compile ("."))
+	       (:name smartatbs
+		      :type git
+		      :url "git://gist.github.com/1095663.git"
+		      :features "smarttabs")))
 
 (el-get 'wait)
 
