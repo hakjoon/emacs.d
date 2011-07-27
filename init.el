@@ -57,7 +57,7 @@
       		       :features "color-theme"
       		       :post-init (lambda ()
       				    (color-theme-initialize)
-		    (setq color-theme-is-global t)))
+				    (setq color-theme-is-global t)))
 	       (:name color-theme-blackboard
 		      :type http
 		      :url "https://github.com/hakjoon/emacs-starter-kit/raw/master/elpa-to-submit/blackboard.el"
@@ -109,12 +109,12 @@
 		      :url "https://github.com/technomancy/slime.git"
 		      :load-path ("." "contrib")
 		      :compile ("."))
-	       (:name smartatbs
+	       (:name smarttabs
 		      :type git
 		      :url "git://gist.github.com/1095663.git"
 		      :features "smarttabs")))
 
-(el-get 'wait)
+(el-get 'sync)
 
 ;; configuration stuff
 (require 'master-cfg)
