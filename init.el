@@ -49,7 +49,7 @@
 
 
 (setq el-get-sources 
-      '(el-get paredit wrap-region clojure-mode ;slime
+      '(el-get paredit wrap-region clojure-mode nxhtml textile-mode ;slime
       		(:name color-theme
       		       :type git
       		       :url "https://github.com/emacsmirror/color-theme.git"
