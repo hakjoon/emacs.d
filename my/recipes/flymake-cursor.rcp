@@ -1,0 +1,5 @@
+(:name flymake-cursor
+       :description "displays flymake error msg in minibuffer after delay"
+       :type emacswiki
+       :load ("flymake-cursor.el")
+       :features flymake-cursor)

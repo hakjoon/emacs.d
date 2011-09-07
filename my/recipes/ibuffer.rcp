@@ -1,0 +1,9 @@
+(:name ibuffer
+       :description "IBuffer mode"
+       :type git
+       :url "https://github.com/emacsmirror/ibuffer.git"
+       :features "ibuffer" 
+       :after (lambda () 
+		(setq ibuffer-use-other-window t)
+		(setq ibuffer-shrink-to-minimum-size t)
+		(global-set-key (kbd "C-x C-b") 'ibuffer)))

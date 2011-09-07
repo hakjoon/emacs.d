@@ -16,33 +16,21 @@
 (setq my-dir (expand-file-name 
 		  (concat dotfiles-dir "my/")))
 
-;; Search subdirectories of dotfiles-dir for .el files
-;;(if (fboundp 'normal-top-level-add-subdirs-to-load-path)
-;;    (let* ((default-directory dotfiles-dir))
-;;      (setq load-path (cons dotfiles-dir load-path))
-;;      (normal-top-level-add-subdirs-to-load-path)))
-
-;; ELPA
-;;(require 'package)
-;;(package-initialize)
-;;(setq package-user-dir (concat dotfiles-dir "elpa"))
-
-
-
-(setq exec-path (append exec-path '("/usr/local/bin")))
 (add-to-list 'load-path (expand-file-name (concat dotfiles-dir "el-get/el-get")))
 (add-to-list 'load-path config-dir)
 (add-to-list 'load-path my-dir)
+
 ;; So the idea is that you copy/paste this code into your *scratch* buffer,
 ;; hit C-j, and you have a working el-get.
 (if (require 'el-get nil t)
     (message "el-get is already installed, try M-x el-get-update")
   (url-retrieve
-   "https://github.com/dimitri/el-get/raw/master/el-get-install.rcp"
+   "https://github.com/dimitri/el-get/raw/master/el-get-install.el"
    (lambda (s)
      (end-of-buffer)
      (eval-print-last-sexp))))
 
+(add-to-list 'el-get-recipe-path (expand-file-name (concat my-dir "recipes")))
 
 (setq el-get-sources 
       '((:name color-theme
@@ -53,24 +41,6 @@
       		       :post-init (lambda ()
       				    (color-theme-initialize)
 				    (setq color-theme-is-global t)))
-	       (:name color-theme-blackboard
-		      :type http
-		      :url "https://github.com/hakjoon/emacs-starter-kit/raw/master/elpa-to-submit/blackboard.el"
-		      :load "blackboard.el"
-		      :after (lambda () (color-theme-blackboard)))
-	       (:name ibuffer
-		      :type git
-		      :url "https://github.com/emacsmirror/ibuffer.git"
-		      :features "ibuffer" 
-		      :after (lambda () 
-			       (setq ibuffer-use-other-window t)
-			       (setq ibuffer-shrink-to-minimum-size t)
-			       (global-set-key (kbd "C-x C-b") 'ibuffer)))
-	       (:name flymake-cursor
-		      :description "displays flymake error msg in minibuffer after delay"
-		      :type emacswiki
-		      :load ("flymake-cursor.el")
-		      :features flymake-cursor)
 	       (:name yasnippet
 		      :after (lambda ()
 			       (require 'yasnippet-cfg)))
@@ -81,29 +51,28 @@
 		      :after (lambda ()
 			       (add-hook 'sldb-mode-hook #'(lambda () (setq autopair-dont-activate t)))
 			       (autopair-global-mode t)))
+	       (:name color-theme-blackboard
+		      :after (lambda () (color-theme-blackboard)))
 	       (:name quack
 		      :after (lambda ()
 			       (setq quack-global-menu-p nil)
-			       (add-to-list 'auto-mode-alist '("\\.rkt" . scheme-mode))))
-		(:name scss-mode
-		       :type git
-		       :url "https://github.com/antonj/scss-mode.git"
-		       :features "scss-mode"
-		       :post-init (lambda ()
-				(autoload 'scss-mode "scss-mode")
-				(add-to-list 'auto-mode-alist '("\\.scss\\'" . scss-mode))
-				(setq scss-compile-at-save nil)))
-		
-	       (:name slime-clojure
-		      :type git
-		      :info "doc"
-		      :url "https://github.com/technomancy/slime.git"
-		      :load-path ("." "contrib")
-		      :compile ("."))))
+			       (add-to-list 'auto-mode-alist '("\\.rkt" . scheme-mode))))))
 
 (setq my-packages
       (append
-       '(el-get paredit wrap-region clojure-mode nxhtml textile-mode magit smarttabs python-mode) ;slime)
+       '(el-get 
+	 paredit 
+	 wrap-region 
+	 clojure-mode 
+	 nxhtml 
+	 textile-mode 
+	 magit 
+	 smarttabs 
+	 python-mode 
+	 ibuffer 
+	 flymake-cursor 
+	 scss-mode 
+	 slime-clojure)
        (mapcar 'el-get-source-name el-get-sources)))
 
 (el-get 'sync my-packages)
