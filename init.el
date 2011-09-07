@@ -29,10 +29,6 @@
 
 
 
-(put 'narrow-to-region 'disabled nil)
-
-(put 'upcase-region 'disabled nil)
- 
 (setq exec-path (append exec-path '("/usr/local/bin")))
 (add-to-list 'load-path (expand-file-name (concat dotfiles-dir "el-get/el-get")))
 (add-to-list 'load-path config-dir)
@@ -70,6 +66,11 @@
 			       (setq ibuffer-use-other-window t)
 			       (setq ibuffer-shrink-to-minimum-size t)
 			       (global-set-key (kbd "C-x C-b") 'ibuffer)))
+	       (:name flymake-cursor
+		      :description "displays flymake error msg in minibuffer after delay"
+		      :type emacswiki
+		      :load ("flymake-cursor.el")
+		      :features flymake-cursor)
 	       (:name yasnippet
 		      :after (lambda ()
 			       (require 'yasnippet-cfg)))
@@ -79,20 +80,11 @@
 	       (:name autopair
 		      :after (lambda ()
 			       (add-hook 'sldb-mode-hook #'(lambda () (setq autopair-dont-activate t)))
-			       (autopair-global-mode)))
+			       (autopair-global-mode t)))
 	       (:name quack
 		      :after (lambda ()
 			       (setq quack-global-menu-p nil)
 			       (add-to-list 'auto-mode-alist '("\\.rkt" . scheme-mode))))
-		(:name python-mode
-		       :type git
-		       :url "https://github.com/emacsmirror/python-mode.git"
-		       :features (python-mode doctest-mode)
-		       :compile nil
-		       :post-init (lambda ()
-				    (add-to-list 'auto-mode-alist '("\\.py$" . python-mode))
-				    (add-to-list 'interpreter-mode-alist '("python" . python-mode))
-				    (autoload 'python-mode "python-mode" "Python editing mode." t)))
 		(:name scss-mode
 		       :type git
 		       :url "https://github.com/antonj/scss-mode.git"
@@ -107,15 +99,11 @@
 		      :info "doc"
 		      :url "https://github.com/technomancy/slime.git"
 		      :load-path ("." "contrib")
-		      :compile ("."))
-	       (:name smarttabs
-		      :type git
-		      :url "git://gist.github.com/1095663.git"
-		      :features "smarttabs")))
+		      :compile ("."))))
 
 (setq my-packages
       (append
-       '(el-get paredit wrap-region clojure-mode nxhtml textile-mode magit) ;slime)
+       '(el-get paredit wrap-region clojure-mode nxhtml textile-mode magit smarttabs python-mode) ;slime)
        (mapcar 'el-get-source-name el-get-sources)))
 
 (el-get 'sync my-packages)

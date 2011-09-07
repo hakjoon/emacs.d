@@ -15,7 +15,7 @@
 
 ;;=Initial Frame Sizes
 (setq initial-frame-alist '((left . 100) (width . 150)  
-(height . 45)))
+(height . 60)))
 (setq default-frame-alist '((left . 100) (width . 150)  
 (height . 45)))
 

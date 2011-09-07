@@ -1,5 +1,9 @@
 ;; Settings file
 
+
+(put 'narrow-to-region 'disabled nil)
+(put 'upcase-region 'disabled nil)
+
 ;;=Turn off bell
 (setq visible-bell t)
 (setq ring-bell-function 'ignore)
