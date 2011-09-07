@@ -42,15 +42,14 @@
 (if (require 'el-get nil t)
     (message "el-get is already installed, try M-x el-get-update")
   (url-retrieve
-   "https://github.com/dimitri/el-get/raw/master/el-get-install.el"
+   "https://github.com/dimitri/el-get/raw/master/el-get-install.rcp"
    (lambda (s)
      (end-of-buffer)
      (eval-print-last-sexp))))
 
 
 (setq el-get-sources 
-      '(el-get paredit wrap-region clojure-mode nxhtml textile-mode ;slime
-      		(:name color-theme
+      '((:name color-theme
       		       :type git
       		       :url "https://github.com/emacsmirror/color-theme.git"
       		       :load "color-theme.el"
@@ -114,7 +113,12 @@
 		      :url "git://gist.github.com/1095663.git"
 		      :features "smarttabs")))
 
-(el-get 'sync)
+(setq my-packages
+      (append
+       '(el-get paredit wrap-region clojure-mode nxhtml textile-mode magit) ;slime)
+       (mapcar 'el-get-source-name el-get-sources)))
+
+(el-get 'sync my-packages)
 
 ;; configuration stuff
 (require 'master-cfg)
