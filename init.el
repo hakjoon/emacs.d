@@ -72,7 +72,8 @@
 	 ibuffer 
 	 flymake-cursor 
 	 scss-mode 
-	 slime-clojure)
+	 slime-clojure
+	 virtualenv)
        (mapcar 'el-get-source-name el-get-sources)))
 
 (el-get 'sync my-packages)
