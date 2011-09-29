@@ -53,6 +53,13 @@
 			       (autopair-global-mode t)))
 	       (:name color-theme-blackboard
 		      :after (lambda () (color-theme-blackboard)))
+	       (:name deft
+		     :type git
+		     :url "git://jblevins.org/git/deft.git"
+		     :features "deft"
+		     :after (lambda () 
+			      (setq deft-extension "txt") 
+			      (setq deft-directory "~/Dropbox/notes")))
 	       (:name quack
 		      :after (lambda ()
 			       (setq quack-global-menu-p nil)
@@ -64,7 +71,7 @@
 	 paredit 
 	 wrap-region 
 	 clojure-mode 
-	 nxhtml 
+	 ;;nxhtml 
 	 textile-mode 
 	 magit 
 	 smarttabs 
