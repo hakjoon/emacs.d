@@ -20,6 +20,12 @@
 (add-to-list 'load-path config-dir)
 (add-to-list 'load-path my-dir)
 
+(require 'window-systems)
+
+(if (OSX) 
+    (setq exec-path (cons "/usr/local/bin" exec-path)))
+
+
 ;; So the idea is that you copy/paste this code into your *scratch* buffer,
 ;; hit C-j, and you have a working el-get.
 (if (require 'el-get nil t)
@@ -33,37 +39,30 @@
 (add-to-list 'el-get-recipe-path (expand-file-name (concat my-dir "recipes")))
 
 (setq el-get-sources 
-      '((:name color-theme
-      		       :type git
-      		       :url "https://github.com/emacsmirror/color-theme.git"
-      		       :load "color-theme.el"
-      		       :features "color-theme"
-      		       :post-init (lambda ()
-      				    (color-theme-initialize)
-				    (setq color-theme-is-global t)))
-	       (:name yasnippet
-		      :after (lambda ()
-			       (require 'yasnippet-cfg)))
-	       (:name auto-complete
-		      :after (lambda () 
-			       (require 'autocomplete-cfg)))
-	       (:name autopair
-		      :after (lambda ()
-			       (add-hook 'sldb-mode-hook #'(lambda () (setq autopair-dont-activate t)))
-			       (autopair-global-mode t)))
-	       (:name color-theme-blackboard
-		      :after (lambda () (color-theme-blackboard)))
-	       (:name deft
-		     :type git
-		     :url "git://jblevins.org/git/deft.git"
-		     :features "deft"
-		     :after (lambda () 
-			      (setq deft-extension "txt") 
-			      (setq deft-directory "~/Dropbox/notes")))
-	       (:name quack
-		      :after (lambda ()
-			       (setq quack-global-menu-p nil)
-			       (add-to-list 'auto-mode-alist '("\\.rkt" . scheme-mode))))))
+      '((:name yasnippet
+	       :after (lambda ()
+			(require 'yasnippet-cfg)))
+	(:name auto-complete
+	       :after (lambda () 
+			(require 'autocomplete-cfg)))
+	(:name autopair
+	       :after (lambda ()
+			(add-hook 'sldb-mode-hook #'(lambda () (setq autopair-dont-activate t)))
+			(autopair-global-mode t)))
+	;; (:name color-theme-blackboard
+	;; 	      :after (lambda () (color-theme-blackboard)))
+	
+	;; (:name quack
+	;; 	      :after (lambda ()
+	;; 		       (setq quack-global-menu-p nil)
+	;; 		       (add-to-list 'auto-mode-alist '("\\.rkt" . scheme-mode))))
+	(:name anything
+	       :after (lambda () 
+			(require 'anything-match-plugin)
+			(require 'anything-config)
+			(require 'anything-complete)
+			(require 'anything-show-completion)))
+	))
 
 (setq my-packages
       (append
@@ -73,13 +72,17 @@
 	 clojure-mode 
 	 ;;nxhtml 
 	 textile-mode 
-	 magit 
+	 ;;magit 
 	 smarttabs 
 	 python-mode 
 	 ibuffer 
 	 flymake-cursor 
 	 scss-mode 
 	 slime-clojure
+	 ipython
+;;	 anything-ipython
+	 color-theme
+	 color-theme-blackboard
 	 virtualenv)
        (mapcar 'el-get-source-name el-get-sources)))
 

@@ -1,0 +1,9 @@
+(:name ipython
+       :description "Adds support for IPython to python-mode.el"
+       :type http
+       :url "https://raw.github.com/ipython/ipython/master/docs/emacs/ipython.el"
+       :features ipython
+       :depends "python-mode"
+       :post-init (lambda ()
+		    (setq py-default-interpreter "ipython")
+		    (setq py-python-command "ipython")))

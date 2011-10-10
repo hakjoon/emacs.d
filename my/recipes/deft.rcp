@@ -1,0 +1,7 @@
+(:name deft
+       :type git
+       :url "git://jblevins.org/git/deft.git"
+       :features "deft"
+       :after (lambda () 
+		(setq deft-extension "txt") 
+		(setq deft-directory "~/Dropbox/notes")))
