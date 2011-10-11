@@ -6,7 +6,7 @@
 (color-theme-blackboard)
 
 ;;=Tramp default
-(setq tramp-default-method 'plinkx)
+(setq tramp-default-method 'plink)
 
 ;; Am I on a work windows machine?
 (defun at-work-p ()
@@ -25,5 +25,4 @@
 	   (require 'compress)))
 
 (provide 'win32-cfg)
-
 
