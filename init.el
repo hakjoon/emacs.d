@@ -49,6 +49,13 @@
 	       :after (lambda ()
 			(add-hook 'sldb-mode-hook #'(lambda () (setq autopair-dont-activate t)))
 			(autopair-global-mode t)))
+	(:name smex
+	       :after (lambda ()
+			(smex-initialize)
+			(global-set-key (kbd "M-x") 'smex)
+			(global-set-key (kbd "M-X") 'smex-major-mode-commands)
+			;; This is your old M-x.
+			(global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)))
 	;; (:name color-theme-blackboard
 	;; 	      :after (lambda () (color-theme-blackboard)))
 	
@@ -73,7 +80,7 @@
 	 ;;nxhtml 
 	 textile-mode 
 	 ;;magit 
-	 smarttabs 
+	 smarttabs
 	 python-mode 
 	 ibuffer 
 	 flymake-cursor 
