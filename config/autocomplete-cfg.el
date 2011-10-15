@@ -34,6 +34,9 @@
   	  (lambda()
  	    (setq ac-sources '(ac-source-symbols ac-emacs-lisp-sources ac-source-yasnippet ac-source-words-in-buffer))))
 
-
+;; (ac-ropemacs-initialize)
+;; (add-hook 'python-mode-hook
+;;           (lambda ()
+;; 	    (add-to-list 'ac-sources 'ac-source-ropemacs)))
 
 (provide 'autocomplete-cfg)
