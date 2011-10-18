@@ -9,6 +9,13 @@
 (set-face-background 'ac-selection-face "steelblue")
 (set-face-background 'ac-candidate-face "white")
 
+(defvar ac-source-etags
+  '((candidates . (lambda () 
+         (all-completions ac-target (tags-completion-table))))
+    (candidate-face . ac-candidate-face)
+    (selection-face . ac-selection-face)
+    (requires . 3))
+  "Source for etags.")
 
 ;; ;;Additional modes
 
@@ -34,9 +41,9 @@
   	  (lambda()
  	    (setq ac-sources '(ac-source-symbols ac-emacs-lisp-sources ac-source-yasnippet ac-source-words-in-buffer))))
 
-;; (ac-ropemacs-initialize)
-;; (add-hook 'python-mode-hook
-;;           (lambda ()
-;; 	    (add-to-list 'ac-sources 'ac-source-ropemacs)))
+;;(ac-ropemacs-initialize)
+(add-hook 'python-mode-hook
+          (lambda ()
+	    (add-to-list 'ac-sources 'ac-source-etags)))
 
 (provide 'autocomplete-cfg)
