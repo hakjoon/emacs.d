@@ -74,6 +74,10 @@
 	;; 	      :after (lambda ()
 	;; 		       (setq quack-global-menu-p nil)
 	;; 		       (add-to-list 'auto-mode-alist '("\\.rkt" . scheme-mode))))
+	(:name python-mode
+		   :after (lambda ()
+					(add-hook 'python-mode-hook 
+							  #'(lambda () (setq indent-tabs-mode nil)))))
 	(:name anything
 	       :after (lambda () 
 			(require 'anything-match-plugin)
