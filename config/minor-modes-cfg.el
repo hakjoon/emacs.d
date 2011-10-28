@@ -21,4 +21,7 @@
 ;;== Delete selection mode
 (delete-selection-mode t)
 
+(setq ibuffer-use-other-window t)
+(global-set-key (kbd "C-x C-b") 'ibuffer)
+
 (provide 'minor-modes-cfg)

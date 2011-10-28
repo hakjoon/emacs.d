@@ -1,0 +1,3 @@
+(:name python
+       :description "Python's flying circus support for Emacs"
+       :type elpa)

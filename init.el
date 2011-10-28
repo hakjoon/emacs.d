@@ -25,6 +25,11 @@
 (if (OSX) 
     (setq exec-path (cons "/usr/local/bin" exec-path)))
 
+(setq
+ package-archives
+ '(("marmalade" . "http://marmalade-repo.org/packages/")
+   ("gnu" . "http://elpa.gnu.org/packages/")
+   ("ELPA" . "http://tromey.com/elpa/")))
 
 ;; So the idea is that you copy/paste this code into your *scratch* buffer,
 ;; hit C-j, and you have a working el-get.
@@ -56,9 +61,9 @@
 			(global-set-key (kbd "M-X") 'smex-major-mode-commands)
 			;; This is your old M-x.
 			(global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)))
-	;; (:name ropemacs
-	;;        :after (lambda ()
-	;; 		(require 'ropemacs-cfg)))
+	(:name ropemacs
+	       :after (lambda ()
+			(require 'ropemacs-cfg)))
 	;; (:name color-theme-blackboard
 	;; 	      :after (lambda () (color-theme-blackboard)))
 	
@@ -84,16 +89,18 @@
 	 textile-mode 
 	 ;;magit 
 	 smarttabs
-;;	 python-mode 
-	 pony-mode
-	 ibuffer 
+	 python
+;;	 pony-mode
+;;	 ibuffer 
 	 flymake-cursor 
-	 scss-mode 
-	 slime-clojure
+	 scss-mode
+;;	 python
+;;	 slime-clojure
 ;;	 ipython
 ;;	 anything-ipython
 	 color-theme
 	 color-theme-blackboard
+;;	 slime
 	 virtualenv)
        (mapcar 'el-get-source-name el-get-sources)))
 

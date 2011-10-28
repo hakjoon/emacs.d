@@ -1,7 +1,6 @@
 (:name anything-ipython
        :type emacsmirror
        :features "anything-ipython"
-       :depends "python-mode"
        :after (lambda ()
 		(add-hook 'python-mode-hook #'(lambda ()
 						(define-key py-mode-map (kbd "M-/") 'anything-ipython-complete)))

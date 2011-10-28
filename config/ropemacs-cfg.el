@@ -28,9 +28,9 @@
 
 
 
-(eval-after-load 'python-mode 
-  `(progn
-     ;;(setup-ropemacs)
+(eval-after-load 'python
+  '(progn
+     (setup-ropemacs)
      ))
 
 
