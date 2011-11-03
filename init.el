@@ -64,6 +64,9 @@
 	(:name ropemacs
 	       :after (lambda ()
 			(require 'ropemacs-cfg)))
+	(:name python
+	       :after (lambda ()
+			(require 'python-cfg)))
 	;; (:name color-theme-blackboard
 	;; 	      :after (lambda () (color-theme-blackboard)))
 	
@@ -89,7 +92,7 @@
 	 textile-mode 
 	 ;;magit 
 	 smarttabs
-	 python
+;;	 python
 ;;	 pony-mode
 ;;	 ibuffer 
 	 flymake-cursor 
