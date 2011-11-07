@@ -108,6 +108,7 @@
 	 color-theme
 	 color-theme-blackboard
 ;;	 slime
+	 puppet-mode
 	 virtualenv)
        (mapcar 'el-get-source-name el-get-sources)))
 
