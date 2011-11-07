@@ -1,6 +1,6 @@
 ;; server
 (require 'server)
- (when (and (= emacs-major-version 23)
+ (when (and (>= emacs-major-version 23)
            ;;(= emacs-minor-version 1)
             (equal window-system 'w32))
    (defun server-ensure-safe-dir (dir) "Noop" t)) ; Suppress error "directory
