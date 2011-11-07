@@ -39,6 +39,45 @@
     (prefix     . c-dot)
     (requires   . 0)))
 
+;; extended ropemacs
+
+(defun ac-eropemacs-candidates ()
+  (mapcar (lambda (proposal)
+          (destructuring-bind (name doc type) proposal
+            (list (concat ac-prefix name) doc
+                  (if type (substring type 0 1) nil))))
+        (rope-extended-completions)))
+
+(defun ac-nropemacs-setup ()
+  (setq ac-sources (append '(ac-source-nropemacs
+                             ac-source-nropemacs-dot) ac-sources)))
+
+;; extended ropemacs
+
+(defun ac-eropemacs-document (item) (car  item))
+(defun ac-eropemacs-symbol   (item) (cadr item))
+
+(ac-define-source extended-ropemacs
+  '((candidates . ac-eropemacs-candidates)
+    (document   . ac-eropemacs-document)
+    (symbol     . ac-eropemacs-symbol)))
+
+(ac-define-source extended-ropemacs-dot
+  '((candidates . ac-eropemacs-candidates)
+    (document   . ac-eropemacs-document)
+    (symbol     . "r")
+    (prefix     . c-dot)
+    (requires   . 0)))
+
+(defun ac-eropemacs-setup ()
+  (setq ac-sources (append '(ac-source-extended-ropemacs
+                             ac-source-extended-ropemacs-dot) ac-sources)))
+
+(defun ac-ropemacs-setup ()
+  (if (functionp 'rope-extended-completions)
+      (add-hook 'python-mode-hook 'ac-eropemacs-setup)
+    (add-hook 'python-mode-hook 'ac-nropemacs-setup)))
+
 ;; ;;Additional modes
 
 (setq ac-modes
@@ -66,8 +105,9 @@
 ;; Python sources 
 (add-hook 'rope-open-project-hook
 	  (lambda ()
-	    (setq ac-sources (append '(ac-source-nropemacs
-                             ac-source-nropemacs-dot) ac-sources))))
+	    (if (functionp 'rope-extended-completions)
+		(ac-eropemacs-setup)
+	      (ac-nropemacs-setup))))
 
 (add-hook 'python-mode-hook
           (lambda ()
