@@ -5,7 +5,7 @@
   (pymacs-load "ropemacs" "rope-")
   
   ;; Stops from erroring if there's a syntax err
-  (setq ropemacs-codeassist-maxfixes 3)
+  (setq ropemacs-codeassist-maxfixes 7)
   
   ;; Configurations
   (setq ropemacs-guess-project t)
@@ -13,7 +13,7 @@
   
   
   (setq ropemacs-autoimport-modules '("os" "shutil" "sys" "logging"
-				      "django.*"))
+				      "django.*" "fabric.*"))
   
   
   

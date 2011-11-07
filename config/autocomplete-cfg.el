@@ -85,7 +85,7 @@
 	      '(js-mode nxml-mode scss-mode)))
 
 ;; Common sources
-;;(set-default 'ac-sources '(ac-source-yasnippet ac-source-abbrev ac-source-words-in-buffer))
+(set-default 'ac-sources '(ac-source-yasnippet ac-source-abbrev ac-source-words-in-same-mode-buffers ac-source-words-in-buffer))
 
 ;; CSS Sources
 (add-hook 'css-mode-hook
@@ -109,8 +109,8 @@
 		(ac-eropemacs-setup)
 	      (ac-nropemacs-setup))))
 
-(add-hook 'python-mode-hook
-          (lambda ()
-	    (add-to-list 'ac-sources 'ac-source-etags)))
+;; (add-hook 'python-mode-hook
+;;           (lambda ()
+;; 	    (setq ac-sources (append '(ac-source-etags)))))
 
 (provide 'autocomplete-cfg)
