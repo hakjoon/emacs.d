@@ -1,3 +1,4 @@
+(require 'flymake)
 
 ;; Ipython integration with fgallina/python.el
 (defun epy-setup-ipython ()
@@ -12,11 +13,26 @@
    python-shell-completion-string-code "';'.join(__IP.complete('''%s'''))\n")
   )
 
+(defun flymake-python-init ()
+  (let* ((temp-file (flymake-init-create-temp-buffer-copy
+		     'flymake-create-temp-inplace))
+	 (local-file (file-relative-name
+		      temp-file
+		      (file-name-directory buffer-file-name))))
+    (list "python" (list (expand-file-name (concat dotfiles-dir "support-apps/py-flymake/pyflymake.py")) local-file))))
+
+(defun flymake-python-load ()
+  (interactive)
+  (setq flymake-allowed-file-name-masks '(("\\.py\\'" flymake-python-init)))
+  (setq flymake-err-line-patterns
+	(cons '("^\\([^:]+\\):\\([^:]+\\):\\(.+\\)$" 1 2 nil 3) flymake-err-line-patterns))
+  (flymake-mode t))
 
 
 (add-hook 'python-mode-hook
           (lambda ()
 	    (setq indent-tabs-mode nil)
-	    (setq python-indent-offset 4)))
+	    (setq python-indent-offset 4)
+	    (flymake-python-load)))
 
 (provide 'python-cfg)

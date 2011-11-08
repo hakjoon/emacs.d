@@ -1,10 +1,11 @@
 ;;======= Custom set Variables ==
 
 (custom-set-faces
-  ;; custom-set-faces was added by Custom.
-  ;; If you edit it by hand, you could mess it up, so be careful.
-  ;; Your init file should contain only one such instance.
-  ;; If there is more than one, they won't work right.
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(flymake-infoline ((t (:background "gray29"))))
  '(highlight ((((class color) (min-colors 88) (background dark)) (:background "gray12"))))
  '(linum ((t (:inherit (shadow default) :background "grey10"))))
  '(moinmoin-code ((t (:foreground "purple2"))))
@@ -14,10 +15,10 @@
  '(mumamo-background-chunk-submode ((((class color) (min-colors 88) (background dark)) (:background "black1"))))
  '(region ((t (:background "skyblue3" :foreground "white")))))
 (custom-set-variables
-  ;; custom-set-variables was added by Custom.
-  ;; If you edit it by hand, you could mess it up, so be careful.
-  ;; Your init file should contain only one such instance.
-  ;; If there is more than one, they won't work right.
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
  '(blink-cursor-mode nil)
  '(company-idle-delay 0.5)
  '(company-tooltip-delay 0.5)

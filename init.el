@@ -109,6 +109,7 @@
 	 color-theme-blackboard
 ;;	 slime
 	 puppet-mode
+	 flymake-emacs
 	 virtualenv)
        (mapcar 'el-get-source-name el-get-sources)))
 
