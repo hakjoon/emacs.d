@@ -25,4 +25,9 @@
 ;;      "~/elisp/abbrev_defs")    ;; definitions from...
 ;;(setq save-abbrevs t) ;; save abbrevs when files are saved, after prompt
 
+(setq frame-title-format
+      (list (format "%s %%S: %%j " (system-name))
+        '(buffer-file-name "%f" (dired-directory dired-directory "%b"))))
+
+
 (provide 'settings-cfg)
