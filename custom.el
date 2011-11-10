@@ -57,4 +57,5 @@
  '(sql-mysql-program "mysql5")
  '(tool-bar-mode nil)
  '(tramp-persistency-file-name "/Users/hakjoon/.emacs.d/tramp.persist")
- '(transient-mark-mode t))
+ '(transient-mark-mode t)
+ '(uniquify-buffer-name-style (quote post-forward) nil (uniquify)))
