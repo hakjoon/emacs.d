@@ -1,0 +1,4 @@
+(:name ecb
+       :type git
+       :url "https://github.com/emacsmirror/ecb.git"
+       :features ecb)

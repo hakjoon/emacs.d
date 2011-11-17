@@ -61,12 +61,15 @@
 			(global-set-key (kbd "M-X") 'smex-major-mode-commands)
 			;; This is your old M-x.
 			(global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)))
-	(:name ropemacs
-	       :after (lambda ()
-			(require 'ropemacs-cfg)))
 	(:name python
 	       :after (lambda ()
+			(message "python")
 			(require 'python-cfg)))
+	(:name ropemacs
+	       :after (lambda ()
+			(message "ropemacs")
+			(require 'ropemacs-cfg)))
+
 	;; (:name color-theme-blackboard
 	;; 	      :after (lambda () (color-theme-blackboard)))
 	
@@ -96,6 +99,8 @@
 	 textile-mode 
 	 ;;magit 
 	 smarttabs
+	 flymake-info
+	 ecb
 ;;	 python
 ;;	 pony-mode
 ;;	 ibuffer 

@@ -1,0 +1,4 @@
+(:name flymake-info
+       :type git
+       :url "git://gist.github.com/1350281.git"
+       :features  "flymake")
