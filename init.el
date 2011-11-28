@@ -63,11 +63,9 @@
 			(global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)))
 	(:name python
 	       :after (lambda ()
-			(message "python")
 			(require 'python-cfg)))
 	(:name ropemacs
 	       :after (lambda ()
-			(message "ropemacs")
 			(require 'ropemacs-cfg)))
 
 	;; (:name color-theme-blackboard
