@@ -292,7 +292,7 @@ class DefaultConfig(object):
         self.PYCHECKER = False
         self.PEP8 = True
         self.PYFLAKES = True
-        self.IGNORE_CODES = ()
+        self.IGNORE_CODES = ("E501")
         self.USE_SANE_DEFAULTS = True
 
 DEFAULT_CONFIG = dict(
@@ -305,7 +305,7 @@ DEFAULT_CONFIG = dict(
     PYCHECKER=False,
     PEP8=True,
     PYFLAKES=True,
-    IGNORE_CODES=(),
+    IGNORE_CODES=("E501"),
     USE_SANE_DEFAULTS=True)
 
 
