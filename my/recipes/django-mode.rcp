@@ -1,0 +1,4 @@
+(:name django-mode
+       :description "Django mode and snippets for Emacs"
+       :type git
+       :url "https://github.com/myfreeweb/django-mode.git")
