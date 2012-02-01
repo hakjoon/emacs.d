@@ -50,13 +50,19 @@
 	(:name auto-complete
 	       :after (lambda () 
 			(require 'autocomplete-cfg)))
-	(:name enclose
+ 	(:name enclose
+	       :features enclose
 	       :after (lambda ()
 			(add-to-list 'enclose-except-modes 'sldb-mode)
 			(enclose-global-mode t)))
 	(:name wrap-region
+	       :features wrap-region
 	       :after (lambda ()
 			(wrap-region-global-mode t)))
+	(:name drag-stuff
+	       :features drag-stuff
+	       :after (lambda ()
+			(drag-stuff-global-mode t)))
 	
 	(:name smex
 	       :after (lambda ()
@@ -95,7 +101,7 @@
       (append
        '(el-get 
 	 paredit 
-	 wrap-region 
+;;	 wrap-region 
 ;;	 clojure-mode 
 	 ;;nxhtml 
 	 textile-mode 
