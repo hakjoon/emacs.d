@@ -38,5 +38,4 @@
 	    (flymake-python-load)
 ))
 
-(message "locading python-cfg")
 (provide 'python-cfg)
