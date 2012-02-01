@@ -50,10 +50,14 @@
 	(:name auto-complete
 	       :after (lambda () 
 			(require 'autocomplete-cfg)))
-	(:name autopair
+	(:name enclose
 	       :after (lambda ()
-			(add-hook 'sldb-mode-hook #'(lambda () (setq autopair-dont-activate t)))
-			(autopair-global-mode t)))
+			(add-to-list 'enclose-except-modes 'sldb-mode)
+			(enclose-global-mode t)))
+	(:name wrap-region
+	       :after (lambda ()
+			(wrap-region-global-mode t)))
+	
 	(:name smex
 	       :after (lambda ()
 			(smex-initialize)
@@ -79,26 +83,26 @@
 	;; 	   :after (lambda ()
 	;; 				(add-hook 'python-mode-hook 
 	;; 						  #'(lambda () (setq indent-tabs-mode nil)))))
-	(:name anything
-	       :after (lambda () 
-			(require 'anything-match-plugin)
-			(require 'anything-config)
-			(require 'anything-complete)
-			(require 'anything-show-completion)))
-	))
+	;; (:name anything
+	;;        :after (lambda () 
+	;; 		(require 'anything-match-plugin)
+	;; 		(require 'anything-config)
+	;; 		(require 'anything-complete)
+	;; 		(require 'anything-show-completion)))
+	 ))
 
 (setq my-packages
       (append
        '(el-get 
 	 paredit 
 	 wrap-region 
-	 clojure-mode 
+;;	 clojure-mode 
 	 ;;nxhtml 
 	 textile-mode 
 	 ;;magit 
 	 smarttabs
 	 flymake-info
-	 ecb
+;;	 ecb
 ;;	 python
 ;;	 pony-mode
 ;;	 ibuffer 
