@@ -21,4 +21,13 @@
 (global-set-key [(mouse-5)] '(lambda () (interactive) (smooth-scroll 1)))
 (global-set-key [(mouse-4)] '(lambda () (interactive) (smooth-scroll -1)))
 
+(autoload 'dired-jump "dired-x"
+  "Jump to Dired buffer corresponding to current buffer." t)
+
+(autoload 'dired-jump-other-window "dired-x"
+  "Like \\[dired-jump] (dired-jump) but in other window." t)
+
+(global-set-key (kbd "C-x C-j") 'dired-jump)
+(global-set-key (kbd "C-x 4 C-j") 'dired-jump-other-window)
+
 (provide 'keys-cfg)
