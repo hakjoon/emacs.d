@@ -46,19 +46,14 @@
 (setq el-get-sources 
       '((:name yasnippet
 	       :after (lambda ()
-			(require 'yasnippet-cfg)))
+					(require 'yasnippet-cfg)))
 	(:name auto-complete
 	       :after (lambda () 
-			(require 'autocomplete-cfg)))
- 	(:name enclose
-	       :features enclose
+					(require 'autocomplete-cfg)))
+	(:name autopair
 	       :after (lambda ()
-			(add-to-list 'enclose-except-modes 'sldb-mode)
-			(enclose-global-mode t)))
-	(:name wrap-region
-	       :features wrap-region
-	       :after (lambda ()
-			(wrap-region-global-mode t)))
+					(add-hook 'sldb-mode-hook #'(lambda () (setq autopair-dont-activate t)))
+					(autopair-global-mode t)))
 	(:name drag-stuff
 	       :features drag-stuff
 	       :after (lambda ()
@@ -78,6 +73,15 @@
 	       :after (lambda ()
 			(require 'ropemacs-cfg)))
 
+ 	;; (:name enclose
+	;;        :features enclose
+	;;        :after (lambda ()
+	;; 		(add-to-list 'enclose-except-modes 'sldb-mode)
+	;; 		(enclose-global-mode t)))
+	;; (:name wrap-region
+	;;        :features wrap-region
+	;;        :after (lambda ()
+	;; 		(wrap-region-global-mode t)))
 	;; (:name color-theme-blackboard
 	;; 	      :after (lambda () (color-theme-blackboard)))
 	
