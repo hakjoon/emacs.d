@@ -72,6 +72,10 @@
 	(:name ropemacs
 	       :after (lambda ()
 			(require 'ropemacs-cfg)))
+	(:name expand-region
+		   :type elpa
+		   :after (lambda ()
+					(global-set-key (kbd "C-=") 'er/expand-region)))
 
  	;; (:name enclose
 	;;        :features enclose
