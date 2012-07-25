@@ -19,4 +19,8 @@
 (if (Terminal)
     (require 'terminal-cfg))
 
+(set-default buffer-file-coding-system 'utf-8-unix)
+
+(add-hook 'text-mode-hook 'remove-dos-eol)
+
 (provide 'master-cfg)
