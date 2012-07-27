@@ -76,7 +76,8 @@
 		   :type elpa
 		   :after (lambda ()
 					(global-set-key (kbd "C-=") 'er/expand-region)))
-
+	(:name less-css-mode
+		   :type elpa)
  	;; (:name enclose
 	;;        :features enclose
 	;;        :after (lambda ()
