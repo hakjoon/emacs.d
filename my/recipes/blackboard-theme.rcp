@@ -1,0 +1,7 @@
+(:name blackboard-theme
+	   :type git
+	   :url "https://github.com/hakjoon/blackboard-theme.git"
+	   :post-init (lambda ()
+					(add-to-list 'custom-theme-load-path 
+								 (expand-file-name (concat el-get-dir "blackboard-theme")))
+					(load-theme 'blackboard t)))
