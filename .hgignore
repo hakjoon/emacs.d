@@ -16,6 +16,7 @@ el-get/
 *.desktop
 *.lock
 *.backup
+abbrev_defs
 
 syntax: regexp
 ^auto-save-list/

@@ -1,8 +1,7 @@
 ;; Yasnippet Config
 
-(yas/initialize) 
-(setq yas/root-directory (list (concat dotfiles-dir "my/" "snippets") (concat el-get-dir "yasnippet/snippets")))
-(mapc 'yas/load-directory yas/root-directory)
+(setq yas-snippet-dirs (list (concat dotfiles-dir "my/" "snippets") (concat el-get-dir "yasnippet/snippets")))
+(yas-global-mode 1)
 
 
 (provide 'yasnippet-cfg)
