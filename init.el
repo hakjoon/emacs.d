@@ -11,14 +11,13 @@
 ;; set .emacs.d folder path
 (setq dotfiles-dir (file-name-directory
                     (or (buffer-file-name) load-file-name)))
-(setq config-dir (expand-file-name 
-		  (concat dotfiles-dir "config/")))
-(setq my-dir (expand-file-name 
-		  (concat dotfiles-dir "my/")))
 
-(add-to-list 'load-path (expand-file-name (concat dotfiles-dir "el-get/el-get")))
-(add-to-list 'load-path config-dir)
-(add-to-list 'load-path my-dir)
+(defun add-to-load-path (&rest paths)
+  (dolist (path paths)
+	(add-to-list 'load-path (expand-file-name 
+							 (concat dotfiles-dir path "/")))))
+
+(add-to-load-path "el-get/el-get" "config" "my")
 
 (require 'window-systems)
 
@@ -31,17 +30,14 @@
    ("gnu" . "http://elpa.gnu.org/packages/")
    ("ELPA" . "http://tromey.com/elpa/")))
 
-;; So the idea is that you copy/paste this code into your *scratch* buffer,
-;; hit C-j, and you have a working el-get.
-(if (require 'el-get nil t)
-    (message "el-get is already installed, try M-x el-get-update")
+(unless (require 'el-get nil t)
   (url-retrieve
-   "https://github.com/dimitri/el-get/raw/master/el-get-install.el"
+   "https://raw.github.com/dimitri/el-get/master/el-get-install.el"
    (lambda (s)
-     (end-of-buffer)
+     (goto-char (point-max))
      (eval-print-last-sexp))))
 
-(add-to-list 'el-get-recipe-path (expand-file-name (concat my-dir "recipes")))
+(add-to-list 'el-get-recipe-path (expand-file-name (concat dotfiles-dir "my/" "recipes")))
 
 (setq el-get-sources 
       '((:name yasnippet
