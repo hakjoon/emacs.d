@@ -1,10 +1,5 @@
 ;; Mac specific options
 
-;; Color-theme
-;;(require 'color-theme-blackboard)
-;;(load "blackboard")
-;;(color-theme-blackboard)
-
 (setq ns-function-modifier (quote control))
 
 ;;Add Macports directory to exec-path

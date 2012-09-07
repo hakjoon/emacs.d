@@ -5,6 +5,8 @@
 (load "blackboard")
 (color-theme-blackboard)
 
+(set-default buffer-file-coding-system 'utf-8-unix)
+
 ;;=Tramp default
 (setq tramp-default-method 'plink)
 

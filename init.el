@@ -127,10 +127,11 @@
 ;;	 slime-clojure
 ;;	 ipython
 ;;	 anything-ipython
-	 color-theme
-	 color-theme-blackboard
+;;	 color-theme
+;;	 color-theme-blackboard
 ;;	 slime
 	 puppet-mode
+	 blackboard-theme
 	 virtualenv)
        (mapcar 'el-get-source-name el-get-sources)))
 
