@@ -17,6 +17,7 @@ el-get/
 *.lock
 *.backup
 abbrev_defs
+url/cookies
 
 syntax: regexp
 ^auto-save-list/

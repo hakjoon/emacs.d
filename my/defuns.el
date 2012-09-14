@@ -50,30 +50,20 @@ buffer instead of replacing the text in region."
           (shell-command-on-region p m command t t)
         (shell-command-on-region p m command)))))
 
-    (defadvice kill-ring-save (before slick-copy activate compile)
-      "When called interactively with no active region, copy a single line instead."
-      (interactive
-       (if mark-active (list (region-beginning) (region-end))
-         (message "Copied line")
-         (list (line-beginning-position)
-               (line-end-position)))))
+(defadvice kill-ring-save (before slick-copy activate compile)
+  "When called interactively with no active region, copy a single line instead."
+  (interactive
+   (if mark-active (list (region-beginning) (region-end))
+	 (message "Copied line")
+	 (list (line-beginning-position)
+		   (line-end-position)))))
 
-    (defadvice kill-region (before slick-cut activate compile)
-      "When called interactively with no active region, kill a single line instead."
-      (interactive
-       (if mark-active (list (region-beginning) (region-end))
-         (list (line-beginning-position)
-               (line-end-position)))))
-
-(defun rope-load ()
-    "Load pymacs and ropemacs"
-    (interactive)
-    (require 'pymacs)
-    (setenv "PYMACS_PYTHON" "~/.emacs.d/support-apps/python/bin/python")
-    (pymacs-load "ropemacs" "rope-")
-    ;; Automatically save project python buffers before refactorings
-    (setq ropemacs-confirm-saving 'nil)
-    (ropemacs-mode t))
+(defadvice kill-region (before slick-cut activate compile)
+  "When called interactively with no active region, kill a single line instead."
+  (interactive
+   (if mark-active (list (region-beginning) (region-end))
+	 (list (line-beginning-position)
+		   (line-end-position)))))
 
 (defun recompile-init ()
   "Byte-compile all your dotfiles again."

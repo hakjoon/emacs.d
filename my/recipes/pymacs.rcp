@@ -1,10 +1,15 @@
 (:name pymacs
        :description "Interface between Emacs Lisp and Python"
-       :type git
-       :url "http://github.com/hakjoon/emacs-pymacs.git"
+       :type github
+       :pkgname "hakjoon/emacs-pymacs"
        :features "pymacs"
-       :post-init (lambda ()
-		   (setenv "PYTHONPATH"
-			   (concat
-			    (getenv "PYTHONPATH") path-separator
-			    (expand-file-name (concat el-get-dir "pymacs"))))))
+       :post-init (progn 
+					(setenv "PYTHONPATH"
+							(concat
+							 (getenv "PYTHONPATH") path-separator
+							 (expand-file-name (concat el-get-dir "pymacs"))))
+					(autoload 'pymacs-apply "pymacs")
+					(autoload 'pymacs-call "pymacs")
+					(autoload 'pymacs-eval "pymacs" nil t)
+					(autoload 'pymacs-exec "pymacs" nil t)
+					(autoload 'pymacs-load "pymacs" nil t)))

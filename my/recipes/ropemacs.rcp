@@ -1,9 +1,9 @@
 (:name pymacs
        :description "Interface between Emacs Lisp and Python"
-       :type git
-       :url "http://github.com/hakjoon/emacs-ropemacs.git"
-       :depends "pymacs"
-       :post-init (lambda () 
+       :type github
+       :pkgname "hakjoon/emacs-ropemacs"
+       :depends pymacs
+       :post-init (progn 
 		    (setenv "PYTHONPATH"
 			    (concat
 			     (getenv "PYTHONPATH") path-separator

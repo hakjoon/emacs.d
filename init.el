@@ -67,9 +67,9 @@
 	   (:name python
 			  :after (progn
 					   (require 'python-cfg)))
-	   ;; (:name ropemacs
-	   ;; 	  :after (lambda ()
-	   ;; 		   (require 'ropemacs-cfg)))
+	   (:name ropemacs
+	   	  :after (progn
+	   		   (require 'ropemacs-cfg)))
 	   (:name expand-region
 			  :type elpa
 			  :after (progn

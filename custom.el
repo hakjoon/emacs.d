@@ -49,7 +49,7 @@
  '(recentf-menu-before "Open Directory...")
  '(recentf-menu-title "Recent Files")
  '(recentf-save-file "~/.emacs.d/.recentf")
- '(safe-local-variable-values (quote ((prompt-to-byte-compile))))
+ '(safe-local-variable-values (quote ((eval ignore-errors "Write-contents-functions is a buffer-local alternative to before-save-hook" (add-hook (quote write-contents-functions) (lambda nil (delete-trailing-whitespace) nil)) (require (quote whitespace)) "Sometimes the mode needs to be toggled off and on." (whitespace-mode 0) (whitespace-mode 1)) (whitespace-line-column . 80) (whitespace-style face trailing lines-tail) (require-final-newline . t) (prompt-to-byte-compile))))
  '(save-place t nil (saveplace))
  '(save-place-file "~/.emacs.d/.emacs-places")
  '(scroll-bar-mode nil)
