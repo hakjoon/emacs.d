@@ -80,8 +80,7 @@
 
    (setq my-packages
 	 (append
-	  '(el-get 
-	    paredit 
+	  '(paredit 
 	    textile-mode 
 	    smarttabs
 	    flymake-info
