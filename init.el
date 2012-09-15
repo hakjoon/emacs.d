@@ -41,7 +41,7 @@
 (eval-after-load "el-get"
 '(progn 
    (add-to-list 'el-get-recipe-path (expand-file-name (concat dotfiles-dir "my/" "recipes")))
-
+   (setq el-get-user-package-directory (concat dotfiles-dir "init-packages"))
    (setq el-get-sources 
 	 '((:name yasnippet
 		  :after (progn
@@ -58,12 +58,12 @@
 		  :after (progn
 				   (drag-stuff-global-mode t)))
 	   (:name smex
-			  :after (progn
-					   (smex-initialize)
-					   (global-set-key (kbd "M-x") 'smex)
-					   (global-set-key (kbd "M-X") 'smex-major-mode-commands)
-					   ;; This is your old M-x.
-					   (global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)))
+	   		  :after (progn
+	   				   (smex-initialize)
+	   				   (global-set-key (kbd "M-x") 'smex)
+	   				   (global-set-key (kbd "M-X") 'smex-major-mode-commands)
+	   				   ;; This is your old M-x.
+	   				   (global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)))
 	   (:name python
 			  :after (progn
 					   (require 'python-cfg)))
@@ -88,6 +88,8 @@
 	    scss-mode
 	    puppet-mode
 	    blackboard-theme
+		eproject
+		helm
 	    virtualenv)
 	  (mapcar 'el-get-source-name el-get-sources)))
 
