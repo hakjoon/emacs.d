@@ -76,58 +76,17 @@
 					   (global-set-key (kbd "C-=") 'er/expand-region)))
 	   (:name less-css-mode
 			  :type elpa)
-	   ;; (:name enclose
-	   ;;        :features enclose
-	   ;;        :after (lambda ()
-	   ;; 		(add-to-list 'enclose-except-modes 'sldb-mode)
-	   ;; 		(enclose-global-mode t)))
-	   ;; (:name wrap-region
-	   ;;        :features wrap-region
-	   ;;        :after (lambda ()
-	   ;; 		(wrap-region-global-mode t)))
-	   ;; (:name color-theme-blackboard
-	   ;; 	      :after (lambda () (color-theme-blackboard)))
-	   
-	   ;; (:name quack
-	   ;; 	      :after (lambda ()
-	   ;; 		       (setq quack-global-menu-p nil)
-	   ;; 		       (add-to-list 'auto-mode-alist '("\\.rkt" . scheme-mode))))
-	   ;; (:name python-mode
-	   ;; 	   :after (lambda ()
-	   ;; 				(add-hook 'python-mode-hook 
-	   ;; 						  #'(lambda () (setq indent-tabs-mode nil)))))
-	   ;; (:name anything
-	   ;;        :after (lambda () 
-	   ;; 		(require 'anything-match-plugin)
-	   ;; 		(require 'anything-config)
-	   ;; 		(require 'anything-complete)
-	   ;; 		(require 'anything-show-completion)))
 	   ))
 
    (setq my-packages
 	 (append
 	  '(el-get 
 	    paredit 
-	    ;;	 wrap-region 
-	    ;;	 clojure-mode 
-	    ;;nxhtml 
 	    textile-mode 
-	    ;;magit 
 	    smarttabs
 	    flymake-info
-	    ;;	 ecb
-	    ;;	 python
-	    ;;	 pony-mode
-	    ;;	 ibuffer 
 	    flymake-cursor 
 	    scss-mode
-	    ;;	 python
-	    ;;	 slime-clojure
-	    ;;	 ipython
-	    ;;	 anything-ipython
-	    ;;	 color-theme
-	    ;;	 color-theme-blackboard
-	    ;;	 slime
 	    puppet-mode
 	    blackboard-theme
 	    virtualenv)
