@@ -1,7 +1,7 @@
 (require 'eproject-extras)
 
 (define-project-type generic-hg (generic) (look-for ".hg")
-  :irrelevant-files ("^[.]" "^[#]" ".hg/"))
+  :irrelevant-files ("^[.]" "^[#]" ".hg/" ".*\\.orig$"))
 
 (defvar helm-c-source-eproject-files
   '((name . "Files in eProject")
@@ -10,8 +10,10 @@
                                  (eproject-maybe-turn-on))
                          (setq helm-eproject-root-dir 'nil))))
     (candidates . (lambda () (if helm-eproject-root-dir
-                                 (eproject-list-project-files
-                                  helm-eproject-root-dir))))
+                                 (sort (eproject-list-project-files
+								   helm-eproject-root-dir) 'string-lessp))))
+	(real-to-display . (lambda (real)
+						 (substring real (length helm-eproject-root-dir))))
     (type . file))
   "Search for files in the current eProject.")
 
