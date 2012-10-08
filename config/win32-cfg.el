@@ -1,14 +1,12 @@
 ;; Windows only functions
 
-;; Color-theme
-(require 'color-theme)
-(load "blackboard")
-(color-theme-blackboard)
-
 (set-default buffer-file-coding-system 'utf-8-unix)
 
 ;;=Tramp default
 (setq tramp-default-method 'plink)
+
+(setenv "PATH" (concat "c:/win32-override" ";" (getenv "PATH")))
+(setq exec-path (cons "c:/win32-override" exec-path))
 
 ;; Am I on a work windows machine?
 (defun at-work-p ()

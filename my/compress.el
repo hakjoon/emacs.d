@@ -6,7 +6,7 @@
   (let* ((has-file (buffer-file-name(current-buffer)))
 		  (compress-buffer "*Compress*"))
     (if has-file
-	(shell-command (concat "cscript C:/Projects/Fool/Scripts/compress.wsf " has-file) compress-buffer)
+	(shell-command (concat "cscript C:/Projects/Motley/src/Fool/Scripts/compress.wsf " has-file) compress-buffer)
       (message has-file))))
 
 (defun compress-p ()
