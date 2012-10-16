@@ -18,6 +18,7 @@ el-get/
 *.backup
 abbrev_defs
 url/cookies
+.mc-lists.el
 
 syntax: regexp
 ^auto-save-list/

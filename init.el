@@ -91,6 +91,8 @@
 	    blackboard-theme
 		eproject
 		helm
+		multiple-cursors
+		sr-speedbar
 	    virtualenv)
 	  (mapcar 'el-get-source-name el-get-sources)))
 
