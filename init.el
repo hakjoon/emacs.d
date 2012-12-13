@@ -76,6 +76,8 @@
 					   (global-set-key (kbd "C-=") 'er/expand-region)))
 	   (:name less-css-mode
 			  :type elpa)
+	   (:name exec-path-from-shell
+			  :type elpa)
 	   ))
 
    (setq my-packages

@@ -2,8 +2,8 @@
 
 (setq ns-function-modifier (quote control))
 
-;;Add Macports directory to exec-path
-
+;; fix exec-path
+(exec-path-from-shell-initialize)
 
 ;;=Tramp default
 (setq tramp-default-method 'ssh)
