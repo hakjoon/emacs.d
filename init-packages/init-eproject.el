@@ -1,7 +1,9 @@
 (require 'eproject-extras)
 
-(define-project-type generic-hg (generic) (look-for ".hg")
-  :irrelevant-files ("^[.]" "^[#]" ".hg/" ".*\\.orig$"))
+(define-project-type generic-scm (generic) (or (look-for ".hg") (look-for ".git"))
+  :irrelevant-files ("^[.]" "^[#]" ".hg/" ".git/" ".*\\.orig$"))
+
+(define-project-type clojure (generic-scm) (look-for "project.clj"))
 
 (defvar helm-c-source-eproject-files
   '((name . "Files in eProject")

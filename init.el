@@ -91,6 +91,7 @@
 	    blackboard-theme
 		eproject
 		helm
+		clojure-mode
 		multiple-cursors
 		sr-speedbar
 	    virtualenv)
