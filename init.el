@@ -52,6 +52,7 @@
 	   (:name autopair
 		  :after (progn
 				   (add-hook 'sldb-mode-hook #'(lambda () (setq autopair-dont-activate t)))
+				   (add-hook 'term-mode-hook #'(lambda () (setq autopair-dont-activate t)))
 				   (autopair-global-mode t)))
 	   (:name drag-stuff
 		  :features drag-stuff
@@ -82,8 +83,7 @@
 
    (setq my-packages
 	 (append
-	  '(el-get
-		paredit 
+	  '(paredit 
 	    textile-mode 
 	    smarttabs
 	    flymake-info
@@ -96,6 +96,7 @@
 		clojure-mode
 		multiple-cursors
 		sr-speedbar
+		deft
 	    virtualenv)
 	  (mapcar 'el-get-source-name el-get-sources)))
 

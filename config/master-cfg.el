@@ -19,6 +19,9 @@
 (if (Terminal)
     (require 'terminal-cfg))
 
+(if (X)
+	(require 'x-cfg))
+
 (add-hook 'text-mode-hook 'remove-dos-eol)
 
 (provide 'master-cfg)
