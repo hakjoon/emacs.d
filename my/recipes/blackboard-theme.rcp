@@ -3,5 +3,5 @@
 	   :url "https://github.com/hakjoon/blackboard-theme.git"
 	   :post-init (progn
 					(add-to-list 'custom-theme-load-path 
-								 (expand-file-name (concat el-get-dir "blackboard-theme")))
+								 (expand-file-name (concat el-get-dir "/" "blackboard-theme")))
 					(load-theme 'blackboard t)))
