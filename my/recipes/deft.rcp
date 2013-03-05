@@ -2,6 +2,6 @@
        :type git
        :url "git://jblevins.org/git/deft.git"
        :features "deft"
-       :after (progn 
+       :after (progn  
 		(setq deft-extension "txt") 
 		(setq deft-directory "~/Dropbox/notes")))
