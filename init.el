@@ -51,8 +51,14 @@
 				   (require 'autocomplete-cfg)))
 	   (:name autopair
 		  :after (progn
-				   (add-hook 'sldb-mode-hook #'(lambda () (setq autopair-dont-activate t)))
-				   (add-hook 'term-mode-hook #'(lambda () (setq autopair-dont-activate t)))
+				   (add-hook 'sldb-mode-hook 
+							 #'(lambda () 
+								 (setq autopair-dont-activate t)
+								 (autopair-mode -1)))
+				   (add-hook 'term-mode-hook 
+							 #'(lambda () 
+								 (setq autopair-dont-activate t)
+								 (autopair-mode -1)))
 				   (autopair-global-mode t)))
 	   (:name drag-stuff
 		  :features drag-stuff
