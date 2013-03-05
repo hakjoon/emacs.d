@@ -3,6 +3,6 @@
 (setq initial-frame-alist '((top . 10 ) (left . 20) 
 				       (width . 150) (height . 50)))
 
-(cd "~/projects")
+(cd "~/Projects")
 
 (provide 'x-cfg)
