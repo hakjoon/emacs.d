@@ -7,7 +7,7 @@
 					(setenv "PYTHONPATH"
 							(concat
 							 (getenv "PYTHONPATH") path-separator
-							 (expand-file-name (concat el-get-dir "pymacs"))))
+							 (expand-file-name (concat el-get-dir "/" "pymacs"))))
 					(autoload 'pymacs-apply "pymacs")
 					(autoload 'pymacs-call "pymacs")
 					(autoload 'pymacs-eval "pymacs" nil t)
