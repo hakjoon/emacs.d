@@ -2,7 +2,7 @@
 
 (require 'js-cfg)
 (require 'css-cfg)
-
+(require 'python-cfg)
 
  ;; (require 'slime-autoloads)
  ;; (slime-setup '(slime-repl))
