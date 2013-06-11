@@ -14,6 +14,13 @@
   
   (setq ropemacs-autoimport-modules '("os" "shutil" "sys" "logging"
 				      "django.*" "fabric.*"))
+
+(defun reload-ropemacs ()
+  (interactive)
+  (pymacs-terminate-services)
+  (setq pymacs-auto-restart t)
+  (setup-ropemacs)
+  (setq pymacs-auto-restart 'ask))
   
   
   
