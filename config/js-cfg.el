@@ -21,10 +21,34 @@
 	      flymake-err-line-patterns))
   (flymake-mode t))
 
+(defun flymake-jshint-init ()
+  (let* ((temp-file (flymake-init-create-temp-buffer-copy
+                     'flymake-create-temp-inplace))
+         (local-file (file-relative-name
+                      temp-file
+                      (file-name-directory buffer-file-name)))
+         (arglist (list local-file)))
+    (if flymake-node-jshint-config
+        (setq arglist (append arglist (list "--config" (expand-file-name flymake-node-jshint-config)))))
+    (list flymake-node-jshint-program arglist)))
+
+(defun flymake-jshint-load ()
+  (interactive)
+  (setq flymake-err-line-patterns
+		(cons '(".*: line \\([[:digit:]]+\\), col \\([[:digit:]]+\\), \\(.*\\)$"
+				nil 1 2 3)
+			  flymake-err-line-patterns))
+  (add-to-list 'flymake-allowed-file-name-masks
+			   '("\\.js\\'" flymake-jshint-init)
+			   '("\\.json\\'" flymake-jshint-init))
+  (setq flymake-node-jshint-config nil)
+  (setq flymake-node-jshint-program "jshint")
+  (flymake-mode t))
+
 (add-hook 'js-mode-hook 
 	  (function (lambda ()
 		      (imenu-add-to-menubar "JS-Browser")
 		      (yas/minor-mode t)
-		      (flymake-jslint-load))))
+		      (flymake-jshint-load))))
 
 (provide 'js-cfg)
