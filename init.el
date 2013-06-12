@@ -103,6 +103,7 @@
 		multiple-cursors
 		sr-speedbar
 		deft
+		magit
 	    virtualenv)
 	  (mapcar 'el-get-source-name el-get-sources)))
 
