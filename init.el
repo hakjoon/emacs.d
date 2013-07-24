@@ -81,6 +81,9 @@
 			  :type elpa
 			  :after (progn
 					   (global-set-key (kbd "C-=") 'er/expand-region)))
+	   (:name undo-tree
+			  :after (progn
+					   (global-undo-tree-mode)))
 	   (:name less-css-mode
 			  :type elpa)
 	   (:name exec-path-from-shell
@@ -103,6 +106,7 @@
 		multiple-cursors
 		sr-speedbar
 		deft
+		coffee-mode
 	    virtualenv)
 	  (mapcar 'el-get-source-name el-get-sources)))
 
