@@ -1,0 +1,7 @@
+
+<!-- saved from url=(0065)https://raw.github.com/dimitri/el-get/master/recipes/web-mode.rcp -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></head><body><pre style="word-wrap: break-word; white-space: pre-wrap;">(:name web-mode
+       :description "emacs major mode for editing PHP/JSP/ASP HTML templates (with embedded CSS and JS blocks)"
+       :type github
+       :pkgname "fxbois/web-mode")
+</pre><div style="display: none;" id="orbiousinterest_dialog"><div class="container">  <div class="header">Mark as unread</div>  URL <input type="text" value="" class="url" readonly="readonly"><br>  Title <input type="text" value="" class="title"><br>  Tags <input type="text" value="tags, seperated by commas" class="tags empty">  <div class="buttons">     <input type="button" value="Cancel" class="cancel">     <input type="button" value="Save" class="save">  </div></div></div><a id="ORBVIOUS_DOMWindowHost" href="https://raw.github.com/dimitri/el-get/master/recipes/web-mode.rcp#orbiousinterest_dialog"></a></body></html>

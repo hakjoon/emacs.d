@@ -71,9 +71,9 @@
 	   				   (global-set-key (kbd "M-X") 'smex-major-mode-commands)
 	   				   ;; This is your old M-x.
 	   				   (global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)))
-	   (:name python
-			  :after (progn
-					   (require 'python-cfg)))
+	   ;; (:name python
+	   ;; 		  :after (progn
+	   ;; 				   (require 'python-cfg)))
 	   (:name ropemacs
 	   	  :after (progn
 	   		   (require 'ropemacs-cfg)))
@@ -107,6 +107,7 @@
 		sr-speedbar
 		deft
 		coffee-mode
+		magit
 	    virtualenv)
 	  (mapcar 'el-get-source-name el-get-sources)))
 

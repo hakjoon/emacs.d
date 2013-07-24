@@ -7,4 +7,4 @@
 		    (setenv "PYTHONPATH"
 			    (concat
 			     (getenv "PYTHONPATH") path-separator
-			     (expand-file-name (concat el-get-dir "ropemacs"))))))
+			     (expand-file-name (concat el-get-dir "/" "ropemacs"))))))
