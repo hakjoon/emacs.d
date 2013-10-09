@@ -107,7 +107,7 @@
 		sr-speedbar
 		deft
 		coffee-mode
-		magit
+		;magit
 	    virtualenv)
 	  (mapcar 'el-get-source-name el-get-sources)))
 
