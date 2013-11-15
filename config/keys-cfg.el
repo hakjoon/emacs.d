@@ -1,3 +1,4 @@
+
 ;; Keybindings
 
 ;; Make control-z undo
@@ -29,5 +30,8 @@
 
 (global-set-key (kbd "C-x C-j") 'dired-jump)
 (global-set-key (kbd "C-x 4 C-j") 'dired-jump-other-window)
+
+(global-set-key (kbd "M-g c") 'compile)
+(global-set-key (kbd "M-g r") 'recompile)
 
 (provide 'keys-cfg)

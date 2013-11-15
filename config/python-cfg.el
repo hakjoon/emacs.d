@@ -1,17 +1,30 @@
 (require 'flymake)
 
 ;; Ipython integration with fgallina/python.el
-(defun epy-setup-ipython ()
+(defun python-setup-ipython ()
   "Setup ipython integration with python-mode"
   (interactive)
   (setq
    python-shell-interpreter "ipython"
    python-shell-interpreter-args ""
-   python-shell-prompt-regexp "In \[[0-9]+\]: "
-   python-shell-prompt-output-regexp "Out\[[0-9]+\]: "
-   python-shell-completion-setup-code ""
-   python-shell-completion-string-code "';'.join(__IP.complete('''%s'''))\n")
+   python-shell-prompt-regexp "In \\[[0-9]+\\]: "
+   python-shell-prompt-output-regexp "Out\\[[0-9]+\\]: "
+   python-shell-completion-setup-code "from IPython.core.completerlib import module_completion"
+   python-shell-completion-module-string-code "';'.join(module_completion('''%s'''))\n"
+   python-shell-completion-string-code "';'.join(get_ipython().Completer.all_completions('''%s'''))\n")
   )
+
+(defun python-setup-django ()
+  (interactive)
+  (setq-local python-shell-interpreter "python")
+  (setq-local python-shell-interpreter-args "/Users/hakjoon/code/python/webtest/manage.py shell")
+)
+
+(defun python-workon (env)
+  (interactive "P")
+  (virtualenv-workon env)
+  (setq-local python-shell-virtualenv-path (concat virtualenv-root "webtest"))
+)
 
 (defun flymake-python-init ()
   (let* ((temp-file (flymake-init-create-temp-buffer-copy

@@ -1,0 +1,5 @@
+(:name virtualenv
+       :website "https://github.com/aculich/virtualenv.el"
+       :description "Minor mode that allows emacs to use virtualenv for python."
+       :type elpa
+)

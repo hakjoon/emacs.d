@@ -1,0 +1,5 @@
+(:name projectile
+       :website "https://github.com/bbatsov/projectile"
+       :description "Project Interaction Library for Emacs"
+       :type elpa
+)
