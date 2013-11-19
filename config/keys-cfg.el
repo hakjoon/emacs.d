@@ -9,6 +9,7 @@
 
 ;;(eval-after-load 'ruby-mode '(define-key ruby-mode-map ... ))
 
+(windmove-default-keybindings 'ctrl)
 
 ;;=Mouse Scrolling
 (defun smooth-scroll (increment)
