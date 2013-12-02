@@ -44,7 +44,7 @@
 
 (add-hook 'python-mode-hook
           (lambda ()
-	    (setq imenu-create-index-function 'python-imenu-create-index)
+	    ;(setq imenu-create-index-function 'python-imenu-create-index)
 	    (imenu-add-to-menubar "Browser")
 	    (setq indent-tabs-mode nil)
 	    (setq python-indent-offset 4)
