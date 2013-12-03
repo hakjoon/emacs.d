@@ -1,5 +1,7 @@
 (require 'flymake)
 
+(setq virtualenv-workon-starts-python t)
+
 ;; Ipython integration with fgallina/python.el
 (defun python-setup-ipython ()
   "Setup ipython integration with python-mode"
@@ -20,10 +22,21 @@
   (setq-local python-shell-interpreter-args "/Users/hakjoon/code/python/webtest/manage.py shell")
 )
 
-(defun python-workon (env)
+
+(defadvice virtualenv-workon(around advice-virtualenv-workon activate)
   (interactive "P")
-  (virtualenv-workon env)
-  (setq-local python-shell-virtualenv-path (concat virtualenv-root "webtest"))
+  (setq-local python-shell-virtualenv-path (concat virtualenv-root env))
+  (setenv "VIRTUAL_ENV" python-shell-virtualenv-path)
+  ad-do-it
+  (reload-ropemacs)
+)
+
+(defadvice virtualenv-deactivate(around advice-virtualenv-deactivate activate)
+  (interactive)
+  (setq-local python-shell-virtualenv-path nil)
+  (setenv "VIRTUAL_ENV" "")
+  ad-do-it
+  (reload-ropemacs)
 )
 
 (defun flymake-python-init ()
