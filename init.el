@@ -86,6 +86,8 @@
 					   (global-undo-tree-mode)))
 	   (:name less-css-mode
 			  :type elpa)
+	   (:name web-mode
+			  :type elpa)
 	   (:name exec-path-from-shell
 			  :type elpa)
 	   ))
