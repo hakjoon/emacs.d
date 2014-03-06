@@ -3,4 +3,4 @@
 
 ;; Move this into project specific config/dir-locals maybe
 (setq web-mode-engines-alist
-			 '(("django" . "\\.html?\\")))
+			 '(("django" . "\\.html?")))

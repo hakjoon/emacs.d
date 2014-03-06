@@ -21,6 +21,8 @@
 	      flymake-err-line-patterns))
   (flymake-mode t))
 
+(setq flymake-node-jshint-config "~/.emacs.d/support-apps/jshintrc.json") 
+
 (defun flymake-jshint-init ()
   (let* ((temp-file (flymake-init-create-temp-buffer-copy
                      'flymake-create-temp-inplace))
