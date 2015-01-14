@@ -21,7 +21,7 @@
 	      flymake-err-line-patterns))
   (flymake-mode t))
 
-(setq flymake-node-jshint-config "~/.emacs.d/support-apps/jshintrc.json") 
+(setq flymake-node-jshint-config "~/.emacs.d/support-apps/jshintrc.json")
 
 (defun flymake-jshint-init ()
   (let* ((temp-file (flymake-init-create-temp-buffer-copy
@@ -47,8 +47,10 @@
   (setq flymake-node-jshint-program "jshint")
   (flymake-mode t))
 
+(setq js-indent-level 2)
 (add-hook 'js-mode-hook 
 	  (function (lambda ()
+		      (setq indent-tabs-mode nil)
 		      (imenu-add-to-menubar "JS-Browser")
 		      (yas/minor-mode t)
 		      (flymake-jshint-load))))
