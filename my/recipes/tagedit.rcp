@@ -1,0 +1,5 @@
+(:name tagedit
+       :website "https://github.com/magnars/tagedit#readme"
+       :description "A collection of paredit-like functions for editing in html-mode."
+       :type elpa
+)

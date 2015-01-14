@@ -22,6 +22,7 @@
  '(blink-cursor-mode nil)
  '(company-idle-delay 0.5)
  '(company-tooltip-delay 0.5)
+ '(custom-safe-themes (quote ("f641bdb1b534a06baa5e05ffdb5039fb265fde2764fbfd9a90b0d23b75f3936b" default)))
  '(desktop-path (quote ("~/.emacs.d")))
  '(dvc-config-directory "~/.emacs.d/.dvc/")
  '(dvc-tips-enabled nil)

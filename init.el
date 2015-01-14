@@ -55,6 +55,10 @@
 							 #'(lambda () 
 								 (setq autopair-dont-activate t)
 								 (autopair-mode -1)))
+				   (add-hook 'web-mode-hook 
+							 #'(lambda () 
+								 (setq autopair-dont-activate t)
+								 (autopair-mode -1)))
 				   (add-hook 'term-mode-hook 
 							 #'(lambda () 
 								 (setq autopair-dont-activate t)
@@ -72,6 +76,8 @@
 	   				   ;; This is your old M-x.
 	   				   (global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)))
 	   (:name python
+			  :type elpa
+			  :builtin "24"
 			  :after (progn
 					   (require 'python-cfg)))
 	   (:name ropemacs
@@ -94,7 +100,8 @@
 
    (setq my-packages
 	 (append
-	  '(paredit 
+	  '(
+		paredit 
 	    textile-mode 
 	    smarttabs
 	    flymake-info
