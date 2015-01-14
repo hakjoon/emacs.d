@@ -16,10 +16,12 @@ el-get/
 *.desktop
 *.lock
 *.backup
+*.pem
 abbrev_defs
 url/cookies
 .mc-lists.el
 session.*
+bookmarks
 
 syntax: regexp
 ^auto-save-list/
