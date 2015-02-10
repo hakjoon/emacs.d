@@ -28,7 +28,8 @@
  package-archives
  '(("marmalade" . "http://marmalade-repo.org/packages/")
    ("gnu" . "http://elpa.gnu.org/packages/")
-   ("ELPA" . "http://tromey.com/elpa/")))
+   ("ELPA" . "http://tromey.com/elpa/")
+   ("melpa" . "http://melpa.org/packages/")))
 
 (unless (require 'el-get nil t)
   (with-current-buffer
@@ -100,7 +101,7 @@
 
    (setq my-packages
 	 (append
-	  '(
+	  '(package
 		paredit 
 	    textile-mode 
 	    smarttabs
