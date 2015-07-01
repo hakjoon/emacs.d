@@ -22,6 +22,7 @@ url/cookies
 .mc-lists.el
 session.*
 bookmarks
+.python-environments
 
 syntax: regexp
 ^auto-save-list/

@@ -24,10 +24,10 @@
 (if (OSX) 
     (setq exec-path (cons "/usr/local/bin" exec-path)))
 
-(setq
- package-archives
- '(("marmalade" . "http://marmalade-repo.org/packages/")
-   ("gnu" . "http://elpa.gnu.org/packages/")
+(require 'package)
+(add-to-list
+ 'package-archives
+ '(("gnu" . "http://elpa.gnu.org/packages/")
    ("ELPA" . "http://tromey.com/elpa/")
    ("melpa" . "http://melpa.org/packages/")))
 
@@ -81,9 +81,9 @@
 			  :builtin "24"
 			  :after (progn
 					   (require 'python-cfg)))
-	   (:name ropemacs
-	   	  :after (progn
-				   (require 'ropemacs-cfg)))
+	   ;; (:name ropemacs
+	   ;; 	  :after (progn
+	   ;; 			   (require 'ropemacs-cfg)))
 	   (:name expand-region
 			  :type elpa
 			  :after (progn
@@ -95,8 +95,24 @@
 			  :type elpa)
 	   (:name web-mode
 			  :type elpa)
-	   (:name exec-path-from-shell
+	   (:name virtualenvwrapper
+			  :repo ("melpa" . "http://melpa.milkbox.net/packages/")
 			  :type elpa)
+	   (:name restclient
+			  :repo ("melpa" . "http://melpa.milkbox.net/packages/")
+			  :type elpa)
+	   (:name exec-path-from-shell
+			  :repo ("melpa" . "http://melpa.milkbox.net/packages/")
+			  :type elpa
+			  :after (progn
+					   (when (memq window-system '(mac ns))
+						 (exec-path-from-shell-initialize))))
+	   (:name jedi
+			  :repo ("melpa" . "http://melpa.milkbox.net/packages/")
+			  :type elpa
+			  :after (progn
+					   (add-hook 'python-mode-hook 'jedi:setup)
+					   (setq jedi:complete-on-dot t)))
 	   ))
 
    (setq my-packages
@@ -123,6 +139,8 @@
 	  (mapcar 'el-get-source-name el-get-sources)))
 
    (el-get 'sync my-packages)))
+
+(setq new-mode-line '("%e" mode-line-front-space mode-line-mule-info mode-line-client mode-line-modified mode-line-remote mode-line-frame-identification mode-line-buffer-identification "   " mode-line-position (vc-mode vc-mode) "  " (venv-current-name (:eval (concat "[" "workon:" venv-current-name "]"))) " " mode-line-modes mode-line-misc-info mode-line-end-spaces))
 
 ;; configuration stuff
 (require 'master-cfg)
