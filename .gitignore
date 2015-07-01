@@ -1,4 +1,3 @@
-syntax: glob
 .DS_Store
 .emacs-places
 .recentf
@@ -24,7 +23,6 @@ session.*
 bookmarks
 .python-environments
 
-syntax: regexp
-^auto-save-list/
-^server/
+auto-save-list/
+server/
 
