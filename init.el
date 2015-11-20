@@ -101,6 +101,9 @@
 	   (:name restclient
 			  :repo ("melpa" . "http://melpa.milkbox.net/packages/")
 			  :type elpa)
+	   (:name markdown-mode
+			  :repo ("melpa" . "http://melpa.milkbox.net/packages/")
+			  :type elpa)
 	   (:name exec-path-from-shell
 			  :repo ("melpa" . "http://melpa.milkbox.net/packages/")
 			  :type elpa
@@ -144,3 +147,4 @@
 
 ;; configuration stuff
 (require 'master-cfg)
+(put 'downcase-region 'disabled nil)
