@@ -62,6 +62,9 @@
 	    (setq indent-tabs-mode nil)
 	    (setq python-indent-offset 4)
 	    (flymake-python-load)
+		(hack-local-variables)
+		(when (boundp 'project-venv-name)
+		  (venv-workon project-venv-name))
 ))
 
 (provide 'python-cfg)
