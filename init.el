@@ -116,6 +116,8 @@
 			  :after (progn
 					   (add-hook 'python-mode-hook 'jedi:setup)
 					   (setq jedi:complete-on-dot t)))
+	   (:name org
+			  :type elpa)
 	   ))
 
    (setq my-packages
