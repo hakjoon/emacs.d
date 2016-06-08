@@ -22,7 +22,9 @@
  '(blink-cursor-mode nil)
  '(company-idle-delay 0.5)
  '(company-tooltip-delay 0.5)
- '(custom-safe-themes (quote ("f641bdb1b534a06baa5e05ffdb5039fb265fde2764fbfd9a90b0d23b75f3936b" default)))
+ '(custom-safe-themes
+   (quote
+	("f641bdb1b534a06baa5e05ffdb5039fb265fde2764fbfd9a90b0d23b75f3936b" default)))
  '(desktop-path (quote ("~/.emacs.d")))
  '(dvc-config-directory "~/.emacs.d/.dvc/")
  '(dvc-tips-enabled nil)
@@ -51,9 +53,38 @@
  '(recentf-menu-before "Open Directory...")
  '(recentf-menu-title "Recent Files")
  '(recentf-save-file "~/.emacs.d/.recentf")
- '(safe-local-variable-values (quote ((python-shell-completion-string-code . "';'.join(get_ipython().Completer.all_completions('''%s'''))
-") (python-shell-completion-module-string-code . "';'.join(module_completion('''%s'''))
-") (python-shell-completion-setup-code . "from IPython.core.completerlib import module_completion") (python-shell-interpreter-args . "/Users/hakjoon/code/python/webtest/manage.py shell") (python-shell-interpreter . "python") (eval ignore-errors "Write-contents-functions is a buffer-local alternative to before-save-hook" (add-hook (quote write-contents-functions) (lambda nil (delete-trailing-whitespace) nil)) (require (quote whitespace)) "Sometimes the mode needs to be toggled off and on." (whitespace-mode 0) (whitespace-mode 1)) (whitespace-line-column . 80) (whitespace-style face trailing lines-tail) (require-final-newline . t) (prompt-to-byte-compile))))
+ '(safe-local-variable-values
+   (quote
+	((project-venv-name . "hydra")
+	 (project-venv-path . "tstr")
+	 (eval setq default-directory
+		   (locate-dominating-file buffer-file-name ".dir-locals.el"))
+	 (project-venv-name . "tstr")
+	 (project-venv-name . "pilbox-client")
+	 (project-venv-name . "seo-pages")
+	 (project-venv-name . "cms")
+	 (python-shell-completion-string-code . "';'.join(get_ipython().Completer.all_completions('''%s'''))
+")
+	 (python-shell-completion-module-string-code . "';'.join(module_completion('''%s'''))
+")
+	 (python-shell-completion-setup-code . "from IPython.core.completerlib import module_completion")
+	 (python-shell-interpreter-args . "/Users/hakjoon/code/python/webtest/manage.py shell")
+	 (python-shell-interpreter . "python")
+	 (eval ignore-errors "Write-contents-functions is a buffer-local alternative to before-save-hook"
+		   (add-hook
+			(quote write-contents-functions)
+			(lambda nil
+			  (delete-trailing-whitespace)
+			  nil))
+		   (require
+			(quote whitespace))
+		   "Sometimes the mode needs to be toggled off and on."
+		   (whitespace-mode 0)
+		   (whitespace-mode 1))
+	 (whitespace-line-column . 80)
+	 (whitespace-style face trailing lines-tail)
+	 (require-final-newline . t)
+	 (prompt-to-byte-compile))))
  '(save-place t nil (saveplace))
  '(save-place-file "~/.emacs.d/.emacs-places")
  '(scroll-bar-mode nil)
