@@ -47,6 +47,9 @@
   :ensure t
   :config (progn
 	    (global-undo-tree-mode)))
+(use-package ibuffer
+  :init (setq ibuffer-use-other-window t)
+  :bind ("C-x C-b" . ibuffer))
 
 
 ;; configuration stuff
