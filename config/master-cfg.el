@@ -3,7 +3,7 @@
 ;;=Load config files
 (require 'settings-cfg)
 (require 'keys-cfg)
-;(require 'minor-modes-cfg)
+(require 'minor-modes-cfg)
 ;(require 'major-modes-cfg)
 ;(require 'defuns)
 
