@@ -62,6 +62,11 @@
 (use-package expand-region
   :ensure t
   :bind ("C-=" . er/exapnd-region))
+(use-package jedi
+  :ensure t
+  :config (progn
+	   (add-hook 'python-mode-hook 'jedi:setup)
+	   (setq jedi:complete-on-dot t)))
 
 
 ;; configuration stuff
