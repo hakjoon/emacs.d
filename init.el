@@ -57,6 +57,8 @@
   :ensure t
   :config (when (memq window-system '(mac ns))
 	    (exec-path-from-shell-initialize)))
+(use-package web-mode
+  :ensure t)
 
 
 ;; configuration stuff
