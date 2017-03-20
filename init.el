@@ -44,12 +44,10 @@
   :ensure t
   :bind (("M-x" . smex)
          ("M-X" . smex-major-mode-commands))
-  :config (progn
-	    (smex-initialize)))
+  :config (smex-initialize))
 (use-package undo-tree
   :ensure t
-  :config (progn
-	    (global-undo-tree-mode)))
+  :config (global-undo-tree-mode))
 (use-package ibuffer
   :init (setq ibuffer-use-other-window t)
   :bind ("C-x C-b" . ibuffer))
