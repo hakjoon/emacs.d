@@ -53,6 +53,8 @@
 (use-package ibuffer
   :init (setq ibuffer-use-other-window t)
   :bind ("C-x C-b" . ibuffer))
+(use-package virtualenvwrapper
+  :ensure t)
 
 
 ;; configuration stuff
