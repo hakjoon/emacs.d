@@ -59,6 +59,9 @@
 	    (exec-path-from-shell-initialize)))
 (use-package web-mode
   :ensure t)
+(use-package expand-region
+  :ensure t
+  :bind ("C-=" . er/exapnd-region))
 
 
 ;; configuration stuff
