@@ -70,6 +70,11 @@
 	   (setq jedi:complete-on-dot t)))
 (use-package python
   :config (require 'python-cfg))
+(use-package drag-stuff
+  :ensure t
+  :config (progn
+	    (drag-stuff-define-keys)
+	    (drag-stuff-global-mode t)))
 
 
 ;; configuration stuff
