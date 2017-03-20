@@ -67,6 +67,8 @@
   :config (progn
 	   (add-hook 'python-mode-hook 'jedi:setup)
 	   (setq jedi:complete-on-dot t)))
+(use-package python
+  :config (require 'python-cfg))
 
 
 ;; configuration stuff
