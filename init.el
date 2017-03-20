@@ -53,6 +53,10 @@
   :bind ("C-x C-b" . ibuffer))
 (use-package virtualenvwrapper
   :ensure t)
+(use-package exec-path-from-shell
+  :ensure t
+  :config (when (memq window-system '(mac ns))
+	    (exec-path-from-shell-initialize)))
 
 
 ;; configuration stuff
