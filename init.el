@@ -36,6 +36,9 @@
 
 (add-to-load-path  "config" "my")
 
+;; Packages
+(use-package blackboard-theme
+  :ensure t)
 (use-package magit)
 (use-package smex
   :ensure t
