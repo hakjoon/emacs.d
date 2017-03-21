@@ -38,9 +38,13 @@
 (add-to-load-path  "config" "my")
 
 ;; Packages
+(use-package auto-complete
+  :ensure t
+  :config (global-auto-complete-mode t))
 (use-package blackboard-theme
   :ensure t)
-(use-package magit)
+(use-package magit
+  :ensure t)
 (use-package smex
   :ensure t
   :bind (("M-x" . smex)
