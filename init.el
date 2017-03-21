@@ -59,7 +59,11 @@
   :config (when (memq window-system '(mac ns))
 	    (exec-path-from-shell-initialize)))
 (use-package web-mode
-  :ensure t)
+  :ensure t
+  :config (progn
+	    (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
+	    (setq web-mode-engines-alist
+		  '(("django" . "\\.html?")))))
 (use-package expand-region
   :ensure t
   :bind ("C-=" . er/exapnd-region))
