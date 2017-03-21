@@ -28,7 +28,10 @@
 
 (setq frame-title-format
       (list (format "%s %%S: %%j " (system-name))
-        '(buffer-file-name "%f" (dired-directory dired-directory "%b"))))
+	    '(buffer-file-name "%f" (dired-directory dired-directory "%b"))))
+
+(electric-pair-mode)
+
 
 (require 'ansi-color)
 (defun colorize-compilation-buffer ()
