@@ -5,7 +5,7 @@
 (require 'keys-cfg)
 (require 'minor-modes-cfg)
 ;(require 'major-modes-cfg)
-;(require 'defuns)
+(require 'defuns)
 
 
 ;; load specific files for different systems
