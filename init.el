@@ -83,6 +83,9 @@
   :config (progn
 	    (drag-stuff-define-keys)
 	    (drag-stuff-global-mode t)))
+(use-package flycheck
+  :ensure t
+  :init (global-flycheck-mode))
 
 
 ;; configuration stuff
