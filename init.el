@@ -1,10 +1,19 @@
-;; Bootstrap use package
+;;; init -- Where it begins
+;;; Commentary:
 
+;;; Code:
+
+;; Bootstrap use-package
 (require 'package)
 (setq package-enable-at-startup nil)
-(add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
+(add-to-list 'package-archives
+	     '("melpa" . "http://melpa.org/packages/"))
+(when (< emacs-major-version 24)
+  (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/")))
+(add-to-list 'package-archives
+             '("melpa-stable" . "https://stable.melpa.org/packages/") t)
+
 ;(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
-(add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/"))
 (package-initialize)
 
 (unless (package-installed-p 'use-package)
@@ -70,7 +79,7 @@
 		  '(("django" . "\\.html?")))))
 (use-package expand-region
   :ensure t
-  :bind ("C-=" . er/exapnd-region))
+  :bind ("C-=" . er/expand-region))
 (use-package jedi
   :ensure t
   :config (progn
