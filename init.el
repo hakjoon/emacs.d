@@ -73,6 +73,13 @@
 	    (exec-path-from-shell-initialize)))
 (use-package web-mode
   :ensure t
+  :preface (progn
+	     (defvar electric-pair-inhibit-predicate))
+  :init (add-hook 'web-mode-hook
+		  (lambda ()
+		    (setq-local electric-pair-inhibit-predicate
+				`(lambda (c)
+				   (if (char-equal c ?{) t (,electric-pair-inhibit-predicate c))))))
   :config (progn
 	    (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
 	    (setq web-mode-engines-alist
