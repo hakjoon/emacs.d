@@ -93,7 +93,19 @@
 	   (add-hook 'python-mode-hook 'jedi:setup)
 	   (setq jedi:complete-on-dot t)))
 (use-package python
-  :config (require 'python-cfg))
+  :config (add-hook 'python-mode-hook
+		    (lambda ()
+		      (imenu-add-to-menubar "Browser")
+		      (setq indent-tabs-mode nil)
+		      (setq python-indent-offset 4)
+		      (hack-local-variables)
+		      (when (boundp 'project-venv-name)
+			(venv-workon project-venv-name)))))
+(use-package projectile
+  :ensure t
+  :config (progn
+	    (projectile-mode)
+	    (setq projectile-switch-project-action #'projectile-dired)))
 (use-package drag-stuff
   :ensure t
   :config (progn
@@ -103,7 +115,7 @@
   :ensure t
   :init (global-flycheck-mode))
 
-
+(setq-default mode-line-format (cons '(:exec venv-current-name) mode-line-format))
 ;; configuration stuff
 (require 'master-cfg)
 ;;(put 'downcase-region 'disabled nil)
