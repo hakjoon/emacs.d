@@ -114,6 +114,13 @@
 (use-package flycheck
   :ensure t
   :init (global-flycheck-mode))
+(use-package ibuffer-vc
+  :ensure t
+  :config (add-hook 'ibuffer-hook
+		    (lambda ()
+		      (ibuffer-vc-set-filter-groups-by-vc-root)
+		      (unless (eq ibuffer-sorting-mode 'alphabetic)
+			(ibuffer-do-sort-by-alphabetic)))))
 
 (setq-default mode-line-format (cons '(:exec venv-current-name) mode-line-format))
 ;; configuration stuff
