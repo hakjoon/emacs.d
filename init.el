@@ -121,6 +121,11 @@
 		      (ibuffer-vc-set-filter-groups-by-vc-root)
 		      (unless (eq ibuffer-sorting-mode 'alphabetic)
 			(ibuffer-do-sort-by-alphabetic)))))
+(use-package perspective
+  :ensure t
+  :config (persp-mode))
+(use-package persp-projectile
+  :ensure t)
 
 (setq-default mode-line-format (cons '(:exec venv-current-name) mode-line-format))
 ;; configuration stuff
