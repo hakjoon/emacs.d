@@ -45,7 +45,7 @@
  '(nxml-slash-auto-complete-flag t)
  '(package-selected-packages
    (quote
-    (jedi drag-stuff drga-stuff flycheck blackboard-theme blackboard yaml-mode web-mode virtualenvwrapper use-package undo-tree smex projectile org markdown-mode magit less-css-mode expand-region exec-path-from-shell)))
+    (persp-projectile perspective ibuffer-vc jedi drag-stuff drga-stuff flycheck blackboard-theme blackboard yaml-mode web-mode virtualenvwrapper use-package undo-tree smex projectile org markdown-mode magit less-css-mode expand-region exec-path-from-shell)))
  '(php-basic-offset 8)
  '(php-indent-tabs-mode nil)
  '(php-intelligent-tab nil)
@@ -58,7 +58,10 @@
  '(recentf-save-file "~/.emacs.d/.recentf")
  '(safe-local-variable-values
    (quote
-    ((project-venv-name . "hydra")
+    ((project-venv-name . "wagtail-hydra-publisher")
+     (project-venv-name . wagtail-hydra-publisher)
+     (project-venv-name . "dubs")
+     (project-venv-name . "hydra")
      (project-venv-path . "tstr")
      (eval setq default-directory
 	   (locate-dominating-file buffer-file-name ".dir-locals.el"))
