@@ -46,6 +46,13 @@
 
 (add-to-load-path  "config" "my")
 
+(defun my/activate-local-virtualenv ()
+  "Activate a python virtualenv if project-venv-name is set in .dir-local.el."
+  (with-temp-buffer
+    (hack-dir-local-variables-non-file-buffer)
+    (when (boundp 'project-venv-name)
+      (venv-workon project-venv-name))))
+
 ;; Packages
 (use-package auto-complete
   :ensure t
@@ -93,19 +100,22 @@
 	   (add-hook 'python-mode-hook 'jedi:setup)
 	   (setq jedi:complete-on-dot t)))
 (use-package python
-  :config (add-hook 'python-mode-hook
+  :config (progn
+	    (put 'project-venv-name 'safe-local-variable #'stringp)
+	    (add-hook 'python-mode-hook
 		    (lambda ()
 		      (imenu-add-to-menubar "Browser")
 		      (setq indent-tabs-mode nil)
 		      (setq python-indent-offset 4)
-		      (hack-local-variables)
-		      (when (boundp 'project-venv-name)
-			(venv-workon project-venv-name)))))
+		      (my/activate-local-virtualenv)))))
 (use-package projectile
   :ensure t
   :config (progn
 	    (projectile-mode)
-	    (setq projectile-switch-project-action #'projectile-dired)))
+	    (setq projectile-switch-project-action
+		  '(lambda ()
+		     (my/activate-local-virtualenv)
+		     (projectile-dired)))))
 (use-package drag-stuff
   :ensure t
   :config (progn
@@ -123,9 +133,18 @@
 			(ibuffer-do-sort-by-alphabetic)))))
 (use-package perspective
   :ensure t
-  :config (persp-mode))
+  :config (progn
+	    (persp-mode)
+	    (push '(persp-modestring . :never) frameset-filter-alist)
+	    (push '(persp-recursive . :never) frameset-filter-alist)
+	    (push '(persp-last . :never) frameset-filter-alist)
+	    (push '(persp-curr . :never) frameset-filter-alist)
+	    (push '(perspectives-hash . :never) frameset-filter-alist)
+	    (add-hook 'persp-switch-hook 'my/activate-local-virtualenv)))
 (use-package persp-projectile
-  :ensure t)
+  :ensure t
+  :bind (:map projectile-mode-map
+	      ("C-c p P" . projectile-persp-switch-project)))
 
 (setq-default mode-line-format (cons '(:exec venv-current-name) mode-line-format))
 ;; configuration stuff
