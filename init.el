@@ -145,6 +145,11 @@
   :ensure t
   :bind (:map projectile-mode-map
 	      ("C-c p P" . projectile-persp-switch-project)))
+(use-package wgrep
+  :ensure t)
+
+(use-package iedit
+  :ensure t)
 
 (setq-default mode-line-format (cons '(:exec venv-current-name) mode-line-format))
 ;; configuration stuff
