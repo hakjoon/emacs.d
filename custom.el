@@ -6,7 +6,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(flymake-infoline ((t (:background "gray29"))))
- '(highlight ((((class color) (min-colors 88) (background dark)) (:background "gray12"))))
+ '(iedit-occurrence ((t (:background "gray22"))))
  '(linum ((t (:inherit (shadow default) :background "grey10"))) t)
  '(moinmoin-code ((t (:foreground "purple2"))) t)
  '(moinmoin-url ((t (:foreground "green4" :height 0.9))) t)
@@ -45,7 +45,7 @@
  '(nxml-slash-auto-complete-flag t)
  '(package-selected-packages
    (quote
-    (persp-projectile perspective ibuffer-vc jedi drag-stuff drga-stuff flycheck blackboard-theme blackboard yaml-mode web-mode virtualenvwrapper use-package undo-tree smex projectile org markdown-mode magit less-css-mode expand-region exec-path-from-shell)))
+    (py-autopep8 autopep8 iedit wgrep persp-projectile perspective ibuffer-vc jedi drag-stuff drga-stuff flycheck blackboard-theme blackboard yaml-mode web-mode virtualenvwrapper use-package undo-tree smex projectile org markdown-mode magit less-css-mode expand-region exec-path-from-shell)))
  '(php-basic-offset 8)
  '(php-indent-tabs-mode nil)
  '(php-intelligent-tab nil)
