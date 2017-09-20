@@ -151,6 +151,10 @@
 (use-package iedit
   :ensure t)
 
+(use-package py-autopep8
+  :ensure t
+  :config (add-hook 'python-mode-hook 'py-autopep8-enable-on-save))
+
 (setq-default mode-line-format (cons '(:exec venv-current-name) mode-line-format))
 ;; configuration stuff
 (require 'master-cfg)
