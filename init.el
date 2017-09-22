@@ -153,7 +153,9 @@
 
 (use-package py-autopep8
   :ensure t
-  :config (add-hook 'python-mode-hook 'py-autopep8-enable-on-save))
+  :config (progn
+	    (setq py-autopep8-options '("--ignore=E501"))
+	    (add-hook 'python-mode-hook 'py-autopep8-enable-on-save)))
 
 (setq-default mode-line-format (cons '(:exec venv-current-name) mode-line-format))
 ;; configuration stuff
