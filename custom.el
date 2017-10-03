@@ -45,7 +45,7 @@
  '(nxml-slash-auto-complete-flag t)
  '(package-selected-packages
    (quote
-    (py-autopep8 autopep8 iedit wgrep persp-projectile perspective ibuffer-vc jedi drag-stuff drga-stuff flycheck blackboard-theme blackboard yaml-mode web-mode virtualenvwrapper use-package undo-tree smex projectile org markdown-mode magit less-css-mode expand-region exec-path-from-shell)))
+    (markdown-mode py-autopep8 autopep8 iedit wgrep persp-projectile perspective ibuffer-vc jedi drag-stuff drga-stuff flycheck blackboard-theme blackboard yaml-mode web-mode virtualenvwrapper use-package undo-tree smex projectile org magit less-css-mode expand-region exec-path-from-shell)))
  '(php-basic-offset 8)
  '(php-indent-tabs-mode nil)
  '(php-intelligent-tab nil)

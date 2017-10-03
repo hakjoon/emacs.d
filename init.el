@@ -157,6 +157,15 @@
 	    (setq py-autopep8-options '("--ignore=E501"))
 	    (add-hook 'python-mode-hook 'py-autopep8-enable-on-save)))
 
+(use-package markdown-mode
+  :ensure t
+  :defines markdown-command
+  :commands (markdown-mode gfm-mode)
+  :mode (("README\\.md\\'" . gfm-mode)
+         ("\\.md\\'" . markdown-mode)
+         ("\\.markdown\\'" . markdown-mode))
+  :init (setq markdown-command "pandoc"))
+
 (setq-default mode-line-format (cons '(:exec venv-current-name) mode-line-format))
 ;; configuration stuff
 (require 'master-cfg)
