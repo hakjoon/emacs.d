@@ -25,4 +25,5 @@ bookmarks
 
 auto-save-list/
 server/
-
+projectile-bookmarks.eld
+smex-items
