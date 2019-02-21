@@ -173,4 +173,7 @@
 (setq-default mode-line-format (cons '(:exec venv-current-name) mode-line-format))
 ;; configuration stuff
 (require 'master-cfg)
-;;(put 'downcase-region 'disabled nil)
+
+(provide 'init)
+
+;;; init.el ends here
