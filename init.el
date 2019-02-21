@@ -151,6 +151,9 @@
 (use-package iedit
   :ensure t)
 
+(use-package yaml-mode
+  :ensure t)
+
 (use-package py-autopep8
   :ensure t
   :config (progn
