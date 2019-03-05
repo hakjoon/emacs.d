@@ -111,7 +111,8 @@
 (use-package projectile
   :ensure t
   :config (progn
-	    (projectile-mode)
+	    (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
+	    (projectile-mode +1)
 	    (setq projectile-switch-project-action
 		  '(lambda ()
 		     (my/activate-local-virtualenv)
