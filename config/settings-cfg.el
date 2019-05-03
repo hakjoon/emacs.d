@@ -31,7 +31,7 @@
 	    '(buffer-file-name "%f" (dired-directory dired-directory "%b"))))
 
 (add-to-list 'default-frame-alist
-             '(ns-transparent-titlebar . t))
+             '(ns-transparent-titlebar . nil))
 
 (add-to-list 'default-frame-alist
              '(ns-appearance . dark)) ;; or dark - depending on your theme
