@@ -30,6 +30,12 @@
       (list (format "%s %%S: %%j " (system-name))
 	    '(buffer-file-name "%f" (dired-directory dired-directory "%b"))))
 
+(add-to-list 'default-frame-alist
+             '(ns-transparent-titlebar . t))
+
+(add-to-list 'default-frame-alist
+             '(ns-appearance . dark)) ;; or dark - depending on your theme
+
 (electric-pair-mode)
 
 
