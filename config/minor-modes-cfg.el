@@ -6,9 +6,6 @@
 ;;=ido mode
 (ido-mode t)
 
-;;=Desktop mode
-(desktop-save-mode nil)
-
 ;; windmove bindings on
 (windmove-default-keybindings 'meta)
 
