@@ -22,6 +22,7 @@ url/cookies
 session.*
 bookmarks
 .python-environments
+.perspectives
 
 auto-save-list/
 server/

@@ -134,18 +134,17 @@
 			(ibuffer-do-sort-by-alphabetic)))))
 (use-package perspective
   :ensure t
+  :init (persp-mode)
+  :custom (persp-state-default-file (concat dotfiles-dir ".perspectives"))
   :config (progn
-	    (persp-mode)
-	    (push '(persp-modestring . :never) frameset-filter-alist)
-	    (push '(persp-recursive . :never) frameset-filter-alist)
-	    (push '(persp-last . :never) frameset-filter-alist)
-	    (push '(persp-curr . :never) frameset-filter-alist)
-	    (push '(perspectives-hash . :never) frameset-filter-alist)
-	    (add-hook 'persp-switch-hook 'my/activate-local-virtualenv)))
-(use-package persp-projectile
-  :ensure t
-  :bind (:map projectile-mode-map
-	      ("C-c p P" . projectile-persp-switch-project)))
+	    (add-hook 'persp-switch-hook 'my/activate-local-virtualenv)
+	    (add-hook 'kill-emacs-hook #'persp-state-save)
+	    (persp-state-load persp-state-default-file)
+	    ))
+;; (use-package persp-projectile
+;;   :ensure t
+;;   :bind (:map projectile-mode-map
+;; 	      ("C-c p P" . projectile-persp-switch-project)))
 (use-package wgrep
   :ensure t)
 
