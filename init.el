@@ -154,6 +154,9 @@
 (use-package yaml-mode
   :ensure t)
 
+(use-package transient
+  :custom (transient-history-file (concat dotfiles-dir ".transient-history.el")))
+
 (use-package py-autopep8
   :ensure t
   :config (progn

@@ -23,6 +23,7 @@ session.*
 bookmarks
 .python-environments
 .perspectives
+.transient-history.el
 
 auto-save-list/
 server/
