@@ -173,6 +173,9 @@
   :init (setq markdown-command "pandoc")
   :config (add-hook 'markdown-mode 'turn-on-auto-fill))
 
+(use-package dockerfile-mode
+  :ensure t)
+
 (setq-default mode-line-format (cons '(:exec venv-current-name) mode-line-format))
 ;; configuration stuff
 (require 'master-cfg)
