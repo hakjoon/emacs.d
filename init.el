@@ -53,12 +53,25 @@
     (when (boundp 'project-venv-name)
       (venv-workon project-venv-name))))
 
+(defun my/use-eslint-from-node-modules ()
+  "Use node_modules local ESLint."
+  (let ((root (locate-dominating-file
+               (or (buffer-file-name) default-directory)
+               (lambda (dir)
+                 (let ((eslint (expand-file-name "node_modules/eslint/bin/eslint.js" dir)))
+                  (and eslint (file-executable-p eslint)))))))
+    (when root
+      (let ((eslint (expand-file-name "node_modules/eslint/bin/eslint.js" root)))
+        (setq-local flycheck-javascript-eslint-executable eslint)))))
+
+
 ;; Packages
 (use-package auto-complete
   :ensure t
   :config (global-auto-complete-mode t))
 (use-package blackboard-theme
-  :ensure t)
+  :ensure t
+  :config (load-theme 'blackboard t))
 (use-package magit
   :ensure t)
 (use-package smex
@@ -123,8 +136,12 @@
 	    (drag-stuff-define-keys)
 	    (drag-stuff-global-mode t)))
 (use-package flycheck
+  :defines flycheck-javascript-eslint-executable
   :ensure t
-  :init (global-flycheck-mode))
+  :init (progn
+	  (global-flycheck-mode)
+	  (add-hook 'flycheck-mode-hook #'my/use-eslint-from-node-modules)
+	  (setq-default flycheck-emacs-lisp-load-path 'inherit)))
 (use-package ibuffer-vc
   :ensure t
   :config (add-hook 'ibuffer-hook
@@ -176,8 +193,13 @@
 (use-package dockerfile-mode
   :ensure t)
 
+(use-package json-mode
+  :ensure t)
+
+
 (setq-default mode-line-format (cons '(:exec venv-current-name) mode-line-format))
 ;; configuration stuff
+
 (require 'master-cfg)
 
 (provide 'init)
