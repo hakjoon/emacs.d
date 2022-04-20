@@ -176,9 +176,10 @@
 
 (use-package py-autopep8
   :ensure t
-  :config (progn
-	    (setq py-autopep8-options '("--ignore=E501"))
-	    (add-hook 'python-mode-hook 'py-autopep8-enable-on-save)))
+  :requires python
+  :after python
+  :hook (python-mode . py-autopep8-enable-on-save)
+  :config (setq py-autopep8-options '("--ignore=E501")))
 
 (use-package markdown-mode
   :ensure t
