@@ -64,6 +64,14 @@
       (let ((eslint (expand-file-name "node_modules/eslint/bin/eslint.js" root)))
         (setq-local flycheck-javascript-eslint-executable eslint)))))
 
+(defun my/unfill-region (beg end)
+  "Unfill the region, joining text paragraphs into a single logical line.
+BEG to END.
+This is useful, e.g., for use with \\='visual-line-mode\\='."
+  (interactive "*r")
+  (let ((fill-column (point-max)))
+    (fill-region beg end)))
+
 
 ;; Packages
 (use-package auto-complete
