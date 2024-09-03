@@ -96,9 +96,9 @@ This is useful, e.g., for use with \\='visual-line-mode\\='."
 (use-package virtualenvwrapper
   :ensure t)
 (use-package exec-path-from-shell
+  :if (memq window-system '(mac ns))
   :ensure t
-  :config (when (memq window-system '(mac ns))
-	    (exec-path-from-shell-initialize)))
+  :config (exec-path-from-shell-initialize))
 (use-package web-mode
   :ensure t
   :preface (progn
