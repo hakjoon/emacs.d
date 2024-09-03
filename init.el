@@ -101,17 +101,40 @@ This is useful, e.g., for use with \\='visual-line-mode\\='."
   :config (exec-path-from-shell-initialize))
 (use-package web-mode
   :ensure t
-  :preface (progn
-	     (defvar electric-pair-inhibit-predicate))
-  :init (add-hook 'web-mode-hook
-		  (lambda ()
-		    (setq-local electric-pair-inhibit-predicate
-				`(lambda (c)
-				   (if (char-equal c ?{) t (,electric-pair-inhibit-predicate c))))))
-  :config (progn
-	    (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
-	    (setq web-mode-engines-alist
-		  '(("django" . "\\.html?")))))
+  :mode ("\\.\\(?:[dx]?html?\\)\\'" . web-mode)
+  :functions electric-pair-default-inhibit
+  :hook (web-mode . (lambda ()
+                      (setq-local electric-pair-inhibit-predicate
+                                  (lambda (c)
+                                    (if (char-equal c ?{) t (electric-pair-default-inhibit c))))))
+  :custom
+  ;; Engine association
+  (web-mode-engines-alist '(("django" . "\\.\\(?:[dx]?html?\\)\\'")))
+
+  ;; Django-specific settings
+  (web-mode-enable-django-keywords t)
+  (web-mode-django-control-blocks
+   (append web-mode-django-control-blocks
+           '("verbatim" "trans" "blocktrans" "load" "if" "for" "empty")))
+
+  ;; Indentation settings
+  (web-mode-markup-indent-offset 2)
+  (web-mode-css-indent-offset 2)
+  (web-mode-code-indent-offset 2)
+  (web-mode-comment-style 2)
+
+  ;; Auto-pairing settings
+  (web-mode-enable-auto-pairing t)
+
+  ;; CSS settings
+  (web-mode-enable-css-colorization t)
+
+  ;; Highlighting and font settings
+  (web-mode-enable-block-face t)
+  (web-mode-enable-part-face t)
+  (web-mode-enable-comment-keywords t)
+  (web-mode-enable-heredoc-fontification t)
+  (web-mode-enable-current-element-highlight t))
 (use-package expand-region
   :ensure t
   :bind ("C-=" . er/expand-region))
