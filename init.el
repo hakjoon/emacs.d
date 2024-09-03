@@ -144,14 +144,16 @@ This is useful, e.g., for use with \\='visual-line-mode\\='."
 	   (add-hook 'python-mode-hook 'jedi:setup)
 	   (setq jedi:complete-on-dot t)))
 (use-package python
-  :config (progn
-	    (put 'project-venv-name 'safe-local-variable #'stringp)
-	    (add-hook 'python-mode-hook
-		    (lambda ()
-		      (imenu-add-to-menubar "Browser")
-		      (setq indent-tabs-mode nil)
-		      (setq python-indent-offset 4)
-		      (my/activate-local-virtualenv)))))
+  :init
+  (put 'project-venv-name 'safe-local-variable #'stringp)
+
+  :hook (python-mode . (lambda ()
+                         (imenu-add-to-menubar "Browser")
+                         (my/activate-local-virtualenv)))
+
+  :custom
+  ((indent-tabs-mode nil)
+   (python-indent-offset 4)))
 (use-package projectile
   :ensure t
   :config (progn
