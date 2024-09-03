@@ -187,13 +187,16 @@ This is useful, e.g., for use with \\='visual-line-mode\\='."
 			(ibuffer-do-sort-by-alphabetic)))))
 (use-package perspective
   :ensure t
+  :custom ((persp-state-default-file
+            (concat dotfiles-dir ".perspectives")))
+  :hook ((after-init . (lambda ()
+                         (persp-state-load persp-state-default-file)))
+         (persp-switch . my/activate-local-virtualenv)
+         (kill-emacs . persp-state-save))
   :init (persp-mode)
-  :custom (persp-state-default-file (concat dotfiles-dir ".perspectives"))
-  :config (progn
-	    (add-hook 'persp-switch-hook 'my/activate-local-virtualenv)
-	    (add-hook 'kill-emacs-hook #'persp-state-save)
-	    (persp-state-load persp-state-default-file)
-	    ))
+  :config (unless
+              (file-exists-p persp-state-default-file)
+            (make-empty-file persp-state-default-file)))
 ;; (use-package persp-projectile
 ;;   :ensure t
 ;;   :bind (:map projectile-mode-map
