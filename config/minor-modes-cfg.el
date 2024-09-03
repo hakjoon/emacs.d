@@ -7,7 +7,7 @@
 (ido-mode t)
 
 ;; windmove bindings on
-(windmove-default-keybindings 'meta)
+;;(windmove-default-keybindings 'meta)
 
 ;;== CUA Mode
 ;; Turn on just rectangle functions

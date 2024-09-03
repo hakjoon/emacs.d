@@ -140,9 +140,12 @@ This is useful, e.g., for use with \\='visual-line-mode\\='."
 		     (projectile-dired)))))
 (use-package drag-stuff
   :ensure t
-  :config (progn
-	    (drag-stuff-define-keys)
-	    (drag-stuff-global-mode t)))
+  :bind (("<M-up>" . drag-stuff-up)
+         ("<M-down>" . drag-stuff-down)
+         ("<M-left>" . drag-stuff-left)
+         ("<M-right>" . drag-stuff-right))
+  :config
+  (drag-stuff-global-mode 1))
 (use-package flycheck
   :defines flycheck-javascript-eslint-executable
   :ensure t
