@@ -107,7 +107,7 @@ This is useful, e.g., for use with \\='visual-line-mode\\='."
                       (setq-local electric-pair-inhibit-predicate
                                   (lambda (c)
                                     (if (char-equal c ?{) t (electric-pair-default-inhibit c))))))
-  :custom
+  :custom (
   ;; Engine association
   (web-mode-engines-alist '(("django" . "\\.\\(?:[dx]?html?\\)\\'")))
 
@@ -134,7 +134,7 @@ This is useful, e.g., for use with \\='visual-line-mode\\='."
   (web-mode-enable-part-face t)
   (web-mode-enable-comment-keywords t)
   (web-mode-enable-heredoc-fontification t)
-  (web-mode-enable-current-element-highlight t))
+  (web-mode-enable-current-element-highlight t)))
 (use-package expand-region
   :ensure t
   :bind ("C-=" . er/expand-region))
