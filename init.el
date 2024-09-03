@@ -39,7 +39,7 @@
                     (or (buffer-file-name) load-file-name)))
 
 (defun add-to-load-path (&rest paths)
-  "Add PATHS relative to 'dotfiles-dir' to 'load-path'."
+  "Add PATHS relative to \\='dotfiles-dir\\=' to \\='load-path\\='."
   (dolist (path paths)
     (add-to-list 'load-path (expand-file-name
 			     (concat dotfiles-dir path "/")))))
