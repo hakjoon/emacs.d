@@ -222,13 +222,12 @@ This is useful, e.g., for use with \\='visual-line-mode\\='."
 
 (use-package markdown-mode
   :ensure t
-  :defines markdown-command
-  :commands (markdown-mode gfm-mode)
   :mode (("README\\.md\\'" . gfm-mode)
          ("\\.md\\'" . markdown-mode)
          ("\\.markdown\\'" . markdown-mode))
-  :init (setq markdown-command "pandoc")
-  :config (add-hook 'markdown-mode 'turn-on-auto-fill))
+  :hook (markdown-mode . turn-on-auto-fill)
+  :custom
+  ((markdown-command "pandoc")))
 
 (use-package dockerfile-mode
   :ensure t)
