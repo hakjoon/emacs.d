@@ -77,19 +77,24 @@ This is useful, e.g., for use with \\='visual-line-mode\\='."
 (use-package auto-complete
   :ensure t
   :config (global-auto-complete-mode t))
+
 (use-package blackboard-theme
   :ensure t
   :config (load-theme 'blackboard t))
+
 (use-package magit
   :ensure t)
+
 (use-package smex
   :ensure t
   :bind (("M-x" . smex)
          ("M-X" . smex-major-mode-commands))
   :config (smex-initialize))
+
 (use-package undo-tree
   :ensure t
   :config (global-undo-tree-mode))
+
 (use-package ibuffer
   :init (setq ibuffer-use-other-window t)
   :bind ("C-x C-b" . ibuffer))
@@ -118,10 +123,12 @@ This is useful, e.g., for use with \\='visual-line-mode\\='."
 
 (use-package virtualenvwrapper
   :ensure t)
+
 (use-package exec-path-from-shell
   :if (memq window-system '(mac ns))
   :ensure t
   :config (exec-path-from-shell-initialize))
+
 (use-package web-mode
   :ensure t
   :mode ("\\.\\(?:[dx]?html?\\)\\'" . web-mode)
@@ -158,14 +165,17 @@ This is useful, e.g., for use with \\='visual-line-mode\\='."
   (web-mode-enable-comment-keywords t)
   (web-mode-enable-heredoc-fontification t)
   (web-mode-enable-current-element-highlight t)))
+
 (use-package expand-region
   :ensure t
   :bind ("C-=" . er/expand-region))
+
 (use-package jedi
   :ensure t
   :config (progn
 	   (add-hook 'python-mode-hook 'jedi:setup)
 	   (setq jedi:complete-on-dot t)))
+
 (use-package python
   :init
   (put 'project-venv-name 'safe-local-variable #'stringp)
@@ -177,6 +187,7 @@ This is useful, e.g., for use with \\='visual-line-mode\\='."
   :custom
   ((indent-tabs-mode nil)
    (python-indent-offset 4)))
+
 (use-package projectile
   :ensure t
   :config (progn
@@ -186,6 +197,7 @@ This is useful, e.g., for use with \\='visual-line-mode\\='."
 		  '(lambda ()
 		     (my/activate-local-virtualenv)
 		     (projectile-dired)))))
+
 (use-package drag-stuff
   :ensure t
   :bind (("<M-up>" . drag-stuff-up)
@@ -194,6 +206,7 @@ This is useful, e.g., for use with \\='visual-line-mode\\='."
          ("<M-right>" . drag-stuff-right))
   :config
   (drag-stuff-global-mode 1))
+
 (use-package flycheck
   :defines flycheck-javascript-eslint-executable
   :ensure t
