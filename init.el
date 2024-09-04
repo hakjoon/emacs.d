@@ -93,13 +93,13 @@ This is useful, e.g., for use with \\='visual-line-mode\\='."
 (use-package ibuffer
   :init (setq ibuffer-use-other-window t)
   :bind ("C-x C-b" . ibuffer))
+
 (use-package ibuffer-vc
   :ensure t
   :after ibuffer
-  :hook (ibuffer-mode . (lambda ()
-                          (ibuffer-vc-set-filter-groups-by-vc-root)
-                          (unless (eq ibuffer-sorting-mode 'alphabetic)
-                            (ibuffer-do-sort-by-alphabetic))))
+  :functions (ibuffer-do-sort-by-alphabetic
+              ibuffer-vc-set-filter-groups-by-vc-root)
+  :hook (ibuffer-mode . ibuffer-vc-setup)
   :custom
   ((ibuffer-formats
     '((mark modified read-only vc-status-mini " "
@@ -108,7 +108,13 @@ This is useful, e.g., for use with \\='visual-line-mode\\='."
             (size 9 -1 :right)
             " "
             (mode 16 16 :left :elide)
-            " " filename-and-process)))))
+            " " filename-and-process))))
+  :config
+  (defun ibuffer-vc-setup ()
+    "Set up ibuffer-vc configuration."
+    (ibuffer-vc-set-filter-groups-by-vc-root)
+    (unless (eq ibuffer-sorting-mode 'alphabetic)
+      (ibuffer-do-sort-by-alphabetic))))
 
 (use-package virtualenvwrapper
   :ensure t)
