@@ -93,6 +93,23 @@ This is useful, e.g., for use with \\='visual-line-mode\\='."
 (use-package ibuffer
   :init (setq ibuffer-use-other-window t)
   :bind ("C-x C-b" . ibuffer))
+(use-package ibuffer-vc
+  :ensure t
+  :after ibuffer
+  :hook (ibuffer-mode . (lambda ()
+                          (ibuffer-vc-set-filter-groups-by-vc-root)
+                          (unless (eq ibuffer-sorting-mode 'alphabetic)
+                            (ibuffer-do-sort-by-alphabetic))))
+  :custom
+  ((ibuffer-formats
+    '((mark modified read-only vc-status-mini " "
+            (name 18 18 :left :elide)
+            " "
+            (size 9 -1 :right)
+            " "
+            (mode 16 16 :left :elide)
+            " " filename-and-process)))))
+
 (use-package virtualenvwrapper
   :ensure t)
 (use-package exec-path-from-shell
@@ -178,13 +195,7 @@ This is useful, e.g., for use with \\='visual-line-mode\\='."
 	  (global-flycheck-mode)
 	  (add-hook 'flycheck-mode-hook #'my/use-eslint-from-node-modules)
 	  (setq-default flycheck-emacs-lisp-load-path 'inherit)))
-(use-package ibuffer-vc
-  :ensure t
-  :config (add-hook 'ibuffer-hook
-		    (lambda ()
-		      (ibuffer-vc-set-filter-groups-by-vc-root)
-		      (unless (eq ibuffer-sorting-mode 'alphabetic)
-			(ibuffer-do-sort-by-alphabetic)))))
+
 (use-package perspective
   :ensure t
   :custom ((persp-state-default-file
