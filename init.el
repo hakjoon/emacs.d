@@ -93,6 +93,7 @@ This is useful, e.g., for use with \\='visual-line-mode\\='."
 
 (use-package undo-tree
   :ensure t
+  :custom (undo-tree-auto-save-history nil)
   :config (global-undo-tree-mode))
 
 (use-package ibuffer
@@ -242,10 +243,10 @@ This is useful, e.g., for use with \\='visual-line-mode\\='."
 
 (use-package py-autopep8
   :ensure t
-  :requires python
   :after python
-  :hook (python-mode . py-autopep8-enable-on-save)
-  :config (setq py-autopep8-options '("--ignore=E501")))
+  :hook (python-mode . py-autopep8-mode)
+  :custom
+  ((py-autopep8-options '("--ignore=E501"))))
 
 (use-package markdown-mode
   :ensure t
